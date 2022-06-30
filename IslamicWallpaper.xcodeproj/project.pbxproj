@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		767523F8286E283900751BEB /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767523F7286E283900751BEB /* Extentions.swift */; };
+		768463C3286D8625009423A8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463C2286D8625009423A8 /* CollectionViewCell.swift */; };
+		768463C5286D8FCF009423A8 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463C4286D8FCF009423A8 /* FavoriteViewController.swift */; };
+		768463C7286D916D009423A8 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463C6286D916D009423A8 /* FavoriteCollectionViewCell.swift */; };
+		768463CB286DC080009423A8 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463CA286DC080009423A8 /* FavViewController.swift */; };
+		768463CD286DC15E009423A8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463CC286DC15E009423A8 /* SettingsViewController.swift */; };
 		B7D13276286B92C4000CCA59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D13275286B92C4000CCA59 /* AppDelegate.swift */; };
 		B7D13278286B92C4000CCA59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D13277286B92C4000CCA59 /* SceneDelegate.swift */; };
 		B7D1327A286B92C4000CCA59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D13279286B92C4000CCA59 /* ViewController.swift */; };
@@ -18,6 +24,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		767523F7286E283900751BEB /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		768463C2286D8625009423A8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		768463C4286D8FCF009423A8 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		768463C6286D916D009423A8 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		768463CA286DC080009423A8 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
+		768463CC286DC15E009423A8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B7D13272286B92C4000CCA59 /* IslamicWallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IslamicWallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7D13275286B92C4000CCA59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7D13277286B92C4000CCA59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +53,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		768463C8286DA6A9009423A8 /* Catagory */ = {
+			isa = PBXGroup;
+			children = (
+				768463C4286D8FCF009423A8 /* FavoriteViewController.swift */,
+				768463C6286D916D009423A8 /* FavoriteCollectionViewCell.swift */,
+			);
+			path = Catagory;
+			sourceTree = "<group>";
+		};
+		768463C9286DA6C0009423A8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B7D13279286B92C4000CCA59 /* ViewController.swift */,
+				B7D13289286B9ADE000CCA59 /* TableviewCellController.swift */,
+				768463C2286D8625009423A8 /* CollectionViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		B7D13269286B92C4000CCA59 = {
 			isa = PBXGroup;
 			children = (
@@ -62,9 +93,12 @@
 			children = (
 				B7D13275286B92C4000CCA59 /* AppDelegate.swift */,
 				B7D13277286B92C4000CCA59 /* SceneDelegate.swift */,
-				B7D13279286B92C4000CCA59 /* ViewController.swift */,
 				B7D1328B286BB22E000CCA59 /* FullScreenViewController.swift */,
-				B7D13289286B9ADE000CCA59 /* TableviewCellController.swift */,
+				767523F7286E283900751BEB /* Extentions.swift */,
+				768463CC286DC15E009423A8 /* SettingsViewController.swift */,
+				768463CA286DC080009423A8 /* FavViewController.swift */,
+				768463C9286DA6C0009423A8 /* Home */,
+				768463C8286DA6A9009423A8 /* Catagory */,
 				B7D1327B286B92C4000CCA59 /* Main.storyboard */,
 				B7D1327E286B92C7000CCA59 /* Assets.xcassets */,
 				B7D13280286B92C7000CCA59 /* LaunchScreen.storyboard */,
@@ -146,6 +180,12 @@
 			files = (
 				B7D1328C286BB22E000CCA59 /* FullScreenViewController.swift in Sources */,
 				B7D1327A286B92C4000CCA59 /* ViewController.swift in Sources */,
+				768463C3286D8625009423A8 /* CollectionViewCell.swift in Sources */,
+				767523F8286E283900751BEB /* Extentions.swift in Sources */,
+				768463CD286DC15E009423A8 /* SettingsViewController.swift in Sources */,
+				768463CB286DC080009423A8 /* FavViewController.swift in Sources */,
+				768463C5286D8FCF009423A8 /* FavoriteViewController.swift in Sources */,
+				768463C7286D916D009423A8 /* FavoriteCollectionViewCell.swift in Sources */,
 				B7D13276286B92C4000CCA59 /* AppDelegate.swift in Sources */,
 				B7D13278286B92C4000CCA59 /* SceneDelegate.swift in Sources */,
 				B7D1328A286B9ADE000CCA59 /* TableviewCellController.swift in Sources */,
