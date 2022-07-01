@@ -8,6 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController, CategoriasTableViewCellDelegate{
+    func selectPhotoTapped(value: Int, tableIndex: Int) {
+        print(value)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "FullScreenViewController") as! FullScreenViewController
+        newViewController.modalPresentationStyle = .fullScreen
+        newViewController.categoriPhotos = allcatagories[tableIndex]
+        newViewController.selectedPhoto = allcatagories[tableIndex][value]
+        
+        self.present(newViewController, animated: true, completion: nil)
+    }
+    
     
     @IBOutlet weak var tableView: UITableView!
     var arcArray : [UIImage] = []
@@ -25,16 +36,16 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate{
         super.viewDidLoad()
         createArrays()
         if let tabBarItem1 = self.tabBarController?.tabBar.items?[0] {
-            tabBarItem1.selectedImage = UIImage(named: "Group 18")?.withRenderingMode(.alwaysOriginal);
-            tabBarItem1.image = UIImage(named: "Group 16");
+            tabBarItem1.selectedImage = UIImage(named: "Group 18")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+            tabBarItem1.image = UIImage(named: "Group 16")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
         }
         if let tabBarItem2 = self.tabBarController?.tabBar.items?[1] {
-            tabBarItem2.selectedImage = UIImage(named: "Group 19")?.withRenderingMode(.alwaysOriginal);
-            tabBarItem2.image = UIImage(named: "Group 15");
+            tabBarItem2.selectedImage = UIImage(named: "Group 19")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+            tabBarItem2.image = UIImage(named: "Group 15")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
         }
         if let tabBarItem3 = self.tabBarController?.tabBar.items?[2] {
-            tabBarItem3.selectedImage = UIImage(named: "Group 20")?.withRenderingMode(.alwaysOriginal);
-            tabBarItem3.image = UIImage(named: "Group 17");
+            tabBarItem3.selectedImage = UIImage(named: "Group 20")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+            tabBarItem3.image = UIImage(named: "Group 17")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
         }
 //        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tableViewTapped(recognizer:)))
 //        tableView.addGestureRecognizer(tapGestureRecognizer)
@@ -55,7 +66,10 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate{
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allcatagories.count
+        return 8
+        
+        
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,6 +78,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         cell.selectionStyle = .none
         cell.categories.text = categoriesTitle[indexPath.row]
         cell.seeAllButton.tag = indexPath.row
+        cell.index = indexPath.row
         cell.seeAllButton.addTarget(self, action:#selector(seeAllbtnPressed(sender:)), for: .touchUpInside)
         
 
@@ -87,23 +102,11 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             
         }
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("mkl")
-        //        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        //        let newViewController = storyBoard.instantiateViewController(withIdentifier: "FullScreenViewController") as! FullScreenViewController
-        //        newViewController.modalPresentationStyle = .fullScreen
-        //
-        //                self.present(newViewController, animated: true, completion: nil)
-    }
-    func selectPhotoTapped(value: Int) {
-        print(value)
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "FullScreenViewController") as! FullScreenViewController
-        newViewController.modalPresentationStyle = .fullScreen
-        newViewController.selectedPhoto = allcatagories[categoriNumber][value]
-        
-        self.present(newViewController, animated: true, completion: nil)
-    }
+    
+    
+    
+    
+    
   func createArrays(){
             for a in 1..<8 {
                         print(a)

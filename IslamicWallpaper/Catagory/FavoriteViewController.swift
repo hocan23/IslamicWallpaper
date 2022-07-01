@@ -10,7 +10,7 @@ import UIKit
 class FavoriteViewController: UIViewController {
     
     
-    @IBOutlet weak var removeAds: UIButton!
+   
     @IBOutlet weak var collectionView: UICollectionView!
     var category : [UIImage] = []
     override func viewDidLoad() {
@@ -24,14 +24,11 @@ class FavoriteViewController: UIViewController {
         layout.minimumLineSpacing = 0
         collectionView.collectionViewLayout = layout
         // Do any additional setup after loading the view.
-        removeAds.layer.borderColor = UIColor(red: 48/255, green: 62/255, blue: 100/255, alpha: 1.0).cgColor
-        removeAds.layer.borderWidth = 3
-        removeAds.layer.cornerRadius = 17
+       
         
     }
     
-    @IBAction func removeAds(_ sender: Any) {
-    }
+    
     
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -76,6 +73,7 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewData
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "FullScreenViewController") as! FullScreenViewController
         newViewController.modalPresentationStyle = .fullScreen
         newViewController.selectedPhoto = category[indexPath.row]
+        newViewController.categoriPhotos = category
         self.present(newViewController, animated: true, completion: nil)
         print("You selected cell #\(indexPath.item)!")
     }

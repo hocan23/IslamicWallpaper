@@ -17,32 +17,65 @@ class FullScreenViewController: UIViewController {
     @IBOutlet weak var bottomView: UIView!
     var selectedPhoto : UIImage?
     var favoritePhotos : [String] = []
-    
-    @IBOutlet weak var removeadd: UIButton!
+    var position = Int ()
+    var categoriPhotos : [UIImage] = []
     @IBOutlet weak var favoriteIcon: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        favoritePhotos = Utils.readLocal()
-        isfavorite()
-        backButton.layer.cornerRadius = 17
+        
+        
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+                        swipeLeft.direction = .left
+                        self.view!.addGestureRecognizer(swipeLeft)
+                                                         
+                        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
+                        swipeRight.direction = .right
+                        self.view!.addGestureRecognizer(swipeRight)
+        
+        
+        
+        
+        
+        backButton.layer.cornerRadius = backButton.bounds.height/2
         backButton.clipsToBounds = true
-        downloadButton.layer.cornerRadius = 25
+        downloadButton.layer.cornerRadius = downloadButton.bounds.height/2
         downloadButton.clipsToBounds = true
-        bottomView.layer.cornerRadius = 27
+        bottomView.layer.cornerRadius = bottomView.bounds.height/2
         imageView.image = selectedPhoto
-        removeadd.layer.borderColor = UIColor(red: 48/255, green: 62/255, blue: 100/255, alpha: 1.0).cgColor
-        removeadd.layer.borderWidth = 3
-        removeadd.layer.cornerRadius = 17
+       
         
         favorite.isUserInteractionEnabled = true
         favorite.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(favoriteTapped)))
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        favoritePhotos = Utils.readLocal()
+        isfavorite()
+    }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+           
+           if gesture.direction == UISwipeGestureRecognizer.Direction.left {
+            if position < categoriPhotos.count - 1{
+                position = position + 1
+               
+                imageView.image = categoriPhotos[position]
+              
+            }
+           }
+        else if gesture.direction == UISwipeGestureRecognizer.Direction.right {
+            if position > 0 {
+                position = position - 1
+                
+                imageView.image = categoriPhotos[position]
+                
+            }
+           }
+    }
     @objc func favoriteTapped(_ recognizer: UITapGestureRecognizer) {
        findPhoto()
-        Utils.saveLocal(array: favoritePhotos)
-        print(favoritePhotos)
+        
     }
     @IBAction func backButtonTapped(_ sender: Any) {
         self.dismiss(animated: true)
@@ -69,9 +102,7 @@ class FullScreenViewController: UIViewController {
         }
     }
     
-    @IBAction func removeAddTapped(_ sender: Any) {
-    }
-    
+  
     
     
     func findPhoto (){

@@ -17,23 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vkw-XN-4ow">
-                                <rect key="frame" x="244" y="79" width="150" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="4te-Us-Jzu"/>
-                                    <constraint firstAttribute="width" constant="150" id="ie7-WQ-EBC"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Remove Ads">
-                                    <color key="baseForegroundColor" red="0.18823529410000001" green="0.24313725489999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="removeAddTapped:" destination="his-VO-3S7" eventType="touchUpInside" id="sXp-zy-jl8"/>
-                                    <action selector="removeAds:" destination="MWO-T3-9xx" eventType="touchUpInside" id="SCa-85-LCh"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ano-0Z-9pB">
-                                <rect key="frame" x="20" y="114" width="374" height="699"/>
+                                <rect key="frame" x="20" y="109" width="374" height="704"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="6IM-lj-3Q3">
                                     <size key="itemSize" width="170" height="324"/>
@@ -69,7 +54,7 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favoriler" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zOm-GY-3VL">
-                                <rect key="frame" x="20" y="79" width="150" height="35"/>
+                                <rect key="frame" x="20" y="59" width="150" height="35"/>
                                 <color key="tintColor" red="0.0" green="0.24313725489999999" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Han-U0-lKB"/>
@@ -84,19 +69,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ano-0Z-9pB" firstAttribute="leading" secondItem="kbr-M9-orB" secondAttribute="leading" constant="20" id="Irn-yK-5ho"/>
+                            <constraint firstItem="ano-0Z-9pB" firstAttribute="top" secondItem="zOm-GY-3VL" secondAttribute="bottom" constant="15" id="WkB-HK-kmw"/>
                             <constraint firstItem="zOm-GY-3VL" firstAttribute="leading" secondItem="kbr-M9-orB" secondAttribute="leading" constant="20" id="Wyn-CM-Rfr"/>
-                            <constraint firstItem="ano-0Z-9pB" firstAttribute="top" secondItem="vkw-XN-4ow" secondAttribute="bottom" id="ZHf-7o-TXK"/>
-                            <constraint firstItem="zOm-GY-3VL" firstAttribute="centerY" secondItem="vkw-XN-4ow" secondAttribute="centerY" id="dco-I5-GY3"/>
-                            <constraint firstItem="vkw-XN-4ow" firstAttribute="top" secondItem="kbr-M9-orB" secondAttribute="top" constant="35" id="gGK-Yx-rPk"/>
                             <constraint firstItem="kbr-M9-orB" firstAttribute="bottom" secondItem="ano-0Z-9pB" secondAttribute="bottom" id="iGh-6O-zlU"/>
                             <constraint firstItem="kbr-M9-orB" firstAttribute="trailing" secondItem="ano-0Z-9pB" secondAttribute="trailing" constant="20" id="uYY-BN-OeD"/>
-                            <constraint firstItem="kbr-M9-orB" firstAttribute="trailing" secondItem="vkw-XN-4ow" secondAttribute="trailing" constant="20" id="zc1-bW-bM0"/>
+                            <constraint firstItem="zOm-GY-3VL" firstAttribute="top" secondItem="kbr-M9-orB" secondAttribute="top" constant="15" id="xl3-Ss-V6V"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" selectedImage="Group 15" id="2kD-NI-ytC"/>
                     <connections>
                         <outlet property="collectionView" destination="ano-0Z-9pB" id="Ocs-91-efp"/>
-                        <outlet property="removeAdd" destination="vkw-XN-4ow" id="fE0-5Z-05W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dg3-yP-O7o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -128,7 +110,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tjt-Er-eaa">
-                                <rect key="frame" x="20" y="144" width="374" height="718"/>
+                                <rect key="frame" x="20" y="119" width="374" height="743"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="hS9-gR-eIL">
                                     <size key="itemSize" width="170" height="324"/>
@@ -167,22 +149,8 @@
                                     <outlet property="delegate" destination="MWO-T3-9xx" id="qnM-z9-ijR"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FkM-dE-C2r">
-                                <rect key="frame" x="244" y="79" width="150" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="QJr-ES-beN"/>
-                                    <constraint firstAttribute="height" constant="35" id="T1s-DY-37O"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Remove Ads">
-                                    <color key="baseForegroundColor" red="0.18823529411764706" green="0.24313725490196078" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="removeAds:" destination="MWO-T3-9xx" eventType="touchUpInside" id="9rA-Zq-tX9"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhF-nE-8H6">
-                                <rect key="frame" x="20" y="79" width="120" height="35"/>
+                                <rect key="frame" x="20" y="59" width="120" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="5Mq-36-02o"/>
                                     <constraint firstAttribute="height" constant="35" id="9J6-Ke-yfT"/>
@@ -203,15 +171,12 @@
                             <constraint firstItem="icz-Qh-1ed" firstAttribute="bottom" secondItem="tjt-Er-eaa" secondAttribute="bottom" id="Age-6Y-KzZ"/>
                             <constraint firstItem="tjt-Er-eaa" firstAttribute="leading" secondItem="icz-Qh-1ed" secondAttribute="leading" constant="20" id="Hw3-ib-192"/>
                             <constraint firstItem="icz-Qh-1ed" firstAttribute="trailing" secondItem="tjt-Er-eaa" secondAttribute="trailing" constant="20" id="NDZ-kL-Ye5"/>
-                            <constraint firstItem="jhF-nE-8H6" firstAttribute="centerY" secondItem="FkM-dE-C2r" secondAttribute="centerY" id="TCb-kz-T5j"/>
-                            <constraint firstItem="tjt-Er-eaa" firstAttribute="top" secondItem="icz-Qh-1ed" secondAttribute="top" constant="100" id="X53-tG-50g"/>
-                            <constraint firstItem="FkM-dE-C2r" firstAttribute="top" secondItem="icz-Qh-1ed" secondAttribute="top" constant="35" id="bfW-Xm-gY5"/>
-                            <constraint firstItem="icz-Qh-1ed" firstAttribute="trailing" secondItem="FkM-dE-C2r" secondAttribute="trailing" constant="20" id="nF8-3P-6jZ"/>
+                            <constraint firstItem="jhF-nE-8H6" firstAttribute="top" secondItem="icz-Qh-1ed" secondAttribute="top" constant="15" id="dqg-NA-mPW"/>
+                            <constraint firstItem="tjt-Er-eaa" firstAttribute="top" secondItem="jhF-nE-8H6" secondAttribute="bottom" constant="25" id="owf-Ky-cGb"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="tjt-Er-eaa" id="WBK-Gc-YSY"/>
-                        <outlet property="removeAds" destination="FkM-dE-C2r" id="g2m-wf-tG2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEX-Bc-Wol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -226,7 +191,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kbr-t5-uCk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="kbr-t5-uCk">
                                 <rect key="frame" x="0.0" y="84" width="414" height="679"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -242,7 +207,6 @@
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gY2-oV-9H5">
                                                         <size key="itemSize" width="125" height="192"/>
-                                                        <size key="estimatedItemSize" width="118" height="112"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -255,15 +219,13 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="192"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Quran-–-10" translatesAutoresizingMaskIntoConstraints="NO" id="5Li-Zv-tlQ">
-                                                                        <rect key="frame" x="1" y="1" width="125" height="190"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="125" id="8F1-jZ-ba2"/>
-                                                                            <constraint firstAttribute="height" constant="190" id="cmC-FA-e7d"/>
-                                                                        </constraints>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="110" translatesAutoresizingMaskIntoConstraints="NO" id="5Li-Zv-tlQ">
+                                                                        <rect key="frame" x="1" y="1" width="123" height="190"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="5Li-Zv-tlQ" secondAttribute="trailing" constant="1" id="BG8-x4-phf"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="5Li-Zv-tlQ" secondAttribute="bottom" constant="1" id="Mo6-Qp-hGI"/>
                                                                     <constraint firstItem="5Li-Zv-tlQ" firstAttribute="leading" secondItem="zAt-92-lbF" secondAttribute="leading" constant="1" id="ezA-ru-6ce"/>
                                                                     <constraint firstItem="5Li-Zv-tlQ" firstAttribute="top" secondItem="zAt-92-lbF" secondAttribute="top" constant="1" id="oM1-rt-FBx"/>
                                                                 </constraints>
@@ -378,7 +340,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="İNDİR">
                                             <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" red="0.0" green="1" blue="0.76078431372549016" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="1" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
                                             <color key="baseForegroundColor" red="0.0" green="0.24313725489999999" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -417,28 +379,11 @@
                                     <action selector="backButtonTapped:" destination="K4m-gi-yTa" eventType="touchUpInside" id="YJk-Pf-pfK"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bL5-r7-NvO">
-                                <rect key="frame" x="244" y="79" width="150" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="8yr-HM-Rlk"/>
-                                    <constraint firstAttribute="width" constant="150" id="rs3-U3-pw9"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Remove Ads">
-                                    <color key="baseForegroundColor" red="0.18823529410000001" green="0.24313725489999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="removeAddTapped:" destination="K4m-gi-yTa" eventType="touchUpInside" id="KnQ-7c-OUe"/>
-                                    <action selector="removeAds:" destination="MWO-T3-9xx" eventType="touchUpInside" id="hhW-y9-1V1"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sur-j7-ocn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="sur-j7-ocn" firstAttribute="trailing" secondItem="gXb-gv-ial" secondAttribute="trailing" id="1bv-cF-Ley"/>
-                            <constraint firstItem="sur-j7-ocn" firstAttribute="trailing" secondItem="bL5-r7-NvO" secondAttribute="trailing" constant="20" id="25N-ba-soD"/>
-                            <constraint firstItem="bL5-r7-NvO" firstAttribute="centerY" secondItem="f1N-2z-XgD" secondAttribute="centerY" id="2ha-JO-Fjd"/>
                             <constraint firstItem="vQI-zu-oYy" firstAttribute="centerX" secondItem="gXb-gv-ial" secondAttribute="centerX" id="4hC-yn-T2a"/>
                             <constraint firstItem="AmM-eX-IAE" firstAttribute="leading" secondItem="sur-j7-ocn" secondAttribute="leading" constant="30" id="Lte-e8-EXL"/>
                             <constraint firstItem="sur-j7-ocn" firstAttribute="bottom" secondItem="gXb-gv-ial" secondAttribute="bottom" constant="70" id="RF6-L8-Dht"/>
@@ -457,7 +402,6 @@
                         <outlet property="favorite" destination="AmM-eX-IAE" id="a80-Dj-2YS"/>
                         <outlet property="favoriteIcon" destination="tlS-0e-fi5" id="iYt-rU-C5N"/>
                         <outlet property="imageView" destination="gXb-gv-ial" id="sCV-os-Lm2"/>
-                        <outlet property="removeadd" destination="bL5-r7-NvO" id="jOH-7O-8Ib"/>
                         <outlet property="share" destination="NIU-sW-MjA" id="kO9-Bb-hO4"/>
                     </connections>
                 </viewController>
@@ -473,6 +417,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="HaX-yr-IFl" kind="relationship" relationship="viewControllers" id="C1E-Is-kff"/>
@@ -486,11 +431,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="110" width="1242" height="2688"/>
         <image name="117" width="1242" height="2688"/>
         <image name="Group 15" width="30" height="30"/>
         <image name="Group 18" width="30" height="30"/>
         <image name="Group 51" width="50" height="50"/>
-        <image name="Quran-–-10" width="1242" height="2688"/>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="shareBtn" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
