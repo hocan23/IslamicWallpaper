@@ -44,7 +44,8 @@ class FullScreenViewController: UIViewController {
         bottomView.layer.cornerRadius = bottomView.bounds.height/2
         imageView.image = selectedPhoto
        
-        
+        share.isUserInteractionEnabled = true
+        share.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(shareTapped)))
         favorite.isUserInteractionEnabled = true
         favorite.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(favoriteTapped)))
         // Do any additional setup after loading the view.
@@ -63,6 +64,8 @@ class FullScreenViewController: UIViewController {
                 imageView.image = categoriPhotos[position]
               
             }
+               selectedPhoto = categoriPhotos[position]
+               isfavorite()
            }
         else if gesture.direction == UISwipeGestureRecognizer.Direction.right {
             if position > 0 {
@@ -71,10 +74,29 @@ class FullScreenViewController: UIViewController {
                 imageView.image = categoriPhotos[position]
                 
             }
+            selectedPhoto = categoriPhotos[position]
+            isfavorite()
            }
     }
     @objc func favoriteTapped(_ recognizer: UITapGestureRecognizer) {
        findPhoto()
+        
+    }
+    
+    @objc func shareTapped(_ recognizer: UITapGestureRecognizer) {
+        let image = selectedPhoto
+                
+                // set up activity view controller
+                let imageToShare = [ image! ]
+                let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+                
+                // exclude some activity types from the list (optional)
+                activityViewController.excludedActivityTypes = [ UIActivity.ActivityType.airDrop, UIActivity.ActivityType.postToFacebook ]
+                
+                // present the view controller
+                self.present(activityViewController, animated: true, completion: nil)
+            
         
     }
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -97,6 +119,9 @@ class FullScreenViewController: UIViewController {
         for a in favoritePhotos{
             if UIImage(named: a) == selectedPhoto {
                 favoriteIcon.image = UIImage(named: "Group 52")
+
+            }else{
+                favoriteIcon.image = UIImage(named: "Group 51")
 
             }
         }

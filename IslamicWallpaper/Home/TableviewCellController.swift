@@ -32,7 +32,10 @@ class TableviewCellController: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        collectionView.reloadData()
+    }
     @IBAction func seeAllTapped(_ sender: Any) {
         print("Button tag tapped")
     }

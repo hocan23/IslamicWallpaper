@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class ViewController: UIViewController, CategoriasTableViewCellDelegate{
+class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBannerViewDelegate, GADFullScreenContentDelegate {
     func selectPhotoTapped(value: Int, tableIndex: Int) {
         print(value)
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -31,9 +32,25 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate{
     var discover : [UIImage] = []
         var allcatagories : [[UIImage]] = []
     var categoriNumber = 1
-    var categoriesTitle = ["Keşfet","Mimari","Cami","Gül","Kuran","Kabe","Allah","Ramazan"]
+    var categoriesTitle = [Helper.favorites[Helper.SelectedlanguageNumber],"Mimari","Cami","Gül","Kuran","Kabe","Allah","Ramazan"]
+    
+    var bannerView: GADBannerView!
+    private var interstitial: GADInterstitialAd?
+    private var rewardedAdHelper = RewardedAdHelper()
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        Helper.Selectedlanguage = NSLocale.preferredLanguages[0]
+        switch Helper.Selectedlanguage{
+        case "tr":
+            Helper.SelectedlanguageNumber = 8
+        default:
+            Helper.SelectedlanguageNumber = 0
+
+            
+        }
         createArrays()
         if let tabBarItem1 = self.tabBarController?.tabBar.items?[0] {
             tabBarItem1.selectedImage = UIImage(named: "Group 18")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
@@ -47,12 +64,72 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate{
             tabBarItem3.selectedImage = UIImage(named: "Group 20")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
             tabBarItem3.image = UIImage(named: "Group 17")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
         }
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+        
+        loadInterstitial()
+        
+        rewardedAdHelper.loadRewardedAd()
+        
+        if interstitial != nil {
+            interstitial!.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }
 //        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tableViewTapped(recognizer:)))
 //        tableView.addGestureRecognizer(tapGestureRecognizer)
         //        tabBarItem[0].selectedImage = UIImage(named: "Group 18")?.withRenderingMode(.alwaysOriginal);
         //        tabBarItem[0].image = UIImage(named: "Group 16");
         // Do any additional setup after loading the view.
     }
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+      loadInterstitial()
+    }
+    
+    func loadInterstitial() {
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-3940256099942544/4411468910",
+                                    request: request,
+                          completionHandler: { [self] ad, error in
+                            if let error = error {
+                              print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                              return
+                            }
+                            interstitial = ad
+                            interstitial?.fullScreenContentDelegate = self
+                          }
+        )
+    }
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+      // Add banner to view and add constraints as above.
+      addBannerViewToView(bannerView)
+    }
+
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+          [NSLayoutConstraint(item: bannerView,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: bottomLayoutGuide,
+                              attribute: .top,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: bannerView,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+          ])
+    }
+
+    
 //    @objc func tableViewTapped(recognizer: UITapGestureRecognizer) {
 //        let location = recognizer.location(in: self.tableView) // point of touch in tableView
 //        if let indexPath = self.tableView.indexPathForRow(at: location) { // indexPath of touch location
@@ -91,6 +168,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "FavoriteViewController") as! FavoriteViewController
         newViewController.modalPresentationStyle = .fullScreen
+        newViewController.catName = categoriesTitle[sender.tag]
         newViewController.category = allcatagories[sender.tag]
         self.present(newViewController, animated: true, completion: nil)
     }

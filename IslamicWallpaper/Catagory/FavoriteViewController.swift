@@ -11,8 +11,10 @@ class FavoriteViewController: UIViewController {
     
     
    
+    @IBOutlet weak var catagoriText: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     var category : [UIImage] = []
+    var catName : String = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -24,7 +26,7 @@ class FavoriteViewController: UIViewController {
         layout.minimumLineSpacing = 0
         collectionView.collectionViewLayout = layout
         // Do any additional setup after loading the view.
-       
+        catagoriText.text = catName
         
     }
     

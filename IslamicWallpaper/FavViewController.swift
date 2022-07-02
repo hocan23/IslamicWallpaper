@@ -43,6 +43,7 @@ class FavViewController: UIViewController {
             favİmages.append(UIImage(named: a )!)
         }
     }
+    
 }
 
 extension FavViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{

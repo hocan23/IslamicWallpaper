@@ -7,12 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		763CA69728708F4200981861 /* Cera Pro Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 763CA69628708F4200981861 /* Cera Pro Bold.ttf */; };
+		763CA69928708F5300981861 /* Cera Pro Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 763CA69828708F5300981861 /* Cera Pro Medium.ttf */; };
+		763CA69B2870995E00981861 /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763CA69A2870995E00981861 /* LanguageSelectionViewController.swift */; };
+		763CA69D28709EA500981861 /* LangTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763CA69C28709EA500981861 /* LangTableViewCell.swift */; };
+		763CA69F2870B0B600981861 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763CA69E2870B0B600981861 /* LanguageHelper.swift */; };
+		764DAAC428701D11007D8681 /* RewardedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764DAAC328701D11007D8681 /* RewardedHelper.swift */; };
 		767523F8286E283900751BEB /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767523F7286E283900751BEB /* Extentions.swift */; };
 		768463C3286D8625009423A8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463C2286D8625009423A8 /* CollectionViewCell.swift */; };
 		768463C5286D8FCF009423A8 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463C4286D8FCF009423A8 /* FavoriteViewController.swift */; };
 		768463C7286D916D009423A8 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463C6286D916D009423A8 /* FavoriteCollectionViewCell.swift */; };
 		768463CB286DC080009423A8 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463CA286DC080009423A8 /* FavViewController.swift */; };
 		768463CD286DC15E009423A8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463CC286DC15E009423A8 /* SettingsViewController.swift */; };
+		80A13863417A62319A0ED569 /* Pods_IslamicWallpaper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACADB5496D324806BADAF56 /* Pods_IslamicWallpaper.framework */; };
 		B7D13276286B92C4000CCA59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D13275286B92C4000CCA59 /* AppDelegate.swift */; };
 		B7D13278286B92C4000CCA59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D13277286B92C4000CCA59 /* SceneDelegate.swift */; };
 		B7D1327A286B92C4000CCA59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D13279286B92C4000CCA59 /* ViewController.swift */; };
@@ -24,6 +31,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2ACADB5496D324806BADAF56 /* Pods_IslamicWallpaper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IslamicWallpaper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		685C53B8672125F617DA5BF9 /* Pods-IslamicWallpaper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IslamicWallpaper.release.xcconfig"; path = "Target Support Files/Pods-IslamicWallpaper/Pods-IslamicWallpaper.release.xcconfig"; sourceTree = "<group>"; };
+		763CA69628708F4200981861 /* Cera Pro Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cera Pro Bold.ttf"; sourceTree = "<group>"; };
+		763CA69828708F5300981861 /* Cera Pro Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cera Pro Medium.ttf"; sourceTree = "<group>"; };
+		763CA69A2870995E00981861 /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
+		763CA69C28709EA500981861 /* LangTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangTableViewCell.swift; sourceTree = "<group>"; };
+		763CA69E2870B0B600981861 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
+		764DAAC328701D11007D8681 /* RewardedHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedHelper.swift; sourceTree = "<group>"; };
 		767523F7286E283900751BEB /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		768463C2286D8625009423A8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		768463C4286D8FCF009423A8 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +55,7 @@
 		B7D13283286B92C7000CCA59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7D13289286B9ADE000CCA59 /* TableviewCellController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableviewCellController.swift; sourceTree = "<group>"; };
 		B7D1328B286BB22E000CCA59 /* FullScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenViewController.swift; sourceTree = "<group>"; };
+		D0FE18B951C7A979515AB1C2 /* Pods-IslamicWallpaper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IslamicWallpaper.debug.xcconfig"; path = "Target Support Files/Pods-IslamicWallpaper/Pods-IslamicWallpaper.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,12 +63,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80A13863417A62319A0ED569 /* Pods_IslamicWallpaper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		763CA69528708E9E00981861 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				763CA69828708F5300981861 /* Cera Pro Medium.ttf */,
+				763CA69628708F4200981861 /* Cera Pro Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		768463C8286DA6A9009423A8 /* Catagory */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,11 +98,22 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		A7A6FE5C64D861CFB35CBD18 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D0FE18B951C7A979515AB1C2 /* Pods-IslamicWallpaper.debug.xcconfig */,
+				685C53B8672125F617DA5BF9 /* Pods-IslamicWallpaper.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B7D13269286B92C4000CCA59 = {
 			isa = PBXGroup;
 			children = (
 				B7D13274286B92C4000CCA59 /* IslamicWallpaper */,
 				B7D13273286B92C4000CCA59 /* Products */,
+				A7A6FE5C64D861CFB35CBD18 /* Pods */,
+				D6BCBFB7E7B279073E8481AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -93,8 +130,13 @@
 			children = (
 				B7D13275286B92C4000CCA59 /* AppDelegate.swift */,
 				B7D13277286B92C4000CCA59 /* SceneDelegate.swift */,
+				763CA69A2870995E00981861 /* LanguageSelectionViewController.swift */,
+				763CA69C28709EA500981861 /* LangTableViewCell.swift */,
 				B7D1328B286BB22E000CCA59 /* FullScreenViewController.swift */,
+				763CA69528708E9E00981861 /* Fonts */,
 				767523F7286E283900751BEB /* Extentions.swift */,
+				763CA69E2870B0B600981861 /* LanguageHelper.swift */,
+				764DAAC328701D11007D8681 /* RewardedHelper.swift */,
 				768463CC286DC15E009423A8 /* SettingsViewController.swift */,
 				768463CA286DC080009423A8 /* FavViewController.swift */,
 				768463C9286DA6C0009423A8 /* Home */,
@@ -107,6 +149,14 @@
 			path = IslamicWallpaper;
 			sourceTree = "<group>";
 		};
+		D6BCBFB7E7B279073E8481AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2ACADB5496D324806BADAF56 /* Pods_IslamicWallpaper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -114,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7D13286286B92C7000CCA59 /* Build configuration list for PBXNativeTarget "IslamicWallpaper" */;
 			buildPhases = (
+				2C93ACA20507DCA4AF99C7FA /* [CP] Check Pods Manifest.lock */,
 				B7D1326E286B92C4000CCA59 /* Sources */,
 				B7D1326F286B92C4000CCA59 /* Frameworks */,
 				B7D13270286B92C4000CCA59 /* Resources */,
+				FBDC4D5A85065B4BF885EF3B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,11 +219,55 @@
 			files = (
 				B7D13282286B92C7000CCA59 /* LaunchScreen.storyboard in Resources */,
 				B7D1327F286B92C7000CCA59 /* Assets.xcassets in Resources */,
+				763CA69928708F5300981861 /* Cera Pro Medium.ttf in Resources */,
+				763CA69728708F4200981861 /* Cera Pro Bold.ttf in Resources */,
 				B7D1327D286B92C4000CCA59 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2C93ACA20507DCA4AF99C7FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IslamicWallpaper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FBDC4D5A85065B4BF885EF3B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IslamicWallpaper/Pods-IslamicWallpaper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-IslamicWallpaper/Pods-IslamicWallpaper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IslamicWallpaper/Pods-IslamicWallpaper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B7D1326E286B92C4000CCA59 /* Sources */ = {
@@ -181,12 +277,16 @@
 				B7D1328C286BB22E000CCA59 /* FullScreenViewController.swift in Sources */,
 				B7D1327A286B92C4000CCA59 /* ViewController.swift in Sources */,
 				768463C3286D8625009423A8 /* CollectionViewCell.swift in Sources */,
+				763CA69D28709EA500981861 /* LangTableViewCell.swift in Sources */,
 				767523F8286E283900751BEB /* Extentions.swift in Sources */,
 				768463CD286DC15E009423A8 /* SettingsViewController.swift in Sources */,
 				768463CB286DC080009423A8 /* FavViewController.swift in Sources */,
+				763CA69F2870B0B600981861 /* LanguageHelper.swift in Sources */,
 				768463C5286D8FCF009423A8 /* FavoriteViewController.swift in Sources */,
+				763CA69B2870995E00981861 /* LanguageSelectionViewController.swift in Sources */,
 				768463C7286D916D009423A8 /* FavoriteCollectionViewCell.swift in Sources */,
 				B7D13276286B92C4000CCA59 /* AppDelegate.swift in Sources */,
+				764DAAC428701D11007D8681 /* RewardedHelper.swift in Sources */,
 				B7D13278286B92C4000CCA59 /* SceneDelegate.swift in Sources */,
 				B7D1328A286B9ADE000CCA59 /* TableviewCellController.swift in Sources */,
 			);
@@ -330,6 +430,7 @@
 		};
 		B7D13287286B92C7000CCA59 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0FE18B951C7A979515AB1C2 /* Pods-IslamicWallpaper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -358,6 +459,7 @@
 		};
 		B7D13288286B92C7000CCA59 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 685C53B8672125F617DA5BF9 /* Pods-IslamicWallpaper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

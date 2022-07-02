@@ -8,6 +8,14 @@
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Cera Pro Bold.ttf">
+            <string>CeraPro-Bold</string>
+        </array>
+        <array key="Cera Pro Medium.ttf">
+            <string>CeraPro-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Fav View Controller-->
         <scene sceneID="2qc-4W-xTf">
@@ -18,7 +26,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ano-0Z-9pB">
-                                <rect key="frame" x="20" y="109" width="374" height="704"/>
+                                <rect key="frame" x="20" y="99" width="374" height="714"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="6IM-lj-3Q3">
                                     <size key="itemSize" width="170" height="324"/>
@@ -60,7 +68,7 @@
                                     <constraint firstAttribute="height" constant="35" id="Han-U0-lKB"/>
                                     <constraint firstAttribute="width" constant="150" id="K8L-G1-P8t"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <fontDescription key="fontDescription" name="CeraPro-Bold" family="Cera Pro" pointSize="20"/>
                                 <color key="textColor" red="0.18823529410000001" green="0.24313725489999999" blue="0.3921568627" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -69,7 +77,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ano-0Z-9pB" firstAttribute="leading" secondItem="kbr-M9-orB" secondAttribute="leading" constant="20" id="Irn-yK-5ho"/>
-                            <constraint firstItem="ano-0Z-9pB" firstAttribute="top" secondItem="zOm-GY-3VL" secondAttribute="bottom" constant="15" id="WkB-HK-kmw"/>
+                            <constraint firstItem="ano-0Z-9pB" firstAttribute="top" secondItem="zOm-GY-3VL" secondAttribute="bottom" constant="5" id="WkB-HK-kmw"/>
                             <constraint firstItem="zOm-GY-3VL" firstAttribute="leading" secondItem="kbr-M9-orB" secondAttribute="leading" constant="20" id="Wyn-CM-Rfr"/>
                             <constraint firstItem="kbr-M9-orB" firstAttribute="bottom" secondItem="ano-0Z-9pB" secondAttribute="bottom" id="iGh-6O-zlU"/>
                             <constraint firstItem="kbr-M9-orB" firstAttribute="trailing" secondItem="ano-0Z-9pB" secondAttribute="trailing" constant="20" id="uYY-BN-OeD"/>
@@ -92,14 +100,146 @@
                     <view key="view" contentMode="scaleToFill" id="OVD-Np-Xiy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbl-3S-Q9C">
+                                <rect key="frame" x="20" y="84" width="100" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Eg7-dK-QiI"/>
+                                    <constraint firstAttribute="height" constant="25" id="swo-vI-OMf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CeraPro-Bold" family="Cera Pro" pointSize="20"/>
+                                <color key="textColor" red="0.18823529410000001" green="0.24313725489999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNI-a3-Z9Z">
+                                <rect key="frame" x="30" y="164" width="220" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="5Fk-UJ-zo3"/>
+                                    <constraint firstAttribute="height" constant="20" id="yQX-KS-EkH"/>
+                                </constraints>
+                                <color key="tintColor" red="0.18823529410000001" green="0.24313725489999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="share">
+                                    <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="sharePressed:" destination="Q25-EK-dtH" eventType="touchUpInside" id="cbd-FB-oGt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeZ-7v-flP">
+                                <rect key="frame" x="30" y="219" width="220" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="3a7-yC-Ncs"/>
+                                    <constraint firstAttribute="height" constant="20" id="W64-Zs-Af7"/>
+                                </constraints>
+                                <color key="tintColor" red="0.18823529410000001" green="0.24313725489999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="other apps">
+                                    <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="otherApps:" destination="Q25-EK-dtH" eventType="touchUpInside" id="NZ3-EM-sqY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnN-6Q-hWL">
+                                <rect key="frame" x="30" y="274" width="220" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="220" id="Acg-1V-ogF"/>
+                                    <constraint firstAttribute="height" constant="20" id="LVN-tX-gHj"/>
+                                </constraints>
+                                <color key="tintColor" red="0.18823529410000001" green="0.24313725489999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="language">
+                                    <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="languagePressed:" destination="Q25-EK-dtH" eventType="touchUpInside" id="fjC-vs-KDu"/>
+                                    <segue destination="hP2-wV-owu" kind="presentation" id="cUP-YV-o49"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rj1-eI-07Y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qbl-3S-Q9C" firstAttribute="leading" secondItem="rj1-eI-07Y" secondAttribute="leading" constant="20" id="EsB-4R-mCi"/>
+                            <constraint firstItem="qeZ-7v-flP" firstAttribute="top" secondItem="DNI-a3-Z9Z" secondAttribute="bottom" constant="35" id="KVH-Ch-OYj"/>
+                            <constraint firstItem="QnN-6Q-hWL" firstAttribute="top" secondItem="qeZ-7v-flP" secondAttribute="bottom" constant="35" id="P4V-Sb-LoA"/>
+                            <constraint firstItem="DNI-a3-Z9Z" firstAttribute="top" secondItem="Qbl-3S-Q9C" secondAttribute="bottom" constant="55" id="Run-r6-S3P"/>
+                            <constraint firstItem="DNI-a3-Z9Z" firstAttribute="leading" secondItem="rj1-eI-07Y" secondAttribute="leading" constant="30" id="Tuk-kN-AIC"/>
+                            <constraint firstItem="Qbl-3S-Q9C" firstAttribute="top" secondItem="rj1-eI-07Y" secondAttribute="top" constant="40" id="dOU-eI-zYd"/>
+                            <constraint firstItem="QnN-6Q-hWL" firstAttribute="leading" secondItem="rj1-eI-07Y" secondAttribute="leading" constant="30" id="kxU-5k-1mr"/>
+                            <constraint firstItem="qeZ-7v-flP" firstAttribute="leading" secondItem="rj1-eI-07Y" secondAttribute="leading" constant="30" id="qjO-ym-mG8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="eUm-RQ-J0G"/>
+                    <connections>
+                        <outlet property="languageButton" destination="QnN-6Q-hWL" id="W3e-bW-Zt9"/>
+                        <outlet property="otherApps" destination="qeZ-7v-flP" id="ttO-O4-Uoj"/>
+                        <outlet property="shareButton" destination="DNI-a3-Z9Z" id="K3I-YG-xnR"/>
+                        <outlet property="titleLabel" destination="Qbl-3S-Q9C" id="Ppt-8R-BIs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDU-Cx-J9c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-116" y="956"/>
+            <point key="canvasLocation" x="-117.39130434782609" y="955.58035714285711"/>
+        </scene>
+        <!--Language Selection View Controller-->
+        <scene sceneID="Hkx-yI-VkU">
+            <objects>
+                <viewController id="hP2-wV-owu" customClass="LanguageSelectionViewController" customModule="IslamicWallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5kb-XO-Isv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ymp-kb-hQg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="698"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LangTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="40" id="Y8M-3f-Bju" customClass="LangTableViewCell" customModule="IslamicWallpaper" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y8M-3f-Bju" id="Uq0-1Y-Fat">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joD-9t-FNc">
+                                                    <rect key="frame" x="40" y="21" width="334" height="0.0"/>
+                                                    <color key="tintColor" red="0.18823529410000001" green="0.24313725489999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="joD-9t-FNc" secondAttribute="bottom" constant="10" id="6z1-lF-L0d"/>
+                                                <constraint firstItem="joD-9t-FNc" firstAttribute="leading" secondItem="Uq0-1Y-Fat" secondAttribute="leadingMargin" constant="20" id="eVm-gj-DUm"/>
+                                                <constraint firstItem="joD-9t-FNc" firstAttribute="top" secondItem="Uq0-1Y-Fat" secondAttribute="topMargin" constant="10" id="mJa-o4-WCS"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="joD-9t-FNc" secondAttribute="trailing" constant="20" id="tKl-F6-A0b"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="langLabel" destination="joD-9t-FNc" id="gRp-BU-Kbt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="DD1-dk-Yo3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ymp-kb-hQg" firstAttribute="top" secondItem="DD1-dk-Yo3" secondAttribute="top" id="Xp6-yc-OuC"/>
+                            <constraint firstItem="DD1-dk-Yo3" firstAttribute="trailing" secondItem="ymp-kb-hQg" secondAttribute="trailing" id="cDO-8S-xwB"/>
+                            <constraint firstItem="DD1-dk-Yo3" firstAttribute="bottom" secondItem="ymp-kb-hQg" secondAttribute="bottom" constant="100" id="cgm-Lf-Rkd"/>
+                            <constraint firstItem="ymp-kb-hQg" firstAttribute="leading" secondItem="DD1-dk-Yo3" secondAttribute="leading" id="psW-Rs-eW6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="table" destination="ymp-kb-hQg" id="Ppf-3k-efN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GbP-Ci-c7u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="721.73913043478262" y="1113.6160714285713"/>
         </scene>
         <!--Favorite View Controller-->
         <scene sceneID="sDW-Rb-hsb">
@@ -110,7 +250,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tjt-Er-eaa">
-                                <rect key="frame" x="20" y="119" width="374" height="743"/>
+                                <rect key="frame" x="20" y="99" width="374" height="763"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="hS9-gR-eIL">
                                     <size key="itemSize" width="170" height="324"/>
@@ -150,9 +290,9 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhF-nE-8H6">
-                                <rect key="frame" x="20" y="59" width="120" height="35"/>
+                                <rect key="frame" x="20" y="59" width="70" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="5Mq-36-02o"/>
+                                    <constraint firstAttribute="width" constant="70" id="5Mq-36-02o"/>
                                     <constraint firstAttribute="height" constant="35" id="9J6-Ke-yfT"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
@@ -163,19 +303,32 @@
                                     <action selector="backButtonPressed:" destination="MWO-T3-9xx" eventType="touchUpInside" id="XAt-6k-c5A"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Dl-JD-S1d">
+                                <rect key="frame" x="132" y="59" width="150" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="H20-Lu-avC"/>
+                                    <constraint firstAttribute="width" constant="150" id="H4Y-yE-CqA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CeraPro-Bold" family="Cera Pro" pointSize="20"/>
+                                <color key="textColor" red="0.18823529410000001" green="0.24313725489999999" blue="0.3921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="icz-Qh-1ed"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jhF-nE-8H6" firstAttribute="leading" secondItem="icz-Qh-1ed" secondAttribute="leading" constant="20" id="44P-LW-mno"/>
                             <constraint firstItem="icz-Qh-1ed" firstAttribute="bottom" secondItem="tjt-Er-eaa" secondAttribute="bottom" id="Age-6Y-KzZ"/>
+                            <constraint firstItem="8Dl-JD-S1d" firstAttribute="centerX" secondItem="icz-Qh-1ed" secondAttribute="centerX" id="Ekm-Ac-ZHy"/>
                             <constraint firstItem="tjt-Er-eaa" firstAttribute="leading" secondItem="icz-Qh-1ed" secondAttribute="leading" constant="20" id="Hw3-ib-192"/>
                             <constraint firstItem="icz-Qh-1ed" firstAttribute="trailing" secondItem="tjt-Er-eaa" secondAttribute="trailing" constant="20" id="NDZ-kL-Ye5"/>
+                            <constraint firstItem="8Dl-JD-S1d" firstAttribute="centerY" secondItem="jhF-nE-8H6" secondAttribute="centerY" id="VVQ-qE-xgz"/>
                             <constraint firstItem="jhF-nE-8H6" firstAttribute="top" secondItem="icz-Qh-1ed" secondAttribute="top" constant="15" id="dqg-NA-mPW"/>
-                            <constraint firstItem="tjt-Er-eaa" firstAttribute="top" secondItem="jhF-nE-8H6" secondAttribute="bottom" constant="25" id="owf-Ky-cGb"/>
+                            <constraint firstItem="tjt-Er-eaa" firstAttribute="top" secondItem="jhF-nE-8H6" secondAttribute="bottom" constant="5" id="owf-Ky-cGb"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="catagoriText" destination="8Dl-JD-S1d" id="zeo-7k-SHt"/>
                         <outlet property="collectionView" destination="tjt-Er-eaa" id="WBK-Gc-YSY"/>
                     </connections>
                 </viewController>
@@ -220,14 +373,14 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="110" translatesAutoresizingMaskIntoConstraints="NO" id="5Li-Zv-tlQ">
-                                                                        <rect key="frame" x="1" y="1" width="123" height="190"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="192"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="5Li-Zv-tlQ" secondAttribute="trailing" constant="1" id="BG8-x4-phf"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="5Li-Zv-tlQ" secondAttribute="bottom" constant="1" id="Mo6-Qp-hGI"/>
-                                                                    <constraint firstItem="5Li-Zv-tlQ" firstAttribute="leading" secondItem="zAt-92-lbF" secondAttribute="leading" constant="1" id="ezA-ru-6ce"/>
-                                                                    <constraint firstItem="5Li-Zv-tlQ" firstAttribute="top" secondItem="zAt-92-lbF" secondAttribute="top" constant="1" id="oM1-rt-FBx"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="5Li-Zv-tlQ" secondAttribute="trailing" id="BG8-x4-phf"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="5Li-Zv-tlQ" secondAttribute="bottom" id="Mo6-Qp-hGI"/>
+                                                                    <constraint firstItem="5Li-Zv-tlQ" firstAttribute="leading" secondItem="zAt-92-lbF" secondAttribute="leading" id="ezA-ru-6ce"/>
+                                                                    <constraint firstItem="5Li-Zv-tlQ" firstAttribute="top" secondItem="zAt-92-lbF" secondAttribute="top" id="oM1-rt-FBx"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <size key="customSize" width="125" height="192"/>
@@ -243,8 +396,11 @@
                                                         <constraint firstAttribute="height" constant="20" id="ENA-n1-68y"/>
                                                         <constraint firstAttribute="width" constant="130" id="FNL-X6-Cmr"/>
                                                     </constraints>
+                                                    <color key="tintColor" red="0.25098039215686274" green="0.45098039215686275" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" title="See All &gt;"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="See All &gt;">
+                                                        <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="16"/>
+                                                    </buttonConfiguration>
                                                     <connections>
                                                         <action selector="seeAllButton:" destination="oAt-Nc-4sQ" eventType="touchUpInside" id="wlc-43-nw2"/>
                                                         <action selector="seeAllTapped:" destination="FoZ-Ay-fyX" eventType="touchUpInside" id="kNA-t8-xIZ"/>
@@ -256,8 +412,8 @@
                                                         <constraint firstAttribute="height" constant="25" id="IxZ-CD-tUw"/>
                                                         <constraint firstAttribute="width" constant="150" id="mvX-FY-9uH"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="CeraPro-Bold" family="Cera Pro" pointSize="20"/>
+                                                    <color key="textColor" red="0.18823529411764706" green="0.24313725490196078" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -342,7 +498,7 @@
                                             <backgroundConfiguration key="background">
                                                 <color key="backgroundColor" red="0.0" green="1" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             </backgroundConfiguration>
-                                            <fontDescription key="titleFontDescription" name="Avenir-Heavy" family="Avenir" pointSize="15"/>
+                                            <fontDescription key="titleFontDescription" name="CeraPro-Bold" family="Cera Pro" pointSize="20"/>
                                             <color key="baseForegroundColor" red="0.0" green="0.24313725489999999" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <connections>
