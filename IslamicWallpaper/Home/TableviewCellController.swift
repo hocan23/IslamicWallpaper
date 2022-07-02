@@ -25,6 +25,7 @@ class TableviewCellController: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        seeAllButton.titleLabel?.text = Helper.seeall[Helper.SelectedlanguageNumber]
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -45,6 +46,7 @@ extension TableviewCellController: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! CollectionViewCell
+        
         if index == 0 {
             seeAllButton.isHidden = true
         }

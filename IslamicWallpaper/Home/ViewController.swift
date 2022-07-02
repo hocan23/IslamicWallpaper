@@ -32,26 +32,22 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
     var discover : [UIImage] = []
         var allcatagories : [[UIImage]] = []
     var categoriNumber = 1
-    var categoriesTitle = [Helper.favorites[Helper.SelectedlanguageNumber],"Mimari","Cami","Gül","Kuran","Kabe","Allah","Ramazan"]
+    var categoriesTitle : [String] = []
     
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
     private var rewardedAdHelper = RewardedAdHelper()
 
+  
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Helper.Selectedlanguage = NSLocale.preferredLanguages[0]
-        switch Helper.Selectedlanguage{
-        case "tr":
-            Helper.SelectedlanguageNumber = 8
-        default:
-            Helper.SelectedlanguageNumber = 0
-
-            
-        }
+        languageSelection()
+        prepareLang()
+        
         createArrays()
+       
         if let tabBarItem1 = self.tabBarController?.tabBar.items?[0] {
             tabBarItem1.selectedImage = UIImage(named: "Group 18")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
             tabBarItem1.image = UIImage(named: "Group 16")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
@@ -233,6 +229,41 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             allcatagories.append(godArray)
             allcatagories.append(ramadanArray)
         }
+    func prepareLang (){
+        categoriesTitle = [Helper.favorites[Helper.SelectedlanguageNumber],Helper.architecture[Helper.SelectedlanguageNumber],Helper.mosque[Helper.SelectedlanguageNumber],Helper.rose[Helper.SelectedlanguageNumber],Helper.kuran[Helper.SelectedlanguageNumber],Helper.kaaba[Helper.SelectedlanguageNumber],Helper.ramadan[Helper.SelectedlanguageNumber],Helper.favorites[Helper.SelectedlanguageNumber]]
+    }
+    func languageSelection (){
+        print(NSLocale.preferredLanguages[0].prefix(2))
+        Helper.Selectedlanguage = String(NSLocale.preferredLanguages[0].prefix(2))
+        switch Helper.Selectedlanguage{
+        case "en":
+            Helper.SelectedlanguageNumber = 0
+        case "hi":
+            Helper.SelectedlanguageNumber = 1
+        case "ru":
+            Helper.SelectedlanguageNumber = 2
+        case "id":
+            Helper.SelectedlanguageNumber = 3
+        case "jp":
+            Helper.SelectedlanguageNumber = 4
+        case "de":
+            Helper.SelectedlanguageNumber = 5
+        case "it":
+            Helper.SelectedlanguageNumber = 6
+        case "fr":
+            Helper.SelectedlanguageNumber = 7
+        case "tr":
+            Helper.SelectedlanguageNumber = 8
+        case "vn":
+            Helper.SelectedlanguageNumber = 9
+        case "sa":
+            Helper.SelectedlanguageNumber = 10
+        default:
+            Helper.SelectedlanguageNumber = 0
+
+            
+        }
+    }
     }
     
 

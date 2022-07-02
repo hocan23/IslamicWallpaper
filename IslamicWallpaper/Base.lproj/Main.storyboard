@@ -87,6 +87,7 @@
                     <tabBarItem key="tabBarItem" selectedImage="Group 15" id="2kD-NI-ytC"/>
                     <connections>
                         <outlet property="collectionView" destination="ano-0Z-9pB" id="Ocs-91-efp"/>
+                        <outlet property="titleLabel" destination="zOm-GY-3VL" id="Zmt-7i-tcq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dg3-yP-O7o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -402,7 +403,6 @@
                                                         <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="16"/>
                                                     </buttonConfiguration>
                                                     <connections>
-                                                        <action selector="seeAllButton:" destination="oAt-Nc-4sQ" eventType="touchUpInside" id="wlc-43-nw2"/>
                                                         <action selector="seeAllTapped:" destination="FoZ-Ay-fyX" eventType="touchUpInside" id="kNA-t8-xIZ"/>
                                                     </connections>
                                                 </button>
@@ -456,7 +456,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtS-2V-EOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="oAt-Nc-4sQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="547.82608695652175" y="-314.0625"/>
         </scene>

@@ -10,6 +10,7 @@ import UIKit
 class FavViewController: UIViewController {
     
    
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     var favPhotos : [String] = []
     var favİmages : [UIImage] = []
@@ -18,7 +19,7 @@ class FavViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
        
-        
+        titleLabel.text = Helper.favorites[Helper.SelectedlanguageNumber]
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
         

@@ -18,10 +18,10 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = "Ayarlar"
-        shareButton.titleLabel?.text = "Uygulamayı Paylaş"
-        otherApps.titleLabel?.text = "Diğer Uygulamalar"
-        languageButton.titleLabel?.text = "Dil seçimi"
+        titleLabel.text = Helper.settings[Helper.SelectedlanguageNumber]
+        shareButton.titleLabel?.text = Helper.shareapp[Helper.SelectedlanguageNumber]
+        otherApps.titleLabel?.text = Helper.otherapps[Helper.SelectedlanguageNumber]
+        languageButton.titleLabel?.text = Helper.language[Helper.SelectedlanguageNumber]
 
 
     }

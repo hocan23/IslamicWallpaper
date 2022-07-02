@@ -48,6 +48,7 @@ class FullScreenViewController: UIViewController {
         share.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(shareTapped)))
         favorite.isUserInteractionEnabled = true
         favorite.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(favoriteTapped)))
+        downloadButton.titleLabel?.text = Helper.download[Helper.SelectedlanguageNumber]
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
