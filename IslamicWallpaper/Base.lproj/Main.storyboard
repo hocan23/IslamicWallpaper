@@ -155,7 +155,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="languagePressed:" destination="Q25-EK-dtH" eventType="touchUpInside" id="fjC-vs-KDu"/>
-                                    <segue destination="hP2-wV-owu" kind="presentation" id="cUP-YV-o49"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -187,13 +186,13 @@
         <!--Language Selection View Controller-->
         <scene sceneID="Hkx-yI-VkU">
             <objects>
-                <viewController id="hP2-wV-owu" customClass="LanguageSelectionViewController" customModule="IslamicWallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LanguageSelectionViewController" id="hP2-wV-owu" customClass="LanguageSelectionViewController" customModule="IslamicWallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5kb-XO-Isv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ymp-kb-hQg">
-                                <rect key="frame" x="0.0" y="44" width="414" height="798"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LangTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="tableCell" rowHeight="40" id="Y8M-3f-Bju" customClass="LangTableViewCell" customModule="IslamicWallpaper" customModuleProvider="target">
@@ -228,9 +227,9 @@
                         <viewLayoutGuide key="safeArea" id="DD1-dk-Yo3"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ymp-kb-hQg" secondAttribute="bottom" id="SY1-Ck-Gey"/>
                             <constraint firstItem="ymp-kb-hQg" firstAttribute="top" secondItem="DD1-dk-Yo3" secondAttribute="top" id="Xp6-yc-OuC"/>
                             <constraint firstItem="DD1-dk-Yo3" firstAttribute="trailing" secondItem="ymp-kb-hQg" secondAttribute="trailing" id="cDO-8S-xwB"/>
-                            <constraint firstItem="DD1-dk-Yo3" firstAttribute="bottom" secondItem="ymp-kb-hQg" secondAttribute="bottom" id="cgm-Lf-Rkd"/>
                             <constraint firstItem="ymp-kb-hQg" firstAttribute="leading" secondItem="DD1-dk-Yo3" secondAttribute="leading" id="psW-Rs-eW6"/>
                         </constraints>
                     </view>
@@ -329,6 +328,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="jhF-nE-8H6" id="ku4-Zw-4id"/>
                         <outlet property="catagoriText" destination="8Dl-JD-S1d" id="zeo-7k-SHt"/>
                         <outlet property="collectionView" destination="tjt-Er-eaa" id="WBK-Gc-YSY"/>
                     </connections>
@@ -501,7 +501,7 @@
                                             <color key="baseForegroundColor" red="0.0" green="0.24313725489999999" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="downloadButtonTapped:" destination="K4m-gi-yTa" eventType="touchUpInside" id="fup-Tf-lII"/>
+                                            <action selector="downloadTapped:" destination="K4m-gi-yTa" eventType="touchUpInside" id="eVM-FR-6Hy"/>
                                         </connections>
                                     </button>
                                 </subviews>

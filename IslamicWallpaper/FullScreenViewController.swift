@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMobileAds
 
-class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFullScreenContentDelegate {
+class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFullScreenContentDelegate  {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var favorite: UIView!
     
@@ -22,21 +22,21 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     var categoriPhotos : [UIImage] = []
     @IBOutlet weak var favoriteIcon: UIImageView!
     var bannerView: GADBannerView!
+    private var interstitial: GADInterstitialAd?
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
                         swipeLeft.direction = .left
                         self.view!.addGestureRecognizer(swipeLeft)
-                                                         
+
                         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
                         swipeRight.direction = .right
                         self.view!.addGestureRecognizer(swipeRight)
-        
-        
+
+
         
         
         
@@ -51,7 +51,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         share.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(shareTapped)))
         favorite.isUserInteractionEnabled = true
         favorite.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(favoriteTapped)))
-        downloadButton.titleLabel?.text = Helper.download[Helper.SelectedlanguageNumber]
+        
         
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
@@ -61,30 +61,46 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
+        downloadButton.setTitle(Helper.download[Helper.SelectedlanguageNumber], for: .normal) 
         favoritePhotos = Utils.readLocal(key: "SavedStringArray")
         isfavorite()
+        createAdd()
+
     }
     
+    
+    
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
-           
+
            if gesture.direction == UISwipeGestureRecognizer.Direction.left {
             if position < categoriPhotos.count - 1{
                 position = position + 1
-               
                 imageView.image = categoriPhotos[position]
-              
+
+                UIView.transition(with: self.imageView,
+                                    duration: 2.0,
+                                    options: .transitionCrossDissolve,
+                                    animations: {
+                    self.selectedPhoto = self.categoriPhotos[self.position]
+                  }, completion: nil)
+
             }
-               selectedPhoto = categoriPhotos[position]
                isfavorite()
            }
         else if gesture.direction == UISwipeGestureRecognizer.Direction.right {
             if position > 0 {
                 position = position - 1
-                
+
                 imageView.image = categoriPhotos[position]
-                
+
             }
-            selectedPhoto = categoriPhotos[position]
+            UIView.transition(with: self.imageView,
+                                duration: 2.0,
+                                options: .transitionCrossDissolve,
+                                animations: {
+                self.selectedPhoto = self.categoriPhotos[self.position]
+              }, completion: nil)
+            
             isfavorite()
            }
     }
@@ -110,21 +126,62 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         
     }
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true)
-        
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let newViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-//        newViewController.modalPresentationStyle = .fullScreen
-//
-//        self.present(newViewController, animated: true, completion: nil)
+        if interstitial != nil {
+            interstitial?.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }
+//        self.dismiss(animated: true)
+
     }
     
-    @IBAction func downloadButtonTapped(_ sender: Any) {
+    @IBAction func downloadTapped(_ sender: UIButton) {
+//        UIView.animate(withDuration: 2.0,
+//                                       delay: 0,
+//                                       usingSpringWithDamping: CGFloat(0.20),
+//                                       initialSpringVelocity: CGFloat(6.0),
+//                                       options: UIView.AnimationOptions.allowUserInteraction,
+//                                       animations: {
+//                                        sender.transform = CGAffineTransform.identity
+//                },
+//                                       completion: { Void in()  }
+//            )
+        downloadButton.zoomIn()
         guard let inputImage = selectedPhoto else { return }
         
         let imageSaver = ImageSaver()
         imageSaver.writeToPhotoAlbum(image: inputImage)
+        
     }
+    
+    func createAdd() {
+        let request = GADRequest()
+        interstitial?.fullScreenContentDelegate = self
+        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-3940256099942544/4411468910",
+                                    request: request,
+                          completionHandler: { [self] ad, error in
+                            if let error = error {
+                              print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                              return
+                            }
+                            interstitial = ad
+                          }
+                               )
+    }
+  
+    func interstitialWillDismissScreen(_ ad: GADInterstitialAd) {
+            print("interstitialWillDismissScreen")
+        }
+
+        //Tells the delegate the interstitial had been animated off the screen.
+        func interstitialDidDismissScreen(_ ad: GADInterstitialAd) {
+            print("interstitialDidDismissScreen")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let myVC = storyboard.instantiateViewController(withIdentifier: "newVC")
+            self.present(myVC, animated: true, completion: nil)
+        }
+    
+    
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
       // Add banner to view and add constraints as above.
       addBannerViewToView(bannerView)

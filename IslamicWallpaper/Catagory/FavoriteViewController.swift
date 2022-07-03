@@ -17,6 +17,7 @@ class FavoriteViewController: UIViewController , GADBannerViewDelegate, GADFullS
     var catName : String = ""
     var bannerView: GADBannerView!
 
+    @IBOutlet weak var backButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -42,7 +43,10 @@ class FavoriteViewController: UIViewController , GADBannerViewDelegate, GADFullS
     
     override func viewWillAppear(_ animated: Bool) {
         catagoriText.text = catName
-
+        if self.traitCollection.userInterfaceStyle == .dark {
+            catagoriText.textColor = .white
+            backButton.tintColor = .white
+        }
     }
     
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {

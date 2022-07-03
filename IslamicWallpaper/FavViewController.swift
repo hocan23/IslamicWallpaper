@@ -42,7 +42,9 @@ class FavViewController: UIViewController, GADBannerViewDelegate, GADFullScreenC
         findPhoto()
         collectionView.reloadData()
         titleLabel.text = Helper.favorites[Helper.SelectedlanguageNumber]
-
+        if self.traitCollection.userInterfaceStyle == .dark {
+            titleLabel.textColor = .white
+        }
     }
     
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {

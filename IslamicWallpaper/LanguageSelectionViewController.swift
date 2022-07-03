@@ -7,8 +7,11 @@
 
 import UIKit
 
-
+protocol LangChange {
+    func changelang()
+}
 class LanguageSelectionViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
+    var delegate : LangChange?
    let languages = ["English",    "中国人",    "हिन्दी" ,   "Русский",    "Indonesia",    "日本",    "Deutsch",    "Italiano",    "Français",    "Türkçe",    "Tiếng Việt",    "عربي"  ]
     var  selectedLanguage : String = ""
     @IBOutlet weak var table: UITableView!
@@ -55,6 +58,8 @@ class LanguageSelectionViewController: UIViewController,UITableViewDataSource, U
 
         let vc = SettingsViewController()
         vc.modalPresentationStyle = .fullScreen
+        delegate?.changelang()
+
         self.dismiss(animated: true)
 
 //                tableView.deselectRow(at: indexPath, animated: true)

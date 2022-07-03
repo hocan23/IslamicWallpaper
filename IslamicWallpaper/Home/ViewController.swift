@@ -36,7 +36,6 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
     
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
-    private var rewardedAdHelper = RewardedAdHelper()
 
   
     
@@ -57,15 +56,10 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
         bannerView.load(GADRequest())
         bannerView.delegate = self
         
-        loadInterstitial()
+        createAdd()
         
-        rewardedAdHelper.loadRewardedAd()
         
-        if interstitial != nil {
-            interstitial!.present(fromRootViewController: self)
-        } else {
-            print("Ad wasn't ready")
-        }
+       
 //        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tableViewTapped(recognizer:)))
 //        tableView.addGestureRecognizer(tapGestureRecognizer)
         //        tabBarItem[0].selectedImage = UIImage(named: "Group 18")?.withRenderingMode(.alwaysOriginal);
@@ -74,13 +68,19 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
     }
     override func viewWillAppear(_ animated: Bool) {
         prepareLang()
+        tableView.reloadData()
     }
     
-    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-      loadInterstitial()
+    override func viewDidAppear(_ animated: Bool) {
+        if interstitial != nil {
+            interstitial?.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }
     }
     
-    func loadInterstitial() {
+    
+    func createAdd() {
         let request = GADRequest()
         GADInterstitialAd.load(withAdUnitID:"ca-app-pub-3940256099942544/4411468910",
                                     request: request,
@@ -90,9 +90,8 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
                               return
                             }
                             interstitial = ad
-                            interstitial?.fullScreenContentDelegate = self
                           }
-        )
+                               )
     }
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
       // Add banner to view and add constraints as above.
@@ -139,6 +138,13 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         
         
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if interstitial != nil {
+            interstitial?.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+        }
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as? TableviewCellController else {fatalError()}
@@ -154,6 +160,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     @objc func seeAllbtnPressed(sender: UIButton)
+    
     {
         print("Button tag \(sender.tag)")
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -226,10 +233,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         }
     func prepareLang (){
         categoriesTitle = [Helper.favorites[Helper.SelectedlanguageNumber],Helper.architecture[Helper.SelectedlanguageNumber],Helper.mosque[Helper.SelectedlanguageNumber],Helper.rose[Helper.SelectedlanguageNumber],Helper.kuran[Helper.SelectedlanguageNumber],Helper.kaaba[Helper.SelectedlanguageNumber],Helper.ramadan[Helper.SelectedlanguageNumber],Helper.favorites[Helper.SelectedlanguageNumber]]
+        tableView.reloadData()
     }
     
     func setTabbar(){
         if self.traitCollection.userInterfaceStyle == .dark {
+            
             if let tabBarItem1 = self.tabBarController?.tabBar.items?[0] {
                 tabBarItem1.selectedImage = UIImage(named: "Group 16")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
                 tabBarItem1.image = UIImage(named: "Group 18")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);

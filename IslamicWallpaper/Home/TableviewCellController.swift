@@ -25,8 +25,13 @@ class TableviewCellController: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
-        seeAllButton.titleLabel?.text = Helper.seeall[Helper.SelectedlanguageNumber]
+        seeAllButton.setTitle(Helper.seeall[Helper.SelectedlanguageNumber], for: .normal)
+        if self.traitCollection.userInterfaceStyle == .dark {
+            seeAllButton.tintColor = .white
+            categories.textColor = .white
+        }
     }
+    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -35,6 +40,7 @@ class TableviewCellController: UITableViewCell {
     }
     override func prepareForReuse() {
         super.prepareForReuse()
+        seeAllButton.setTitle(Helper.seeall[Helper.SelectedlanguageNumber], for: .normal)
         collectionView.reloadData()
     }
     @IBAction func seeAllTapped(_ sender: Any) {
@@ -56,7 +62,7 @@ extension TableviewCellController: UICollectionViewDelegate, UICollectionViewDat
             cell.image.image = array[indexPath.item]
                 }
         cell.layer.cornerRadius = 20
-        cell.layer.masksToBounds = true
+//        cell.layer.masksToBounds = true
         return cell
     }
     
