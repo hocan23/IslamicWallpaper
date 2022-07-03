@@ -44,22 +44,13 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
     override func viewDidLoad() {
         super.viewDidLoad()
         languageSelection()
-        prepareLang()
+        
         
         createArrays()
-       
-        if let tabBarItem1 = self.tabBarController?.tabBar.items?[0] {
-            tabBarItem1.selectedImage = UIImage(named: "Group 18")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-            tabBarItem1.image = UIImage(named: "Group 16")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-        }
-        if let tabBarItem2 = self.tabBarController?.tabBar.items?[1] {
-            tabBarItem2.selectedImage = UIImage(named: "Group 19")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-            tabBarItem2.image = UIImage(named: "Group 15")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-        }
-        if let tabBarItem3 = self.tabBarController?.tabBar.items?[2] {
-            tabBarItem3.selectedImage = UIImage(named: "Group 20")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-            tabBarItem3.image = UIImage(named: "Group 17")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-        }
+        setTabbar()
+        
+        
+        
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
         bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerView.rootViewController = self
@@ -81,6 +72,10 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
         //        tabBarItem[0].image = UIImage(named: "Group 16");
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        prepareLang()
+    }
+    
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
       loadInterstitial()
     }
@@ -232,36 +227,82 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func prepareLang (){
         categoriesTitle = [Helper.favorites[Helper.SelectedlanguageNumber],Helper.architecture[Helper.SelectedlanguageNumber],Helper.mosque[Helper.SelectedlanguageNumber],Helper.rose[Helper.SelectedlanguageNumber],Helper.kuran[Helper.SelectedlanguageNumber],Helper.kaaba[Helper.SelectedlanguageNumber],Helper.ramadan[Helper.SelectedlanguageNumber],Helper.favorites[Helper.SelectedlanguageNumber]]
     }
+    
+    func setTabbar(){
+        if self.traitCollection.userInterfaceStyle == .dark {
+            if let tabBarItem1 = self.tabBarController?.tabBar.items?[0] {
+                tabBarItem1.selectedImage = UIImage(named: "Group 16")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem1.image = UIImage(named: "Group 18")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+            }
+            if let tabBarItem2 = self.tabBarController?.tabBar.items?[1] {
+                tabBarItem2.selectedImage = UIImage(named: "Group 15")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem2.image = UIImage(named: "Group 19")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+            }
+            if let tabBarItem3 = self.tabBarController?.tabBar.items?[2] {
+                tabBarItem3.selectedImage = UIImage(named: "Group 17")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem3.image = UIImage(named: "Group 20")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+            }
+            let tabBarAppearance = UITabBar.appearance()
+            tabBarAppearance.isTranslucent = false
+            tabBarAppearance.barTintColor = .black
+            tabBarAppearance.backgroundColor = .black
+
+            print("dark")
+               } else {
+                   if let tabBarItem1 = self.tabBarController?.tabBar.items?[0] {
+                       tabBarItem1.selectedImage = UIImage(named: "Group 18")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                       tabBarItem1.image = UIImage(named: "Group 16")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                   }
+                   if let tabBarItem2 = self.tabBarController?.tabBar.items?[1] {
+                       tabBarItem2.selectedImage = UIImage(named: "Group 19")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                       tabBarItem2.image = UIImage(named: "Group 15")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                   }
+                   if let tabBarItem3 = self.tabBarController?.tabBar.items?[2] {
+                       tabBarItem3.selectedImage = UIImage(named: "Group 20")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                       tabBarItem3.image = UIImage(named: "Group 17")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                   }
+                   self.tabBarController!.tabBar.backgroundColor = .white
+
+               }
+       
+    }
     func languageSelection (){
         print(NSLocale.preferredLanguages[0].prefix(2))
-        Helper.Selectedlanguage = String(NSLocale.preferredLanguages[0].prefix(2))
-        switch Helper.Selectedlanguage{
-        case "en":
-            Helper.SelectedlanguageNumber = 0
-        case "hi":
-            Helper.SelectedlanguageNumber = 1
-        case "ru":
-            Helper.SelectedlanguageNumber = 2
-        case "id":
-            Helper.SelectedlanguageNumber = 3
-        case "jp":
-            Helper.SelectedlanguageNumber = 4
-        case "de":
-            Helper.SelectedlanguageNumber = 5
-        case "it":
-            Helper.SelectedlanguageNumber = 6
-        case "fr":
-            Helper.SelectedlanguageNumber = 7
-        case "tr":
-            Helper.SelectedlanguageNumber = 8
-        case "vn":
-            Helper.SelectedlanguageNumber = 9
-        case "sa":
-            Helper.SelectedlanguageNumber = 10
-        default:
-            Helper.SelectedlanguageNumber = 0
+        print(Utils.readLocalLang(key: "languaageSelection"))
+        if let lang = Utils.readLocalLang(key: "languaageSelection") {
+            Helper.Selectedlanguage = lang
+        }else{
+            Helper.Selectedlanguage = String(NSLocale.preferredLanguages[0].prefix(2))
+            Utils.saveLocalLang(string: "String(NSLocale.preferredLanguages[0].prefix(2))", key: "languaageSelection")
 
-            
+        }
+        switch Helper.Selectedlanguage{
+                case "en":
+                    Helper.SelectedlanguageNumber = 0
+                case "cn":
+                    Helper.SelectedlanguageNumber = 1
+                case "hi":
+                    Helper.SelectedlanguageNumber = 2
+                case "ru":
+                    Helper.SelectedlanguageNumber = 3
+                case "id":
+                    Helper.SelectedlanguageNumber = 4
+                case "jp":
+                    Helper.SelectedlanguageNumber = 5
+                case "de":
+                    Helper.SelectedlanguageNumber = 6
+                case "it":
+                    Helper.SelectedlanguageNumber = 7
+                case "fr":
+                    Helper.SelectedlanguageNumber = 8
+                case "tr":
+                    Helper.SelectedlanguageNumber = 9
+                case "vn":
+                    Helper.SelectedlanguageNumber = 10
+                case "sa":
+                    Helper.SelectedlanguageNumber = 11
+                default:
+                    Helper.SelectedlanguageNumber = 0
         }
     }
     }

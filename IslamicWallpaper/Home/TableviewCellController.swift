@@ -49,6 +49,8 @@ extension TableviewCellController: UICollectionViewDelegate, UICollectionViewDat
         
         if index == 0 {
             seeAllButton.isHidden = true
+        }else{
+            seeAllButton.isHidden = false
         }
         if indexPath.row < array.count {
             cell.image.image = array[indexPath.item]

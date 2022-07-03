@@ -6,38 +6,70 @@
 //
 
 import UIKit
-
-class FavViewController: UIViewController {
+import GoogleMobileAds
+class FavViewController: UIViewController, GADBannerViewDelegate, GADFullScreenContentDelegate {
     
    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     var favPhotos : [String] = []
     var favİmages : [UIImage] = []
+    var bannerView: GADBannerView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
        
-        titleLabel.text = Helper.favorites[Helper.SelectedlanguageNumber]
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
         
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         collectionView.collectionViewLayout = layout
+        
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
         favPhotos.removeAll()
-        favPhotos = Utils.readLocal()
+        favPhotos = Utils.readLocal(key: "SavedStringArray")
 
         favİmages.removeAll()
         findPhoto()
         collectionView.reloadData()
+        titleLabel.text = Helper.favorites[Helper.SelectedlanguageNumber]
 
     }
     
-  
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+      // Add banner to view and add constraints as above.
+      addBannerViewToView(bannerView)
+    }
+
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+          [NSLayoutConstraint(item: bannerView,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: bottomLayoutGuide,
+                              attribute: .top,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: bannerView,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+          ])
+    }
     // create favorite images array
     func findPhoto (){
         for a  in favPhotos{

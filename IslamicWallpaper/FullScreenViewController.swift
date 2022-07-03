@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class FullScreenViewController: UIViewController {
+class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFullScreenContentDelegate {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var favorite: UIView!
     
@@ -20,6 +21,8 @@ class FullScreenViewController: UIViewController {
     var position = Int ()
     var categoriPhotos : [UIImage] = []
     @IBOutlet weak var favoriteIcon: UIImageView!
+    var bannerView: GADBannerView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +52,16 @@ class FullScreenViewController: UIViewController {
         favorite.isUserInteractionEnabled = true
         favorite.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(favoriteTapped)))
         downloadButton.titleLabel?.text = Helper.download[Helper.SelectedlanguageNumber]
+        
+        bannerView = GADBannerView(adSize: GADAdSizeBanner)
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        favoritePhotos = Utils.readLocal()
+        favoritePhotos = Utils.readLocal(key: "SavedStringArray")
         isfavorite()
     }
     
@@ -116,6 +125,32 @@ class FullScreenViewController: UIViewController {
         let imageSaver = ImageSaver()
         imageSaver.writeToPhotoAlbum(image: inputImage)
     }
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+      // Add banner to view and add constraints as above.
+      addBannerViewToView(bannerView)
+    }
+
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+          [NSLayoutConstraint(item: bannerView,
+                              attribute: .bottom,
+                              relatedBy: .equal,
+                              toItem: bottomLayoutGuide,
+                              attribute: .top,
+                              multiplier: 1,
+                              constant: 0),
+           NSLayoutConstraint(item: bannerView,
+                              attribute: .centerX,
+                              relatedBy: .equal,
+                              toItem: view,
+                              attribute: .centerX,
+                              multiplier: 1,
+                              constant: 0)
+          ])
+    }
+
     func isfavorite() {
         for a in favoritePhotos{
             if UIImage(named: a) == selectedPhoto {
@@ -149,7 +184,7 @@ class FullScreenViewController: UIViewController {
                         }
     }
 }
-        Utils.saveLocal(array: favoritePhotos)
+        Utils.saveLocal(array: favoritePhotos, key: "SavedStringArray")
     }
     
 }

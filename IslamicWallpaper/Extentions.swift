@@ -8,14 +8,22 @@
 import Foundation
 class Utils{
     
-static func saveLocal (array:[String]){
+    static func saveLocal (array:[String], key : String){
     let defaults = UserDefaults.standard
-    defaults.set(array, forKey: "SavedStringArray")
+    defaults.set(array, forKey: key)
 }
-static func readLocal ()->[String]{
+    static func readLocal (key: String)->[String]{
         let defaults = UserDefaults.standard
-        let myarray = defaults.stringArray(forKey: "SavedStringArray") ?? [String]()
+        let myarray = defaults.stringArray(forKey: key) ?? [String]()
         return myarray
+    }
+    static func saveLocalLang (string:String, key : String){
+    let defaults = UserDefaults.standard
+    defaults.set(string, forKey: key)
+}
+    static func readLocalLang (key: String)->String?{
+        let defaults = UserDefaults.standard
+        return defaults.string(forKey: key)
     }
 }
 extension String {
