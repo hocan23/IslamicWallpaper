@@ -16,6 +16,8 @@ class FavoriteViewController: UIViewController , GADBannerViewDelegate, GADFullS
     var category : [UIImage] = []
     var catName : String = ""
     var bannerView: GADBannerView!
+    private var interstitial: GADInterstitialAd?
+    var isAd : Bool = false
 
     @IBOutlet weak var backButton: UIButton!
     
@@ -42,7 +44,13 @@ class FavoriteViewController: UIViewController , GADBannerViewDelegate, GADFullS
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if isAd == true {
+            self.dismiss(animated: true)
+
+            
+        }
         catagoriText.text = catName
+        createAdd()
         if self.traitCollection.userInterfaceStyle == .dark {
             catagoriText.textColor = .white
             backButton.tintColor = .white
@@ -78,8 +86,27 @@ class FavoriteViewController: UIViewController , GADBannerViewDelegate, GADFullS
     
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true)
+        if interstitial != nil {
+            interstitial?.present(fromRootViewController: self)
+            isAd = true
+        } else {
+            print("Ad wasn't ready")
+        }
 
+    }
+    func createAdd() {
+        let request = GADRequest()
+        interstitial?.fullScreenContentDelegate = self
+        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-3940256099942544/4411468910",
+                                    request: request,
+                          completionHandler: { [self] ad, error in
+                            if let error = error {
+                              print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                              return
+                            }
+                            interstitial = ad
+                          }
+                               )
     }
     
 }

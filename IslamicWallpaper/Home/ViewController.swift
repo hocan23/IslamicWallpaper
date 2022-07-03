@@ -29,6 +29,7 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
         var kaabaArray : [UIImage] = []
         var godArray : [UIImage] = []
         var ramadanArray : [UIImage] = []
+    var patternsArray : [UIImage] = []
     var discover : [UIImage] = []
         var allcatagories : [[UIImage]] = []
     var categoriNumber = 1
@@ -69,14 +70,11 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
     override func viewWillAppear(_ animated: Bool) {
         prepareLang()
         tableView.reloadData()
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if interstitial != nil {
-            interstitial?.present(fromRootViewController: self)
-        } else {
-            print("Ad wasn't ready")
-        }
+       
     }
     
     
@@ -133,7 +131,7 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return allcatagories.count
         
         
         
@@ -184,9 +182,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     
   func createArrays(){
-            for a in 1..<8 {
+            for a in 1..<9 {
                         print(a)
-                        for i in 10..<30{
+                        for i in 10..<40{
                             
                             if let c = UIImage(named: "\(a)\(i)") {
                                 switch a{
@@ -204,7 +202,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
                                     godArray.append(c)
                                 case  7:
                                     ramadanArray.append(c)
-                                
+                                case 8 :
+                                    patternsArray.append(c)
                                 default:
                                     return
                                 }
@@ -219,6 +218,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
       discover.append(kaabaArray[Int.random(in: 0..<10)])
       discover.append(godArray[Int.random(in: 0..<10)])
       discover.append(ramadanArray[Int.random(in: 0..<10)])
+      discover.append(patternsArray[Int.random(in: 0..<10)])
 
       
       allcatagories.append(discover)
@@ -230,9 +230,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             allcatagories.append(kaabaArray)
             allcatagories.append(godArray)
             allcatagories.append(ramadanArray)
+      allcatagories.append(patternsArray)
         }
     func prepareLang (){
-        categoriesTitle = [Helper.favorites[Helper.SelectedlanguageNumber],Helper.architecture[Helper.SelectedlanguageNumber],Helper.mosque[Helper.SelectedlanguageNumber],Helper.rose[Helper.SelectedlanguageNumber],Helper.kuran[Helper.SelectedlanguageNumber],Helper.kaaba[Helper.SelectedlanguageNumber],Helper.ramadan[Helper.SelectedlanguageNumber],Helper.favorites[Helper.SelectedlanguageNumber]]
+        categoriesTitle = [Helper.favorites[Helper.SelectedlanguageNumber],Helper.architecture[Helper.SelectedlanguageNumber],Helper.mosque[Helper.SelectedlanguageNumber],Helper.rose[Helper.SelectedlanguageNumber],Helper.kuran[Helper.SelectedlanguageNumber],Helper.kaaba[Helper.SelectedlanguageNumber],Helper.allah[Helper.SelectedlanguageNumber],Helper.ramadan[Helper.SelectedlanguageNumber],Helper.patterns[Helper.SelectedlanguageNumber]]
         tableView.reloadData()
     }
     

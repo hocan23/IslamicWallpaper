@@ -23,7 +23,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     @IBOutlet weak var favoriteIcon: UIImageView!
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
-
+    var isAd : Bool = false
 
     
     override func viewDidLoad() {
@@ -61,6 +61,11 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
+        if isAd == true {
+            self.dismiss(animated: true)
+
+            
+        }
         downloadButton.setTitle(Helper.download[Helper.SelectedlanguageNumber], for: .normal) 
         favoritePhotos = Utils.readLocal(key: "SavedStringArray")
         isfavorite()
@@ -68,6 +73,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
 
     }
     
+
     
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
@@ -78,10 +84,12 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
                 imageView.image = categoriPhotos[position]
 
                 UIView.transition(with: self.imageView,
-                                    duration: 2.0,
+                                    duration: 1.0,
                                     options: .transitionCrossDissolve,
                                     animations: {
                     self.selectedPhoto = self.categoriPhotos[self.position]
+                    self.isfavorite()
+
                   }, completion: nil)
 
             }
@@ -95,7 +103,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
 
             }
             UIView.transition(with: self.imageView,
-                                duration: 2.0,
+                                duration: 1.0,
                                 options: .transitionCrossDissolve,
                                 animations: {
                 self.selectedPhoto = self.categoriPhotos[self.position]
@@ -128,6 +136,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     @IBAction func backButtonTapped(_ sender: Any) {
         if interstitial != nil {
             interstitial?.present(fromRootViewController: self)
+            isAd = true
         } else {
             print("Ad wasn't ready")
         }
@@ -174,12 +183,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         }
 
         //Tells the delegate the interstitial had been animated off the screen.
-        func interstitialDidDismissScreen(_ ad: GADInterstitialAd) {
-            print("interstitialDidDismissScreen")
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let myVC = storyboard.instantiateViewController(withIdentifier: "newVC")
-            self.present(myVC, animated: true, completion: nil)
-        }
+    
     
     
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
@@ -212,6 +216,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         for a in favoritePhotos{
             if UIImage(named: a) == selectedPhoto {
                 favoriteIcon.image = UIImage(named: "Group 52")
+                break
 
             }else{
                 favoriteIcon.image = UIImage(named: "Group 51")

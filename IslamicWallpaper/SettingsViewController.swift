@@ -43,7 +43,7 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
-
+       
     }
   
     override func viewWillAppear(_ animated: Bool) {
