@@ -97,7 +97,7 @@ class FavoriteViewController: UIViewController , GADBannerViewDelegate, GADFullS
     func createAdd() {
         let request = GADRequest()
         interstitial?.fullScreenContentDelegate = self
-        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-3940256099942544/4411468910",
+        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-1501030234998564/7610227592",
                                     request: request,
                           completionHandler: { [self] ad, error in
                             if let error = error {

@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMobileAds
 
-class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBannerViewDelegate, GADFullScreenContentDelegate, GADAdLoaderDelegate, GADNativeAdLoaderDelegate {
+class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBannerViewDelegate, GADFullScreenContentDelegate, GADAdLoaderDelegate, GADNativeAdLoaderDelegate, GADNativeAdDelegate {
     func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
         print("dsa")
     }
@@ -28,21 +28,21 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
     
     @IBOutlet weak var tableView: UITableView!
     var arcArray : [UIImage] = []
-        var mosqArray : [UIImage] = []
-        var roseArray : [UIImage] = []
-        var kuranArray : [UIImage] = []
-        var kaabaArray : [UIImage] = []
-        var godArray : [UIImage] = []
-        var ramadanArray : [UIImage] = []
+    var mosqArray : [UIImage] = []
+    var roseArray : [UIImage] = []
+    var kuranArray : [UIImage] = []
+    var kaabaArray : [UIImage] = []
+    var godArray : [UIImage] = []
+    var ramadanArray : [UIImage] = []
     var patternsArray : [UIImage] = []
     var discover : [UIImage] = []
-        var allcatagories : [[UIImage]] = []
+    var allcatagories : [[UIImage]] = []
     var categoriNumber = 1
     var categoriesTitle : [String] = []
     var adLoader : GADAdLoader!
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
-
+    
     @IBOutlet weak var vv: UIView!
     
     @IBOutlet weak var vvgg: UIImageView!
@@ -59,7 +59,7 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
         
         
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = "ca-app-pub-1501030234998564/5367207636"
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
@@ -69,82 +69,142 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
         let multipleAdsOptions = GADMultipleAdsAdLoaderOptions()
         multipleAdsOptions.numberOfAds = 5
         adLoader = GADAdLoader(adUnitID: "ca-app-pub-3940256099942544/3986624511",
-            rootViewController: self,
-            adTypes: [ .native ],
+                               rootViewController: self,
+                               adTypes: [ .native ],
                                options: [multipleAdsOptions])
         adLoader.delegate = self
         adLoader.load(GADRequest())
     }
     func adLoader(_ adLoader: GADAdLoader,
-                   didReceive nativeAd: GADNativeAd) {
-       // A native ad has loaded, and can be displayed.
-        adLoader.delegate = self
-       
-    
+                  didReceive nativeAd: GADNativeAd) {
+        //       // A native ad has loaded, and can be displayed.
+        //        print("Received native ad: \(nativeAd)")
+        //         // Create and place ad in view hierarchy.
+        //         let nibView = Bundle.main.loadNibNamed("NativeAdView", owner: nil, options: nil)?.first
+        //         guard let nativeAdView = nibView as? GADNativeAdView else {
+        //           return
+        //         }
+        ////         setAdView(nativeAdView)
+        //
+        //         // Set ourselves as the native ad delegate to be notified of native ad events.
+        //         nativeAd.delegate = self
+        //
+        //         // Populate the native ad view with the native ad assets.
+        //         // The headline and mediaContent are guaranteed to be present in every native ad.
+        //         (nativeAdView.headlineView as? UILabel)?.text = nativeAd.headline
+        //         nativeAdView.mediaView?.mediaContent = nativeAd.mediaContent
+        //
+        //         // This app uses a fixed width for the GADMediaView and changes its height to match the aspect
+        //         // ratio of the media it displays.
+        //         if let mediaView = nativeAdView.mediaView, nativeAd.mediaContent.aspectRatio > 0 {
+        //           let heightConstraint = NSLayoutConstraint(
+        //             item: mediaView,
+        //             attribute: .height,
+        //             relatedBy: .equal,
+        //             toItem: mediaView,
+        //             attribute: .width,
+        //             multiplier: CGFloat(1 / nativeAd.mediaContent.aspectRatio),
+        //             constant: 0)
+        //           heightConstraint.isActive = true
+        //         }
+        //
+        //         // These assets are not guaranteed to be present. Check that they are before
+        //         // showing or hiding them.
+        //         (nativeAdView.bodyView as? UILabel)?.text = nativeAd.body
+        //         nativeAdView.bodyView?.isHidden = nativeAd.body == nil
+        //
+        //         (nativeAdView.callToActionView as? UIButton)?.setTitle(nativeAd.callToAction, for: .normal)
+        //         nativeAdView.callToActionView?.isHidden = nativeAd.callToAction == nil
+        //
+        //         (nativeAdView.iconView as? UIImageView)?.image = nativeAd.icon?.image
+        //         nativeAdView.iconView?.isHidden = nativeAd.icon == nil
+        //
+        ////         (nativeAdView.starRatingView as? UIImageView)?.image = imageOfStars(
+        ////           fromStarRating: nativeAd.starRating)
+        //         nativeAdView.starRatingView?.isHidden = nativeAd.starRating == nil
+        //
+        //         (nativeAdView.storeView as? UILabel)?.text = nativeAd.store
+        //         nativeAdView.storeView?.isHidden = nativeAd.store == nil
+        //
+        //         (nativeAdView.priceView as? UILabel)?.text = nativeAd.price
+        //         nativeAdView.priceView?.isHidden = nativeAd.price == nil
+        //
+        //         (nativeAdView.advertiserView as? UILabel)?.text = nativeAd.advertiser
+        //         nativeAdView.advertiserView?.isHidden = nativeAd.advertiser == nil
+        //
+        //         // In order for the SDK to process touch events properly, user interaction should be disabled.
+        //         nativeAdView.callToActionView?.isUserInteractionEnabled = false
+        //
+        //         // Associate the native ad view with the native ad object. This is
+        //         // required to make the ad clickable.
+        //         // Note: this should always be done after populating the ad views.
+        //         nativeAdView.nativeAd = nativeAd
         
-     }
-
-     func adLoaderDidFinishLoading(_ adLoader: GADAdLoader) {
-         // The adLoader has finished loading ads, and a new request can be sent.
-     }
+        
+        
+    }
+    
+    func adLoaderDidFinishLoading(_ adLoader: GADAdLoader) {
+        // The adLoader has finished loading ads, and a new request can be sent.
+    }
     override func viewWillAppear(_ animated: Bool) {
         prepareLang()
         tableView.reloadData()
-       
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       
+        
     }
     
     
     func createAdd() {
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-3940256099942544/4411468910",
-                                    request: request,
-                          completionHandler: { [self] ad, error in
-                            if let error = error {
-                              print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                              return
-                            }
-                            interstitial = ad
-                          }
-                               )
+        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-1501030234998564/7610227592",
+                               request: request,
+                               completionHandler: { [self] ad, error in
+            if let error = error {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                return
+            }
+            interstitial = ad
+        }
+        )
     }
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-      // Add banner to view and add constraints as above.
-      addBannerViewToView(bannerView)
+        // Add banner to view and add constraints as above.
+        addBannerViewToView(bannerView)
     }
-
+    
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerView)
         view.addConstraints(
-          [NSLayoutConstraint(item: bannerView,
-                              attribute: .bottom,
-                              relatedBy: .equal,
-                              toItem: bottomLayoutGuide,
-                              attribute: .top,
-                              multiplier: 1,
-                              constant: 0),
-           NSLayoutConstraint(item: bannerView,
-                              attribute: .centerX,
-                              relatedBy: .equal,
-                              toItem: view,
-                              attribute: .centerX,
-                              multiplier: 1,
-                              constant: 0)
-          ])
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
-
     
-//    @objc func tableViewTapped(recognizer: UITapGestureRecognizer) {
-//        let location = recognizer.location(in: self.tableView) // point of touch in tableView
-//        if let indexPath = self.tableView.indexPathForRow(at: location) { // indexPath of touch location
-//            print(indexPath)
-//            categoriNumber = indexPath.row
-//        }
-//    }
+    
+    //    @objc func tableViewTapped(recognizer: UITapGestureRecognizer) {
+    //        let location = recognizer.location(in: self.tableView) // point of touch in tableView
+    //        if let indexPath = self.tableView.indexPathForRow(at: location) { // indexPath of touch location
+    //            print(indexPath)
+    //            categoriNumber = indexPath.row
+    //        }
+    //    }
     
     
 }
@@ -174,7 +234,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         cell.index = indexPath.row
         cell.seeAllButton.addTarget(self, action:#selector(seeAllbtnPressed(sender:)), for: .touchUpInside)
         
-
+        
         cell.delegate = self
         return cell
     }
@@ -202,59 +262,59 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     
     
-  func createArrays(){
-            for a in 1..<9 {
-                        print(a)
-                        for i in 10..<40{
-                            
-                            if let c = UIImage(named: "\(a)\(i)") {
-                                switch a{
-                                case  1:
-                                    arcArray.append(c)
-                                case 2:
-                                    mosqArray.append(c)
-                                case  3:
-                                    roseArray.append(c)
-                                case  4:
-                                    kuranArray.append(c)
-                                case  5:
-                                    kaabaArray.append(c)
-                                case  6:
-                                    godArray.append(c)
-                                case  7:
-                                    ramadanArray.append(c)
-                                case 8 :
-                                    patternsArray.append(c)
-                                default:
-                                    return
-                                }
-                                }
-                        }
+    func createArrays(){
+        for a in 1..<9 {
+            print(a)
+            for i in 10..<40{
+                
+                if let c = UIImage(named: "\(a)\(i)") {
+                    switch a{
+                    case  1:
+                        arcArray.append(c)
+                    case 2:
+                        mosqArray.append(c)
+                    case  3:
+                        roseArray.append(c)
+                    case  4:
+                        kuranArray.append(c)
+                    case  5:
+                        kaabaArray.append(c)
+                    case  6:
+                        godArray.append(c)
+                    case  7:
+                        ramadanArray.append(c)
+                    case 8 :
+                        patternsArray.append(c)
+                    default:
+                        return
                     }
-      
-        discover.append(arcArray[Int.random(in: 0..<10)])
-      discover.append(mosqArray[Int.random(in: 0..<10)])
-      discover.append(roseArray[Int.random(in: 0..<10)])
-      discover.append(kuranArray[Int.random(in: 0..<10)])
-      discover.append(kaabaArray[Int.random(in: 0..<10)])
-      discover.append(godArray[Int.random(in: 0..<10)])
-      discover.append(ramadanArray[Int.random(in: 0..<10)])
-      discover.append(patternsArray[Int.random(in: 0..<10)])
-
-      
-      allcatagories.append(discover)
-
-            allcatagories.append(arcArray)
-            allcatagories.append(mosqArray)
-            allcatagories.append(roseArray)
-            allcatagories.append(kuranArray)
-            allcatagories.append(kaabaArray)
-            allcatagories.append(godArray)
-            allcatagories.append(ramadanArray)
-      allcatagories.append(patternsArray)
+                }
+            }
         }
+        for a in 0..<2{
+            discover.append(arcArray[Int.random(in: 0..<10)])
+            discover.append(mosqArray[Int.random(in: 0..<10)])
+            discover.append(roseArray[Int.random(in: 0..<10)])
+            discover.append(kuranArray[Int.random(in: 0..<10)])
+            discover.append(kaabaArray[Int.random(in: 0..<10)])
+            discover.append(godArray[Int.random(in: 0..<10)])
+            discover.append(ramadanArray[Int.random(in: 0..<10)])
+            discover.append(patternsArray[Int.random(in: 0..<10)])
+        }
+        
+        allcatagories.append(discover)
+        
+        allcatagories.append(arcArray)
+        allcatagories.append(mosqArray)
+        allcatagories.append(roseArray)
+        allcatagories.append(kuranArray)
+        allcatagories.append(kaabaArray)
+        allcatagories.append(godArray)
+        allcatagories.append(ramadanArray)
+        allcatagories.append(patternsArray)
+    }
     func prepareLang (){
-        categoriesTitle = [Helper.favorites[Helper.SelectedlanguageNumber],Helper.architecture[Helper.SelectedlanguageNumber],Helper.mosque[Helper.SelectedlanguageNumber],Helper.rose[Helper.SelectedlanguageNumber],Helper.kuran[Helper.SelectedlanguageNumber],Helper.kaaba[Helper.SelectedlanguageNumber],Helper.allah[Helper.SelectedlanguageNumber],Helper.ramadan[Helper.SelectedlanguageNumber],Helper.patterns[Helper.SelectedlanguageNumber]]
+        categoriesTitle = [Helper.discover[Helper.SelectedlanguageNumber],Helper.architecture[Helper.SelectedlanguageNumber],Helper.mosque[Helper.SelectedlanguageNumber],Helper.rose[Helper.SelectedlanguageNumber],Helper.kuran[Helper.SelectedlanguageNumber],Helper.kaaba[Helper.SelectedlanguageNumber],Helper.allah[Helper.SelectedlanguageNumber],Helper.ramadan[Helper.SelectedlanguageNumber],Helper.patterns[Helper.SelectedlanguageNumber]]
         tableView.reloadData()
     }
     
@@ -277,25 +337,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             tabBarAppearance.isTranslucent = false
             tabBarAppearance.barTintColor = .black
             tabBarAppearance.backgroundColor = .black
-
+            
             print("dark")
-               } else {
-                   if let tabBarItem1 = self.tabBarController?.tabBar.items?[0] {
-                       tabBarItem1.selectedImage = UIImage(named: "Group 18")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-                       tabBarItem1.image = UIImage(named: "Group 16")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-                   }
-                   if let tabBarItem2 = self.tabBarController?.tabBar.items?[1] {
-                       tabBarItem2.selectedImage = UIImage(named: "Group 19")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-                       tabBarItem2.image = UIImage(named: "Group 15")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-                   }
-                   if let tabBarItem3 = self.tabBarController?.tabBar.items?[2] {
-                       tabBarItem3.selectedImage = UIImage(named: "Group 20")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-                       tabBarItem3.image = UIImage(named: "Group 17")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-                   }
-                   self.tabBarController!.tabBar.backgroundColor = .white
-
-               }
-       
+        } else {
+            if let tabBarItem1 = self.tabBarController?.tabBar.items?[0] {
+                tabBarItem1.selectedImage = UIImage(named: "Group 18")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem1.image = UIImage(named: "Group 16")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+            }
+            if let tabBarItem2 = self.tabBarController?.tabBar.items?[1] {
+                tabBarItem2.selectedImage = UIImage(named: "Group 19")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem2.image = UIImage(named: "Group 15")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+            }
+            if let tabBarItem3 = self.tabBarController?.tabBar.items?[2] {
+                tabBarItem3.selectedImage = UIImage(named: "Group 20")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem3.image = UIImage(named: "Group 17")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+            }
+            self.tabBarController!.tabBar.backgroundColor = .white
+            
+        }
+        
     }
     func languageSelection (){
         print(NSLocale.preferredLanguages[0].prefix(2))
@@ -305,39 +365,39 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         }else{
             Helper.Selectedlanguage = String(NSLocale.preferredLanguages[0].prefix(2))
             Utils.saveLocalLang(string: "String(NSLocale.preferredLanguages[0].prefix(2))", key: "languaageSelection")
-
+            
         }
         switch Helper.Selectedlanguage{
-                case "en":
-                    Helper.SelectedlanguageNumber = 0
-                case "cn":
-                    Helper.SelectedlanguageNumber = 1
-                case "hi":
-                    Helper.SelectedlanguageNumber = 2
-                case "ru":
-                    Helper.SelectedlanguageNumber = 3
-                case "id":
-                    Helper.SelectedlanguageNumber = 4
-                case "jp":
-                    Helper.SelectedlanguageNumber = 5
-                case "de":
-                    Helper.SelectedlanguageNumber = 6
-                case "it":
-                    Helper.SelectedlanguageNumber = 7
-                case "fr":
-                    Helper.SelectedlanguageNumber = 8
-                case "tr":
-                    Helper.SelectedlanguageNumber = 9
-                case "vn":
-                    Helper.SelectedlanguageNumber = 10
-                case "sa":
-                    Helper.SelectedlanguageNumber = 11
-                default:
-                    Helper.SelectedlanguageNumber = 0
+        case "en":
+            Helper.SelectedlanguageNumber = 0
+        case "cn":
+            Helper.SelectedlanguageNumber = 1
+        case "hi":
+            Helper.SelectedlanguageNumber = 2
+        case "ru":
+            Helper.SelectedlanguageNumber = 3
+        case "id":
+            Helper.SelectedlanguageNumber = 4
+        case "jp":
+            Helper.SelectedlanguageNumber = 5
+        case "de":
+            Helper.SelectedlanguageNumber = 6
+        case "it":
+            Helper.SelectedlanguageNumber = 7
+        case "fr":
+            Helper.SelectedlanguageNumber = 8
+        case "tr":
+            Helper.SelectedlanguageNumber = 9
+        case "vn":
+            Helper.SelectedlanguageNumber = 10
+        case "sa":
+            Helper.SelectedlanguageNumber = 11
+        default:
+            Helper.SelectedlanguageNumber = 0
         }
     }
-    }
-    
+}
+
 
 
 
