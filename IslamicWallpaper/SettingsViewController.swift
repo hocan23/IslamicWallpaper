@@ -22,7 +22,7 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
             languageButton.tintColor = .white
         }    }
     
-  
+    
     
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -30,12 +30,12 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
     @IBOutlet weak var otherApps: UIButton!
     @IBOutlet weak var languageButton: UIButton!
     var bannerView: GADBannerView!
-
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            // Do something
+        // Do something
         
         
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
@@ -43,9 +43,9 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
-       
+        
     }
-  
+    
     override func viewWillAppear(_ animated: Bool) {
         titleLabel.text = Helper.settings[Helper.SelectedlanguageNumber]
         print(Helper.shareapp[Helper.SelectedlanguageNumber])
@@ -61,57 +61,57 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
         }
     }
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
-      // Add banner to view and add constraints as above.
-      addBannerViewToView(bannerView)
+        // Add banner to view and add constraints as above.
+        addBannerViewToView(bannerView)
     }
-   
-
+    
+    
     func addBannerViewToView(_ bannerView: GADBannerView) {
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(bannerView)
         view.addConstraints(
-          [NSLayoutConstraint(item: bannerView,
-                              attribute: .bottom,
-                              relatedBy: .equal,
-                              toItem: bottomLayoutGuide,
-                              attribute: .top,
-                              multiplier: 1,
-                              constant: 0),
-           NSLayoutConstraint(item: bannerView,
-                              attribute: .centerX,
-                              relatedBy: .equal,
-                              toItem: view,
-                              attribute: .centerX,
-                              multiplier: 1,
-                              constant: 0)
-          ])
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 1,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
     @IBAction func sharePressed(_ sender: Any) {
         if let name = URL(string: "https://apps.apple.com/us/app/islamic-wallpaper-hd-pro/id1632238123"), !name.absoluteString.isEmpty {
-          let objectsToShare = [name]
-          let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-          self.present(activityVC, animated: true, completion: nil)
+            let objectsToShare = [name]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            self.present(activityVC, animated: true, completion: nil)
         } else {
-          // show alert for not available
+            // show alert for not available
         }
-//        UIGraphicsBeginImageContext(view.frame.size)
-//                view.layer.render(in: UIGraphicsGetCurrentContext()!)
-//                let image = UIGraphicsGetImageFromCurrentImageContext()
-//                UIGraphicsEndImageContext()
-//
-//                let textToShare = "Check out my app"
-//
-//                if let myWebsite = URL(string: " https://apps.apple.com/us/app/islamic-wallpaper-hd-pro/id1632238123") {//Enter link to your app here
-//                    let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "app-logo")] as [Any]
-//                    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-//
-//                    //Excluded Activities
-//                    activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
-//                    //
-//
-//                    activityVC.popoverPresentationController?.sourceView = sender as? UIView
-//                    self.present(activityVC, animated: true, completion: nil)
-//                }
+        //        UIGraphicsBeginImageContext(view.frame.size)
+        //                view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        //                let image = UIGraphicsGetImageFromCurrentImageContext()
+        //                UIGraphicsEndImageContext()
+        //
+        //                let textToShare = "Check out my app"
+        //
+        //                if let myWebsite = URL(string: " https://apps.apple.com/us/app/islamic-wallpaper-hd-pro/id1632238123") {//Enter link to your app here
+        //                    let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "app-logo")] as [Any]
+        //                    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        //
+        //                    //Excluded Activities
+        //                    activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+        //                    //
+        //
+        //                    activityVC.popoverPresentationController?.sourceView = sender as? UIView
+        //                    self.present(activityVC, animated: true, completion: nil)
+        //                }
     }
     
     @IBAction func otherApps(_ sender: Any) {
@@ -125,13 +125,13 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "LanguageSelectionViewController") as! LanguageSelectionViewController
         newViewController.delegate = self
         self.present(newViewController, animated: true, completion: nil)
-       
-      
+        
+        
     }
-   
     
     
     
     
-
+    
+    
 }

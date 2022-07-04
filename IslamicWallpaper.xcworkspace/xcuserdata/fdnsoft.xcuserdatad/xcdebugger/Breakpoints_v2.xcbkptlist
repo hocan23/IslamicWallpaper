@@ -14,8 +14,8 @@
             filePath = "IslamicWallpaper/Home/ViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "createAdd()"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,32 +23,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3C1AFB19-4B1D-4E14-9B74-95237C3935FC"
+            uuid = "076C374B-2607-4EC0-845F-FE9C56585BE2"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "IslamicWallpaper/FullScreenViewController.swift"
+            filePath = "IslamicWallpaper/Catagory/FavoriteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "257"
-            endingLineNumber = "257"
-            landmarkName = "interstitialWillDismissScreen(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B3312417-257D-4F4A-88B6-521C5C1898D8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "IslamicWallpaper/FullScreenViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "viewWillAppear(_:)"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "notShowAd()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

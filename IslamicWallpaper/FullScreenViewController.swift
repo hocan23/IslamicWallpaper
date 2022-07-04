@@ -9,7 +9,9 @@ import UIKit
 import GoogleMobileAds
 import Lottie
 import Photos
-
+protocol SawAdInFullScreeen {
+    func notShowAd()
+}
 class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFullScreenContentDelegate  {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var favorite: UIView!
@@ -30,6 +32,8 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     var swipeCount : Int = 0
     let animationView = AnimationView()
     let animationBackView = UIView()
+    var delegate : SawAdInFullScreeen?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -210,6 +214,8 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         if interstitial != nil {
             interstitial?.present(fromRootViewController: self)
             isAd = true
+            delegate?.notShowAd()
+
         } else {
             print("Ad wasn't ready")
             self.dismiss(animated: true)
@@ -223,19 +229,9 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         downloadButton.zoomIn()
         
             guard let inputImage = selectedPhoto else { return }
-            
-            //        let imageSaver = ImageSaver()
-//            writeToPhotoAlbum(image: inputImage)
+         
         openGallery()
-        
-        
-        
-        
-        
-        //        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
-        //            self.succesDownload.isHidden = true
-        //
-        //        }
+       
     }
     
     func createAdd() {
@@ -256,11 +252,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     func interstitialWillDismissScreen(_ ad: GADInterstitialAd) {
         print("interstitialWillDismissScreen")
     }
-    
-    //Tells the delegate the interstitial had been animated off the screen.
-    
-    
-    
+   
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         // Add banner to view and add constraints as above.
         addBannerViewToView(bannerView)
@@ -381,15 +373,3 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     
 }
 
-//class ImageSaver: NSObject {
-//
-//    func writeToPhotoAlbum(image: UIImage) {
-//        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
-//    }
-//
-//    @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer)->Bool {
-//        print("Save finished!")
-//        return true
-//    }
-//
-//}

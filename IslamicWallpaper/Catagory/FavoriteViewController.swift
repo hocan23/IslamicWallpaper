@@ -7,7 +7,11 @@
 
 import UIKit
 import GoogleMobileAds
-class FavoriteViewController: UIViewController , GADBannerViewDelegate, GADFullScreenContentDelegate {
+class FavoriteViewController: UIViewController , GADBannerViewDelegate, GADFullScreenContentDelegate, SawAdInFullScreeen {
+    func notShowAd() {
+        isSeenAd = true
+    }
+    
     
     
    
@@ -18,6 +22,7 @@ class FavoriteViewController: UIViewController , GADBannerViewDelegate, GADFullS
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
     var isAd : Bool = false
+    var isSeenAd : Bool = false
 
     @IBOutlet weak var backButton: UIButton!
     
@@ -87,8 +92,13 @@ class FavoriteViewController: UIViewController , GADBannerViewDelegate, GADFullS
     
     @IBAction func backButtonPressed(_ sender: Any) {
         if interstitial != nil {
+            if isSeenAd == false{
             interstitial?.present(fromRootViewController: self)
             isAd = true
+            }else{
+                self.dismiss(animated: true)
+
+            }
         } else {
             print("Ad wasn't ready")
             self.dismiss(animated: true)
@@ -145,6 +155,7 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewData
         // handle tap events
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "FullScreenViewController") as! FullScreenViewController
+        newViewController.delegate = self
         newViewController.modalPresentationStyle = .fullScreen
         newViewController.selectedPhoto = category[indexPath.row]
         newViewController.categoriPhotos = category
