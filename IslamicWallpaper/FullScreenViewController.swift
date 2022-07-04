@@ -59,7 +59,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         
         
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
-        bannerView.adUnitID = "ca-app-pub-1501030234998564/5367207636"
+        bannerView.adUnitID = Utils.bannerId
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
@@ -212,6 +212,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
             isAd = true
         } else {
             print("Ad wasn't ready")
+            self.dismiss(animated: true)
         }
         //        self.dismiss(animated: true)
         
@@ -240,7 +241,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     func createAdd() {
         let request = GADRequest()
         interstitial?.fullScreenContentDelegate = self
-        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-1501030234998564/7610227592",
+        GADInterstitialAd.load(withAdUnitID:Utils.fullScreenAdId,
                                request: request,
                                completionHandler: { [self] ad, error in
             if let error = error {
@@ -314,9 +315,9 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     
     
     func findPhoto (){
-        for a in 1..<8 {
+        for a in 1..<9 {
             print(a)
-            for i in 10..<30{
+            for i in 10..<40{
                 
                 if let c = UIImage(named: "\(a)\(i)") {
                     if c == selectedPhoto{

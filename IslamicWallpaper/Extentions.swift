@@ -8,7 +8,12 @@
 import Foundation
 import UIKit
 class Utils{
+   
+    static var fullScreenAdId = " ca-app-pub-3940256099942544/4411468910"
+    static var  bannerId = "ca-app-pub-3940256099942544/2934735716"
     
+//    static var fullScreenAdId = "ca-app-pub-1501030234998564/7610227592"
+//    static var  bannerId = "ca-app-pub-1501030234998564/5367207636"
     static func saveLocal (array:[String], key : String){
     let defaults = UserDefaults.standard
     defaults.set(array, forKey: key)

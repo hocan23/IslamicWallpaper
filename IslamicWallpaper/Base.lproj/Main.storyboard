@@ -560,7 +560,7 @@
                                             <backgroundConfiguration key="background">
                                                 <color key="backgroundColor" red="0.0" green="1" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             </backgroundConfiguration>
-                                            <fontDescription key="titleFontDescription" name="CeraPro-Bold" family="Cera Pro" pointSize="20"/>
+                                            <fontDescription key="titleFontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
                                             <color key="baseForegroundColor" red="0.0" green="0.24313725489999999" blue="0.0" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
                                         </buttonConfiguration>
                                         <connections>

@@ -39,7 +39,7 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
         
         
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
-        bannerView.adUnitID = "ca-app-pub-1501030234998564/5367207636"
+        bannerView.adUnitID = Utils.bannerId
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self

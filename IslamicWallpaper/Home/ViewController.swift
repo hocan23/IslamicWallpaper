@@ -59,7 +59,7 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
         
         
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
-        bannerView.adUnitID = "ca-app-pub-1501030234998564/5367207636"
+        bannerView.adUnitID = Utils.bannerId
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
@@ -160,7 +160,7 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
     
     func createAdd() {
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-1501030234998564/7610227592",
+        GADInterstitialAd.load(withAdUnitID:Utils.fullScreenAdId,
                                request: request,
                                completionHandler: { [self] ad, error in
             if let error = error {

@@ -36,7 +36,7 @@ class FavoriteViewController: UIViewController , GADBannerViewDelegate, GADFullS
         
         
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
-        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.adUnitID = Utils.bannerId
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
@@ -91,13 +91,14 @@ class FavoriteViewController: UIViewController , GADBannerViewDelegate, GADFullS
             isAd = true
         } else {
             print("Ad wasn't ready")
+            self.dismiss(animated: true)
         }
 
     }
     func createAdd() {
         let request = GADRequest()
         interstitial?.fullScreenContentDelegate = self
-        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-1501030234998564/7610227592",
+        GADInterstitialAd.load(withAdUnitID:Utils.fullScreenAdId,
                                     request: request,
                           completionHandler: { [self] ad, error in
                             if let error = error {
