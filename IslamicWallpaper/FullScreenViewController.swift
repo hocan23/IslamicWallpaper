@@ -137,6 +137,9 @@ let animationView = AnimationView()
                     self.selectedPhoto = self.categoriPhotos[self.position]
                     self.isfavorite()
                     self.swipeCounter()
+                    if self.position == self.categoriPhotos.count-1{
+                        self.position = 0
+                    }
                     
 
                   }, completion: nil)
@@ -150,6 +153,8 @@ let animationView = AnimationView()
 
                 imageView.image = categoriPhotos[position]
 
+            }else{
+                imageView.image = categoriPhotos[self.categoriPhotos.count-1]
             }
             UIView.transition(with: self.imageView,
                                 duration: 1.0,
@@ -160,6 +165,9 @@ let animationView = AnimationView()
             
             isfavorite()
             swipeCounter()
+            if self.position == 0{
+                self.position = self.categoriPhotos.count-1
+            }
            }
     }
     func swipeCounter (){
@@ -213,9 +221,11 @@ let animationView = AnimationView()
         downloadButton.zoomIn()
         guard let inputImage = selectedPhoto else { return }
         
-        let imageSaver = ImageSaver()
-        imageSaver.writeToPhotoAlbum(image: inputImage)
-        setupDownloadAnimation()
+//        let imageSaver = ImageSaver()
+        writeToPhotoAlbum(image: inputImage)
+       
+
+        
 //        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
 //            self.succesDownload.isHidden = true
 //
@@ -284,6 +294,17 @@ let animationView = AnimationView()
         }
     }
     
+//
+    func writeToPhotoAlbum(image: UIImage) {
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
+    }
+    
+    @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer)->Bool {
+        print("Save finished!")
+        setupDownloadAnimation()
+
+        return true
+    }
   
     
     
@@ -310,14 +331,15 @@ let animationView = AnimationView()
     
 }
 
-class ImageSaver: NSObject {
-    func writeToPhotoAlbum(image: UIImage) {
-        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
-    }
-    
-    @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer)->Bool {
-        print("Save finished!")
-        return true
-    }
-    
-}
+//class ImageSaver: NSObject {
+//
+//    func writeToPhotoAlbum(image: UIImage) {
+//        UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
+//    }
+//
+//    @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer)->Bool {
+//        print("Save finished!")
+//        return true
+//    }
+//
+//}

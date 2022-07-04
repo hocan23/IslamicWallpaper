@@ -43,7 +43,9 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
 
-  
+    @IBOutlet weak var vv: UIView!
+    
+    @IBOutlet weak var vvgg: UIImageView!
     
     
     override func viewDidLoad() {
@@ -77,6 +79,8 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
                    didReceive nativeAd: GADNativeAd) {
        // A native ad has loaded, and can be displayed.
         adLoader.delegate = self
+       
+    
         
      }
 
@@ -162,6 +166,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as? TableviewCellController else {fatalError()}
+        
         cell.array = allcatagories[indexPath.row]
         cell.selectionStyle = .none
         cell.categories.text = categoriesTitle[indexPath.row]

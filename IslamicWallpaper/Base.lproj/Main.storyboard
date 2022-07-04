@@ -509,8 +509,8 @@
                         <constraints>
                             <constraint firstItem="8hS-Th-GEt" firstAttribute="trailing" secondItem="kbr-t5-uCk" secondAttribute="trailing" id="7V8-Z0-Io1"/>
                             <constraint firstItem="kbr-t5-uCk" firstAttribute="top" secondItem="8hS-Th-GEt" secondAttribute="top" constant="40" id="9Og-Vu-xn3"/>
+                            <constraint firstItem="8hS-Th-GEt" firstAttribute="bottom" secondItem="kbr-t5-uCk" secondAttribute="bottom" constant="50" id="Bsw-Uu-hLe"/>
                             <constraint firstItem="kbr-t5-uCk" firstAttribute="leading" secondItem="8hS-Th-GEt" secondAttribute="leading" id="hN2-74-66D"/>
-                            <constraint firstItem="8hS-Th-GEt" firstAttribute="bottom" secondItem="kbr-t5-uCk" secondAttribute="bottom" constant="50" id="k6r-eo-ESb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" selectedImage="Group 18" id="hvV-pS-zHB"/>
