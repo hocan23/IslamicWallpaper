@@ -70,8 +70,8 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
             self.dismiss(animated: true)
             
         }
-        
-        downloadButton.setTitle(Helper.download[Helper.SelectedlanguageNumber], for: .selected)
+        print(Helper.download[Helper.SelectedlanguageNumber])
+        downloadButton.setTitle(Helper.download[Helper.SelectedlanguageNumber], for: .normal)
         favoritePhotos = Utils.readLocal(key: "SavedStringArray")
         isfavorite()
         createAdd()
