@@ -8,7 +8,11 @@
 import UIKit
 import GoogleMobileAds
 
-class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBannerViewDelegate, GADFullScreenContentDelegate {
+class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBannerViewDelegate, GADFullScreenContentDelegate, GADAdLoaderDelegate, GADNativeAdLoaderDelegate {
+    func adLoader(_ adLoader: GADAdLoader, didFailToReceiveAdWithError error: Error) {
+        print("dsa")
+    }
+    
     func selectPhotoTapped(value: Int, tableIndex: Int) {
         print(value)
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -16,6 +20,7 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
         newViewController.modalPresentationStyle = .fullScreen
         newViewController.categoriPhotos = allcatagories[tableIndex]
         newViewController.selectedPhoto = allcatagories[tableIndex][value]
+        newViewController.position = value
         
         self.present(newViewController, animated: true, completion: nil)
     }
@@ -34,7 +39,7 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
         var allcatagories : [[UIImage]] = []
     var categoriNumber = 1
     var categoriesTitle : [String] = []
-    
+    var adLoader : GADAdLoader!
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
 
@@ -59,14 +64,25 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
         
         createAdd()
         
-        
-       
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tableViewTapped(recognizer:)))
-//        tableView.addGestureRecognizer(tapGestureRecognizer)
-        //        tabBarItem[0].selectedImage = UIImage(named: "Group 18")?.withRenderingMode(.alwaysOriginal);
-        //        tabBarItem[0].image = UIImage(named: "Group 16");
-        // Do any additional setup after loading the view.
+        let multipleAdsOptions = GADMultipleAdsAdLoaderOptions()
+        multipleAdsOptions.numberOfAds = 5
+        adLoader = GADAdLoader(adUnitID: "ca-app-pub-3940256099942544/3986624511",
+            rootViewController: self,
+            adTypes: [ .native ],
+                               options: [multipleAdsOptions])
+        adLoader.delegate = self
+        adLoader.load(GADRequest())
     }
+    func adLoader(_ adLoader: GADAdLoader,
+                   didReceive nativeAd: GADNativeAd) {
+       // A native ad has loaded, and can be displayed.
+        adLoader.delegate = self
+        
+     }
+
+     func adLoaderDidFinishLoading(_ adLoader: GADAdLoader) {
+         // The adLoader has finished loading ads, and a new request can be sent.
+     }
     override func viewWillAppear(_ animated: Bool) {
         prepareLang()
         tableView.reloadData()

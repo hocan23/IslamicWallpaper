@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMobileAds
+import Lottie
 
 class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFullScreenContentDelegate  {
     @IBOutlet weak var backButton: UIButton!
@@ -24,7 +25,10 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
     var isAd : Bool = false
-
+    var isFirst : String = "true"
+    var swipeCount : Int = 0
+let animationView = AnimationView()
+    let animationBackView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,24 +67,67 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     override func viewWillAppear(_ animated: Bool) {
         if isAd == true {
             self.dismiss(animated: true)
-
-            
+   
         }
+       
         downloadButton.setTitle(Helper.download[Helper.SelectedlanguageNumber], for: .normal) 
         favoritePhotos = Utils.readLocal(key: "SavedStringArray")
         isfavorite()
         createAdd()
+        if Utils.readLocalLang(key: "isFirst") != "false"{
+            swipeAnimation()
+            Utils.saveLocalLang(string: "false", key: "isFirst")
 
+        }
+
+    }
+    func swipeAnimation () {
+        animationView.animation = Animation.named("swipe")
+        animationBackView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
+        animationBackView.layer.cornerRadius = 30
+        animationBackView.center = view.center
+        animationBackView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        animationView.center = view.center
+        animationView.loopMode = .loop
+        self.animationView.isHidden = false
+
+        animationView.play()
+        view.addSubview(animationBackView)
+        view.addSubview(animationView)
+        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+            self.animationView.stop()
+            self.animationView.isHidden = true
+            self.animationBackView.isHidden = true
+        }
+    }
+    func setupDownloadAnimation () {
+        animationView.animation = Animation.named("download")
+        animationView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        animationView.center = view.center
+        animationView.loopMode = .playOnce
+        self.animationView.isHidden = false
+
+        animationView.play()
+        
+        view.addSubview(animationView)
+        DispatchQueue.main.asyncAfter(deadline: .now()+1.7) {
+            self.animationView.isHidden = true
+
+        }
+        
     }
     
 
     
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        print(position)
 
            if gesture.direction == UISwipeGestureRecognizer.Direction.left {
             if position < categoriPhotos.count - 1{
                 position = position + 1
+                print(position)
                 imageView.image = categoriPhotos[position]
 
                 UIView.transition(with: self.imageView,
@@ -89,6 +136,8 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
                                     animations: {
                     self.selectedPhoto = self.categoriPhotos[self.position]
                     self.isfavorite()
+                    self.swipeCounter()
+                    
 
                   }, completion: nil)
 
@@ -110,8 +159,23 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
               }, completion: nil)
             
             isfavorite()
+            swipeCounter()
            }
     }
+    func swipeCounter (){
+        createAdd()
+        swipeCount += 1
+        if swipeCount > 3{
+            if interstitial != nil {
+                interstitial?.present(fromRootViewController: self)
+                swipeCount = 0
+            } else {
+                print("Ad wasn't ready")
+            }
+        }
+    }
+    
+    
     @objc func favoriteTapped(_ recognizer: UITapGestureRecognizer) {
        findPhoto()
         
@@ -145,22 +209,17 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     }
     
     @IBAction func downloadTapped(_ sender: UIButton) {
-//        UIView.animate(withDuration: 2.0,
-//                                       delay: 0,
-//                                       usingSpringWithDamping: CGFloat(0.20),
-//                                       initialSpringVelocity: CGFloat(6.0),
-//                                       options: UIView.AnimationOptions.allowUserInteraction,
-//                                       animations: {
-//                                        sender.transform = CGAffineTransform.identity
-//                },
-//                                       completion: { Void in()  }
-//            )
+
         downloadButton.zoomIn()
         guard let inputImage = selectedPhoto else { return }
         
         let imageSaver = ImageSaver()
         imageSaver.writeToPhotoAlbum(image: inputImage)
-        
+        setupDownloadAnimation()
+//        DispatchQueue.main.asyncAfter(deadline: .now()+2) {
+//            self.succesDownload.isHidden = true
+//
+//        }
     }
     
     func createAdd() {
@@ -256,9 +315,9 @@ class ImageSaver: NSObject {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
     }
     
-    @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+    @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer)->Bool {
         print("Save finished!")
+        return true
     }
     
 }
-

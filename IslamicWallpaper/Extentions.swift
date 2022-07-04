@@ -95,5 +95,3 @@ func zoomOut(duration : TimeInterval = 0.2) {
 
     }
     
-
-

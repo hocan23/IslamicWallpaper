@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		761AD3CA2873089800136164 /* swipe.json in Resources */ = {isa = PBXBuildFile; fileRef = 761AD3C92873089800136164 /* swipe.json */; };
 		763CA69728708F4200981861 /* Cera Pro Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 763CA69628708F4200981861 /* Cera Pro Bold.ttf */; };
 		763CA69928708F5300981861 /* Cera Pro Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 763CA69828708F5300981861 /* Cera Pro Medium.ttf */; };
 		763CA69B2870995E00981861 /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763CA69A2870995E00981861 /* LanguageSelectionViewController.swift */; };
@@ -18,6 +19,7 @@
 		768463C7286D916D009423A8 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463C6286D916D009423A8 /* FavoriteCollectionViewCell.swift */; };
 		768463CB286DC080009423A8 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463CA286DC080009423A8 /* FavViewController.swift */; };
 		768463CD286DC15E009423A8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463CC286DC15E009423A8 /* SettingsViewController.swift */; };
+		76BCB9712872DDCF00A216D2 /* download.json in Resources */ = {isa = PBXBuildFile; fileRef = 76BCB9702872DDCF00A216D2 /* download.json */; };
 		80A13863417A62319A0ED569 /* Pods_IslamicWallpaper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACADB5496D324806BADAF56 /* Pods_IslamicWallpaper.framework */; };
 		B7D13276286B92C4000CCA59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D13275286B92C4000CCA59 /* AppDelegate.swift */; };
 		B7D13278286B92C4000CCA59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D13277286B92C4000CCA59 /* SceneDelegate.swift */; };
@@ -32,6 +34,7 @@
 /* Begin PBXFileReference section */
 		2ACADB5496D324806BADAF56 /* Pods_IslamicWallpaper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IslamicWallpaper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		685C53B8672125F617DA5BF9 /* Pods-IslamicWallpaper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IslamicWallpaper.release.xcconfig"; path = "Target Support Files/Pods-IslamicWallpaper/Pods-IslamicWallpaper.release.xcconfig"; sourceTree = "<group>"; };
+		761AD3C92873089800136164 /* swipe.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = swipe.json; sourceTree = "<group>"; };
 		763CA69628708F4200981861 /* Cera Pro Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cera Pro Bold.ttf"; sourceTree = "<group>"; };
 		763CA69828708F5300981861 /* Cera Pro Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cera Pro Medium.ttf"; sourceTree = "<group>"; };
 		763CA69A2870995E00981861 /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 		768463C6286D916D009423A8 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		768463CA286DC080009423A8 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		768463CC286DC15E009423A8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		76BCB9702872DDCF00A216D2 /* download.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = download.json; sourceTree = "<group>"; };
 		B7D13272286B92C4000CCA59 /* IslamicWallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IslamicWallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7D13275286B92C4000CCA59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7D13277286B92C4000CCA59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 			children = (
 				B7D13275286B92C4000CCA59 /* AppDelegate.swift */,
 				B7D13277286B92C4000CCA59 /* SceneDelegate.swift */,
+				76BCB9702872DDCF00A216D2 /* download.json */,
+				761AD3C92873089800136164 /* swipe.json */,
 				763CA69A2870995E00981861 /* LanguageSelectionViewController.swift */,
 				763CA69C28709EA500981861 /* LangTableViewCell.swift */,
 				B7D1328B286BB22E000CCA59 /* FullScreenViewController.swift */,
@@ -215,6 +221,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7D13282286B92C7000CCA59 /* LaunchScreen.storyboard in Resources */,
+				761AD3CA2873089800136164 /* swipe.json in Resources */,
+				76BCB9712872DDCF00A216D2 /* download.json in Resources */,
 				B7D1327F286B92C7000CCA59 /* Assets.xcassets in Resources */,
 				763CA69928708F5300981861 /* Cera Pro Medium.ttf in Resources */,
 				763CA69728708F4200981861 /* Cera Pro Bold.ttf in Resources */,
@@ -435,6 +443,7 @@
 				DEVELOPMENT_TEAM = PCV3VLUN64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IslamicWallpaper/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = fdsfsfdfs;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -445,7 +454,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hocan.IslamicWallpaper;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SIX11.islamic-wallpaper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -464,6 +473,7 @@
 				DEVELOPMENT_TEAM = PCV3VLUN64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IslamicWallpaper/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = fdsfsfdfs;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -474,7 +484,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hocan.IslamicWallpaper;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.SIX11.islamic-wallpaper";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

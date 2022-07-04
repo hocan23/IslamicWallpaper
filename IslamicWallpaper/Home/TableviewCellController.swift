@@ -61,7 +61,7 @@ extension TableviewCellController: UICollectionViewDelegate, UICollectionViewDat
         if indexPath.row < array.count {
             cell.image.image = array[indexPath.item]
                 }
-        cell.layer.cornerRadius = 20
+        cell.image.layer.cornerRadius = 20
 //        cell.layer.masksToBounds = true
         return cell
     }
