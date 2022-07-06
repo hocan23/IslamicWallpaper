@@ -19,6 +19,8 @@
 		768463C7286D916D009423A8 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463C6286D916D009423A8 /* FavoriteCollectionViewCell.swift */; };
 		768463CB286DC080009423A8 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463CA286DC080009423A8 /* FavViewController.swift */; };
 		768463CD286DC15E009423A8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463CC286DC15E009423A8 /* SettingsViewController.swift */; };
+		769D41022875CD1A00C3D2E8 /* KibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769D41012875CD1A00C3D2E8 /* KibleViewController.swift */; };
+		769D41062875D11700C3D2E8 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769D41052875D11700C3D2E8 /* LoadingViewController.swift */; };
 		76BCB9712872DDCF00A216D2 /* download.json in Resources */ = {isa = PBXBuildFile; fileRef = 76BCB9702872DDCF00A216D2 /* download.json */; };
 		80A13863417A62319A0ED569 /* Pods_IslamicWallpaper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACADB5496D324806BADAF56 /* Pods_IslamicWallpaper.framework */; };
 		B7D13276286B92C4000CCA59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D13275286B92C4000CCA59 /* AppDelegate.swift */; };
@@ -46,6 +48,8 @@
 		768463C6286D916D009423A8 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		768463CA286DC080009423A8 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		768463CC286DC15E009423A8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		769D41012875CD1A00C3D2E8 /* KibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KibleViewController.swift; sourceTree = "<group>"; };
+		769D41052875D11700C3D2E8 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		76BCB9702872DDCF00A216D2 /* download.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = download.json; sourceTree = "<group>"; };
 		B7D13272286B92C4000CCA59 /* IslamicWallpaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IslamicWallpaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7D13275286B92C4000CCA59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				761AD3C92873089800136164 /* swipe.json */,
 				763CA69A2870995E00981861 /* LanguageSelectionViewController.swift */,
 				763CA69C28709EA500981861 /* LangTableViewCell.swift */,
+				769D41012875CD1A00C3D2E8 /* KibleViewController.swift */,
+				769D41052875D11700C3D2E8 /* LoadingViewController.swift */,
 				B7D1328B286BB22E000CCA59 /* FullScreenViewController.swift */,
 				763CA69528708E9E00981861 /* Fonts */,
 				767523F7286E283900751BEB /* Extentions.swift */,
@@ -281,6 +287,7 @@
 			files = (
 				B7D1328C286BB22E000CCA59 /* FullScreenViewController.swift in Sources */,
 				B7D1327A286B92C4000CCA59 /* ViewController.swift in Sources */,
+				769D41062875D11700C3D2E8 /* LoadingViewController.swift in Sources */,
 				768463C3286D8625009423A8 /* CollectionViewCell.swift in Sources */,
 				763CA69D28709EA500981861 /* LangTableViewCell.swift in Sources */,
 				767523F8286E283900751BEB /* Extentions.swift in Sources */,
@@ -289,6 +296,7 @@
 				763CA69F2870B0B600981861 /* LanguageHelper.swift in Sources */,
 				768463C5286D8FCF009423A8 /* FavoriteViewController.swift in Sources */,
 				763CA69B2870995E00981861 /* LanguageSelectionViewController.swift in Sources */,
+				769D41022875CD1A00C3D2E8 /* KibleViewController.swift in Sources */,
 				768463C7286D916D009423A8 /* FavoriteCollectionViewCell.swift in Sources */,
 				B7D13276286B92C4000CCA59 /* AppDelegate.swift in Sources */,
 				B7D13278286B92C4000CCA59 /* SceneDelegate.swift in Sources */,
@@ -440,7 +448,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PCV3VLUN64;
+				DEVELOPMENT_TEAM = CDLRAYVNZ9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IslamicWallpaper/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Islamic HD";
@@ -471,7 +479,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = PCV3VLUN64;
+				DEVELOPMENT_TEAM = CDLRAYVNZ9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IslamicWallpaper/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Islamic HD";

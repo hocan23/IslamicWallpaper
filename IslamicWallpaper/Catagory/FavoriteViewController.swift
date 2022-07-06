@@ -11,9 +11,6 @@ class FavoriteViewController: UIViewController , GADBannerViewDelegate, GADFullS
     func notShowAd() {
         isSeenAd = true
     }
-    
-    
-    
    
     @IBOutlet weak var catagoriText: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!

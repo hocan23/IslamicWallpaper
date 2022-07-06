@@ -95,6 +95,55 @@
             </objects>
             <point key="canvasLocation" x="613.04347826086962" y="473.4375"/>
         </scene>
+        <!--Kıble-->
+        <scene sceneID="ml6-uH-7bV">
+            <objects>
+                <viewController id="sy3-L7-OBn" customClass="KibleViewController" customModule="IslamicWallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="B8f-8E-pHz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compass" translatesAutoresizingMaskIntoConstraints="NO" id="Kli-Pd-C8n">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="768"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qibla" translatesAutoresizingMaskIntoConstraints="NO" id="IrX-D6-fF1">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="768"/>
+                                <color key="tintColor" systemColor="tintColor"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="Nha-Kw-FsF">
+                                <rect key="frame" x="87" y="64" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="kK6-FI-5Fg"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="72x-1h-MhN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IrX-D6-fF1" firstAttribute="centerY" secondItem="72x-1h-MhN" secondAttribute="centerY" id="A0x-fY-eds"/>
+                            <constraint firstItem="72x-1h-MhN" firstAttribute="trailing" secondItem="IrX-D6-fF1" secondAttribute="trailing" id="Dyk-tb-cS3"/>
+                            <constraint firstItem="IrX-D6-fF1" firstAttribute="leading" secondItem="72x-1h-MhN" secondAttribute="leading" id="GGw-Vm-AGQ"/>
+                            <constraint firstItem="Nha-Kw-FsF" firstAttribute="leading" secondItem="72x-1h-MhN" secondAttribute="leading" constant="87" id="LZ7-aX-enV"/>
+                            <constraint firstItem="Nha-Kw-FsF" firstAttribute="top" secondItem="72x-1h-MhN" secondAttribute="top" constant="20" id="Mkp-4l-b3U"/>
+                            <constraint firstItem="Kli-Pd-C8n" firstAttribute="leading" secondItem="72x-1h-MhN" secondAttribute="leading" id="RJF-IU-gss"/>
+                            <constraint firstItem="Kli-Pd-C8n" firstAttribute="centerY" secondItem="72x-1h-MhN" secondAttribute="centerY" id="aL8-YE-NW8"/>
+                            <constraint firstItem="72x-1h-MhN" firstAttribute="trailing" secondItem="Kli-Pd-C8n" secondAttribute="trailing" id="gF1-Mv-Fmr"/>
+                            <constraint firstItem="Kli-Pd-C8n" firstAttribute="centerX" secondItem="72x-1h-MhN" secondAttribute="centerX" id="isV-ON-aLq"/>
+                            <constraint firstItem="72x-1h-MhN" firstAttribute="trailing" secondItem="Nha-Kw-FsF" secondAttribute="trailing" constant="87" id="kXn-Oc-kEt"/>
+                            <constraint firstItem="IrX-D6-fF1" firstAttribute="centerX" secondItem="72x-1h-MhN" secondAttribute="centerX" id="xbX-wM-aVF"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Kıble" id="FPZ-uw-OLl"/>
+                    <connections>
+                        <outlet property="compassImageView" destination="Kli-Pd-C8n" id="raq-Gl-yO4"/>
+                        <outlet property="kibleView" destination="Nha-Kw-FsF" id="qxU-w7-SGe"/>
+                        <outlet property="qiblaArrow" destination="IrX-D6-fF1" id="8IS-ee-KnF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TNa-Pv-Nkk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1442.0289855072465" y="349.55357142857139"/>
+        </scene>
         <!--Settings View Controller-->
         <scene sceneID="DJw-FV-DPD">
             <objects>
@@ -398,7 +447,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEX-Bc-Wol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1733" y="576"/>
+            <point key="canvasLocation" x="2258" y="573"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ICb-e9-dqu">
@@ -641,6 +690,7 @@
                         <segue destination="HaX-yr-IFl" kind="relationship" relationship="viewControllers" id="C1E-Is-kff"/>
                         <segue destination="his-VO-3S7" kind="relationship" relationship="viewControllers" id="ZK8-tE-vdP"/>
                         <segue destination="Q25-EK-dtH" kind="relationship" relationship="viewControllers" id="0Po-gZ-SIq"/>
+                        <segue destination="sy3-L7-OBn" kind="relationship" relationship="viewControllers" id="JdI-id-Ksb"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NqQ-ms-Qfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -651,14 +701,20 @@
     <resources>
         <image name="110" width="1242" height="2688"/>
         <image name="117" width="1242" height="2688"/>
+        <image name="Group" width="81" height="81"/>
         <image name="Group 15" width="30" height="30"/>
         <image name="Group 18" width="30" height="30"/>
         <image name="Group 51" width="50" height="50"/>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
+        <image name="compass" width="793" height="768"/>
+        <image name="qibla" width="793" height="768"/>
         <image name="shareBtn" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

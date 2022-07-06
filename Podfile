@@ -8,4 +8,6 @@ target 'IslamicWallpaper' do
   # Pods for IslamicWallpaper
   pod 'Google-Mobile-Ads-SDK'
   pod 'lottie-ios'
+pod 'Adhan'
+
 end
