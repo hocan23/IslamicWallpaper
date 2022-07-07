@@ -13,9 +13,10 @@ import GoogleMobileAds
 class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreenContentDelegate  {
 
     
-    
+    var isFirstOpen = true
     @IBOutlet weak var qiblaArrow: UIImageView!
     
+    @IBOutlet weak var titleLbl: UILabel!
     
   
     @IBOutlet weak var compassImageView: UIImageView!
@@ -84,6 +85,12 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        if isFirstOpen == true{
+            isFirstOpen = false
+            self.tabBarController?.selectedIndex = 2
+        }
     }
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         // Add banner to view and add constraints as above.

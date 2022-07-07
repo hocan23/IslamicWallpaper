@@ -7,12 +7,15 @@
 
 import UIKit
 import GoogleMobileAds
+import Lottie
+
 class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,GADBannerViewDelegate, GADFullScreenContentDelegate  {
 
     
    
     
-    
+    let animationView = AnimationView()
+
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
 
@@ -32,6 +35,22 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
+    }
+    func setupDownloadAnimation () {
+        animationView.animation = Animation.named("download")
+        animationView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
+        animationView.center = view.center
+        animationView.loopMode = .playOnce
+        self.animationView.isHidden = false
+        
+        animationView.play()
+        
+        view.addSubview(animationView)
+        DispatchQueue.main.asyncAfter(deadline: .now()+1.7) {
+            self.animationView.isHidden = true
+            
+        }
+        
     }
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         // Add banner to view and add constraints as above.
@@ -146,7 +165,9 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
     }
     
     @objc func copyButtonAction (sender: UIButton) {
+
         UIPasteboard.general.string = Helper.hadithENG[Helper.SelectedlanguageNumber][sender.tag]
+        setupDownloadAnimation()
         if interstitial != nil {
             interstitial?.present(fromRootViewController: self)
            

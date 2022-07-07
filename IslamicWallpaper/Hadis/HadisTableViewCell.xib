@@ -21,48 +21,66 @@
                 <rect key="frame" x="0.0" y="0.0" width="429" height="184"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywh-Ll-5fE">
-                        <rect key="frame" x="20" y="20" width="389" height="99"/>
-                        <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="15"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzB-Zj-t2l" userLabel="Copy">
-                        <rect key="frame" x="20" y="139" width="188" height="30"/>
-                        <color key="backgroundColor" red="0.026973082577506927" green="0.72572831824572392" blue="0.0031714100257574916" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K1C-CF-pGL">
+                        <rect key="frame" x="10" y="10" width="409" height="164"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywh-Ll-5fE">
+                                <rect key="frame" x="15" y="15" width="379" height="91"/>
+                                <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzB-Zj-t2l" userLabel="Copy">
+                                <rect key="frame" x="0.0" y="124" width="201" height="40"/>
+                                <color key="backgroundColor" red="0.32549019607843138" green="0.76078431372549016" blue="0.50196078431372548" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5cs-ha-J1K"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="cu" title="Copy">
+                                    <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="copyTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="F7u-Pz-XrE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixF-Yq-owh">
+                                <rect key="frame" x="201" y="124" width="208" height="40"/>
+                                <color key="backgroundColor" red="0.32941176470588235" green="0.87058823529411766" blue="0.54509803921568623" alpha="0.6945562299513659" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JZE-9z-uaD"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Share">
+                                    <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="shareTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5B7-hK-0i8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333330000001" green="0.96862745100000003" blue="1" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="5cs-ha-J1K"/>
+                            <constraint firstItem="ixF-Yq-owh" firstAttribute="leading" secondItem="uzB-Zj-t2l" secondAttribute="trailing" id="6A6-IO-IhR"/>
+                            <constraint firstItem="ywh-Ll-5fE" firstAttribute="leading" secondItem="K1C-CF-pGL" secondAttribute="leading" constant="15" id="CLP-WA-trQ"/>
+                            <constraint firstAttribute="bottom" secondItem="ixF-Yq-owh" secondAttribute="bottom" id="DEi-1a-YJr"/>
+                            <constraint firstItem="ywh-Ll-5fE" firstAttribute="top" secondItem="K1C-CF-pGL" secondAttribute="top" constant="15" id="Dup-Jx-Rgg"/>
+                            <constraint firstAttribute="trailing" secondItem="ywh-Ll-5fE" secondAttribute="trailing" constant="15" id="QRj-xh-Lli"/>
+                            <constraint firstAttribute="trailing" secondItem="ixF-Yq-owh" secondAttribute="trailing" id="VWm-sn-UAE"/>
+                            <constraint firstItem="ixF-Yq-owh" firstAttribute="width" secondItem="uzB-Zj-t2l" secondAttribute="width" multiplier="1.03252" id="ZAb-G2-Ooc"/>
+                            <constraint firstItem="uzB-Zj-t2l" firstAttribute="top" secondItem="ywh-Ll-5fE" secondAttribute="bottom" constant="18" id="fbk-e8-I1k"/>
+                            <constraint firstAttribute="bottom" secondItem="uzB-Zj-t2l" secondAttribute="bottom" id="pAV-cJ-EKq"/>
+                            <constraint firstItem="uzB-Zj-t2l" firstAttribute="leading" secondItem="K1C-CF-pGL" secondAttribute="leading" id="pGP-wi-pz9"/>
                         </constraints>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Copy">
-                            <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="15"/>
-                        </buttonConfiguration>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixF-Yq-owh">
-                        <rect key="frame" x="208" y="139" width="201" height="30"/>
-                        <color key="backgroundColor" red="0.45903176516534877" green="0.5" blue="0.051576428836261679" alpha="0.6945562299513659" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="30" id="JZE-9z-uaD"/>
-                        </constraints>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Share">
-                            <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="15"/>
-                        </buttonConfiguration>
-                    </button>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="ixF-Yq-owh" firstAttribute="leading" secondItem="uzB-Zj-t2l" secondAttribute="trailing" id="70p-yH-wMC"/>
-                    <constraint firstItem="ywh-Ll-5fE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="H1H-9R-4dm"/>
-                    <constraint firstItem="uzB-Zj-t2l" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Hub-KV-37a"/>
-                    <constraint firstAttribute="trailing" secondItem="ywh-Ll-5fE" secondAttribute="trailing" constant="20" id="Ifd-Md-7hp"/>
-                    <constraint firstItem="uzB-Zj-t2l" firstAttribute="top" secondItem="ywh-Ll-5fE" secondAttribute="bottom" constant="20" id="Vjz-Ke-7hy"/>
-                    <constraint firstAttribute="bottom" secondItem="ixF-Yq-owh" secondAttribute="bottom" constant="15" id="Ykg-JR-NnO"/>
-                    <constraint firstAttribute="bottom" secondItem="uzB-Zj-t2l" secondAttribute="bottom" constant="15" id="mZK-uM-Yo3"/>
-                    <constraint firstItem="uzB-Zj-t2l" firstAttribute="width" secondItem="ixF-Yq-owh" secondAttribute="width" multiplier="0.935323" id="udN-YC-MbI"/>
-                    <constraint firstItem="ywh-Ll-5fE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="ydr-rf-4J2"/>
-                    <constraint firstAttribute="trailing" secondItem="ixF-Yq-owh" secondAttribute="trailing" constant="20" id="z8n-aa-aKa"/>
+                    <constraint firstAttribute="trailing" secondItem="K1C-CF-pGL" secondAttribute="trailing" constant="10" id="BpZ-5l-dPg"/>
+                    <constraint firstItem="K1C-CF-pGL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="hNV-iV-2yB"/>
+                    <constraint firstItem="K1C-CF-pGL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="qt0-2D-5fk"/>
+                    <constraint firstAttribute="bottom" secondItem="K1C-CF-pGL" secondAttribute="bottom" constant="10" id="wfL-SZ-vYQ"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -70,8 +88,12 @@
                 <outlet property="copyButton" destination="uzB-Zj-t2l" id="Tva-Ug-P9z"/>
                 <outlet property="shareButton" destination="ixF-Yq-owh" id="p3D-Pm-mHZ"/>
                 <outlet property="textLbl" destination="ywh-Ll-5fE" id="0wb-vS-vOB"/>
+                <outlet property="view" destination="K1C-CF-pGL" id="caZ-8x-M09"/>
             </connections>
             <point key="canvasLocation" x="210.86956521739131" y="113.83928571428571"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="cu" width="128" height="128"/>
+    </resources>
 </document>

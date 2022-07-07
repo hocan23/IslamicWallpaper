@@ -211,6 +211,8 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         
     }
     @IBAction func backButtonTapped(_ sender: Any) {
+        backButton.zoomIn()
+
         if interstitial != nil {
             interstitial?.present(fromRootViewController: self)
             isAd = true
