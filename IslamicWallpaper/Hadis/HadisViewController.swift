@@ -10,20 +10,20 @@ import GoogleMobileAds
 import Lottie
 
 class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,GADBannerViewDelegate, GADFullScreenContentDelegate  {
-
     
-   
+    
+    
     
     @IBOutlet weak var titleLbl: UILabel!
     let animationView = AnimationView()
-
+    
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
-
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(UINib(nibName: "HadisTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
@@ -37,13 +37,13 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
         bannerView.load(GADRequest())
         bannerView.delegate = self
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         titleLbl.text = Helper.hadiths[Helper.SelectedlanguageNumber]
         tableView.reloadData()
-       
+        
     }
-
+    
     func setupDownloadAnimation () {
         animationView.animation = Animation.named("download")
         animationView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
@@ -102,17 +102,17 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
     func interstitialWillDismissScreen(_ ad: GADInterstitialAd) {
         print("interstitialWillDismissScreen")
     }
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-//    {
-//        let verticalPadding: CGFloat = 8
-//
-//        let maskLayer = CALayer()
-//        maskLayer.borderWidth = 2
-//        maskLayer.borderColor = UIColor.red.cgColor
-//        maskLayer.backgroundColor = UIColor.black.cgColor
-//        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
-//        cell.layer.mask = maskLayer
-//    }
+    //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+    //    {
+    //        let verticalPadding: CGFloat = 8
+    //
+    //        let maskLayer = CALayer()
+    //        maskLayer.borderWidth = 2
+    //        maskLayer.borderColor = UIColor.red.cgColor
+    //        maskLayer.backgroundColor = UIColor.black.cgColor
+    //        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
+    //        cell.layer.mask = maskLayer
+    //    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HadisTableViewCell{
@@ -124,71 +124,71 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
         return UITableViewCell()
     }
     
- 
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Helper.hadithENG[Helper.SelectedlanguageNumber].count
     }
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return hadithTR.count
-//    }
-//
+    //    func numberOfSections(in tableView: UITableView) -> Int {
+    //        return hadithTR.count
+    //    }
+    //
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) ->CGFloat {
-
-    return UITableView.automaticDimension
-
+        
+        return UITableView.automaticDimension
+        
     }
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-           return UITableView.automaticDimension
-       }
+        return UITableView.automaticDimension
+    }
     @objc func shareButtonAction (sender: UIButton) {
         UIGraphicsBeginImageContext(view.frame.size)
-                view.layer.render(in: UIGraphicsGetCurrentContext()!)
-                let image = UIGraphicsGetImageFromCurrentImageContext()
-                UIGraphicsEndImageContext()
-
-                let textToShare = Helper.hadithENG[Helper.SelectedlanguageNumber][sender.tag]
-
-                if let myWebsite = URL(string: "https://apps.apple.com/us/app/islamic-wallpaper-hd-pro/id1632238123") {//Enter link to your app here
-                    let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "app-logo")] as [Any]
-                    let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-
-                    //Excluded Activities
-                    activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
-                    //
-
-                    activityVC.popoverPresentationController?.sourceView = sender
-                    self.present(activityVC, animated: true, completion: nil)
-                    if interstitial != nil {
-                        interstitial?.present(fromRootViewController: self)
-                       
-
-                    } else {
-                        print("Ad wasn't ready")
-                    }
-    }
+        view.layer.render(in: UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        let textToShare = Helper.hadithENG[Helper.SelectedlanguageNumber][sender.tag]
+        
+        if let myWebsite = URL(string: "https://apps.apple.com/us/app/islamic-wallpaper-hd-pro/id1632238123") {//Enter link to your app here
+            let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "app-logo")] as [Any]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            
+            //Excluded Activities
+            activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop, UIActivity.ActivityType.addToReadingList]
+            //
+            
+            activityVC.popoverPresentationController?.sourceView = sender
+            self.present(activityVC, animated: true, completion: nil)
+            if interstitial != nil {
+                interstitial?.present(fromRootViewController: self)
+                
+                
+            } else {
+                print("Ad wasn't ready")
+            }
+        }
     }
     
     @objc func copyButtonAction (sender: UIButton) {
-
+        
         UIPasteboard.general.string = Helper.hadithENG[Helper.SelectedlanguageNumber][sender.tag]
         setupDownloadAnimation()
         if interstitial != nil {
             interstitial?.present(fromRootViewController: self)
-           
-
+            
+            
         } else {
             print("Ad wasn't ready")
         }
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

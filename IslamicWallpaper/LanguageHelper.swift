@@ -129,7 +129,7 @@ class Helper{
     
     
     
-    public static var share = ["Share",  "分享",  "शेयर करना",  "Делиться",  "Membagikan",  "シェア",  "Teilen",  "Condividere",  "Partager",  "Paylaşmak",  "Đăng lại",  "يشارك،"]
+    public static var share = ["Share",  "分享",  "शेयर करना",  "Делиться",  "Membagikan",  "シェア",  "Teilen",  "Condividere",  "Partager",  "Paylaş",  "Đăng lại",  "يشارك،"]
     
     public static var copy = ["Copy",  "复制",  "प्रतिलिपि",  "Копировать",  "Salinan",  "コピー",  "Kopieren",  "Copia",  "Copie",  "Kopyala",  "Sao chép",  "ينسخ،"]
     

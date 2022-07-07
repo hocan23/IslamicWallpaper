@@ -80,7 +80,7 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        
         prepareLang()
         tableView.reloadData()
         
@@ -136,7 +136,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allcatagories.count
-      
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -181,7 +181,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             
         }
     }
-  
+    
     func createArrays(){
         for a in 1..<9 {
             print(a)
@@ -221,7 +221,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
             discover.append(godArray[Int.random(in: 0..<10)])
             discover.append(ramadanArray[Int.random(in: 0..<10)])
             discover.append(patternsArray[Int.random(in: 0..<10)])
-          
+            
             
         }
         

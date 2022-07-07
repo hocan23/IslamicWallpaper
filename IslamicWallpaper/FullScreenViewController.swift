@@ -86,6 +86,9 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         }
         
     }
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     func swipeAnimation () {
         animationView.animation = Animation.named("swipe")
         animationBackView.frame = CGRect(x: 0, y: 0, width: 150, height: 150)
@@ -133,7 +136,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         animationView.play()
         view.addSubview(animationBackView)
         view.addSubview(animationView)
-        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+1.2) {
             self.animationView.stop()
             self.animationView.isHidden = true
             self.animationBackView.isHidden = true
@@ -230,12 +233,12 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     }
     @IBAction func backButtonTapped(_ sender: Any) {
         backButton.zoomIn()
-
+        
         if interstitial != nil {
             interstitial?.present(fromRootViewController: self)
             isAd = true
             delegate?.notShowAd()
-
+            
         } else {
             print("Ad wasn't ready")
             self.dismiss(animated: true)
@@ -248,10 +251,10 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         
         downloadButton.zoomIn()
         
-            guard let inputImage = selectedPhoto else { return }
-         
+        guard let inputImage = selectedPhoto else { return }
+        
         openGallery()
-       
+        
     }
     
     func createAdd() {
@@ -272,7 +275,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     func interstitialWillDismissScreen(_ ad: GADInterstitialAd) {
         print("interstitialWillDismissScreen")
     }
-   
+    
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         // Add banner to view and add constraints as above.
         addBannerViewToView(bannerView)
@@ -385,7 +388,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         alertController.addAction(phoneAction)
         let cancelAction = UIAlertAction(title: "Deny", style: .destructive, handler: {
             alert -> Void in
-//            self.dismiss(animated: true)
+            //            self.dismiss(animated: true)
         })
         alertController.addAction(cancelAction)
         

@@ -11,7 +11,7 @@ import Adhan
 import GoogleMobileAds
 
 class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreenContentDelegate  {
-
+    
     
     var isFirstOpen = true
     @IBOutlet weak var qiblaArrow: UIImageView!
@@ -20,7 +20,7 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
     
     @IBOutlet weak var titleLbl: UILabel!
     
-  
+    
     @IBOutlet weak var compassImageView: UIImageView!
     
     
@@ -49,7 +49,7 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
         let lineView = UIView()
         lineView.backgroundColor = .systemOrange
         view.addSubview(lineView)
-
+        
         lineView.translatesAutoresizingMaskIntoConstraints = false
         
         let horizontalConstraint = NSLayoutConstraint(item: lineView, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
@@ -71,7 +71,7 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
         if let lat = latitude, let lon = longitude, !automaticLocation {
             startQiblaDirection(latitude: lat, longitude: lon)
         } else {
-//            add(loadingVC)
+            //            add(loadingVC)
             locationManager.requestWhenInUseAuthorization()
             locationManager.requestLocation()
         }
@@ -143,7 +143,7 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
         print("interstitialWillDismissScreen")
     }
     
-   
+    
     
     func startQiblaDirection(latitude: Double, longitude: Double) {
         //once we can get qibla direction, make qibla arrow appear again
@@ -173,7 +173,7 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
             view.transform = view.transform.rotated(by: CGFloat(radians))
         }
     }
-
+    
     //converts degrees to radians
     func degreesToRadians(_ number: Double) -> Double {
         return number * .pi / 180
@@ -189,9 +189,9 @@ extension KibleViewController: CLLocationManagerDelegate {
         if let location = locations.last {
             //stop updating location while fetching from array
             locationManager.stopUpdatingLocation()
-//            DispatchQueue.main.async {
-//                removed
-//            }
+            //            DispatchQueue.main.async {
+            //                removed
+            //            }
             startQiblaDirection(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         }
     }
@@ -215,15 +215,15 @@ extension KibleViewController: CLLocationManagerDelegate {
         }
         if abs(newRad-qiblaRad) >= degreesToRadians(10) || abs(newRad-qiblaRad) <= degreesToRadians(-10)  {
             
-                kibleView.image = UIImage(named: "kaaba1")
-                if interstitial != nil {
-                    interstitial?.present(fromRootViewController: self)
-                   
-
-                } else {
-                    print("Ad wasn't ready")
-                }
-
+            kibleView.image = UIImage(named: "kaaba1")
+            if interstitial != nil {
+                interstitial?.present(fromRootViewController: self)
+                
+                
+            } else {
+                print("Ad wasn't ready")
+            }
+            
             
             facingQibla = false
         }

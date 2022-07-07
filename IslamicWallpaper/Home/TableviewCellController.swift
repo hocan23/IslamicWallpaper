@@ -60,9 +60,9 @@ extension TableviewCellController: UICollectionViewDelegate, UICollectionViewDat
         }
         if indexPath.row < array.count {
             cell.image.image = array[indexPath.item]
-                }
+        }
         cell.image.layer.cornerRadius = 20
-//        cell.layer.masksToBounds = true
+        //        cell.layer.masksToBounds = true
         return cell
     }
     
@@ -73,10 +73,10 @@ extension TableviewCellController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if index == 0 {
             return CGSize(width: 200, height: 300)
-
+            
         }else{
             return CGSize(width: 125, height: 190)
-
+            
         }
         
     }
