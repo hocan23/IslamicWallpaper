@@ -19,6 +19,8 @@ class HadisTableViewCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
+        shareButton.setTitle(Helper.share[Helper.SelectedlanguageNumber], for: .normal)
+        copyButton.setTitle(Helper.copy[Helper.SelectedlanguageNumber], for: .normal)
         super.setSelected(selected, animated: animated)
         copyButton.layer.cornerRadius = 12
         view.layer.cornerRadius = 12

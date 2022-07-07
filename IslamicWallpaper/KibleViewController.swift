@@ -16,14 +16,16 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
     var isFirstOpen = true
     @IBOutlet weak var qiblaArrow: UIImageView!
     
+    @IBOutlet weak var kibleTop: NSLayoutConstraint!
+    
     @IBOutlet weak var titleLbl: UILabel!
     
   
     @IBOutlet weak var compassImageView: UIImageView!
     
     
-   
     @IBOutlet weak var kibleView: UIImageView!
+    
     
     private let loadingVC = LoadingViewController()
     
@@ -38,6 +40,7 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
     private var interstitial: GADInterstitialAd?
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(view.bounds.height)
         locationManager.delegate = self
         //initially, before getting location to get qibla direction, arrow not visible
         qiblaArrow.layer.opacity = 0
@@ -79,6 +82,9 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
             locationManager.headingFilter = 1
             locationManager.startUpdatingHeading()
         }
+        if view.bounds.height<750{
+            kibleTop.constant = 5
+        }
         
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
         bannerView.adUnitID = Utils.bannerId
@@ -87,6 +93,7 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
         bannerView.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
+        titleLbl.text = Helper.qiblafinder[Helper.SelectedlanguageNumber]
         if isFirstOpen == true{
             isFirstOpen = false
             self.tabBarController?.selectedIndex = 2
@@ -207,15 +214,14 @@ extension KibleViewController: CLLocationManagerDelegate {
             generator.impactOccurred()
         }
         else {
-            DispatchQueue.main.asyncAfter(deadline: .now()+3) {
-                self.kibleView.image = UIImage(named: "Group")
+            DispatchQueue.main.asyncAfter(deadline: .now()+10) {
+                self.kibleView.image = UIImage(named: "kaaba1")
                 if self.interstitial != nil {
                     self.interstitial?.present(fromRootViewController: self)
                    
 
                 } else {
                     print("Ad wasn't ready")
-                    self.dismiss(animated: true)
                 }
 
             }

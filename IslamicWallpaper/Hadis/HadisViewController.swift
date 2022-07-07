@@ -14,6 +14,7 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
     
    
     
+    @IBOutlet weak var titleLbl: UILabel!
     let animationView = AnimationView()
 
     var bannerView: GADBannerView!
@@ -36,6 +37,12 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
         bannerView.load(GADRequest())
         bannerView.delegate = self
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        titleLbl.text = Helper.hadiths[Helper.SelectedlanguageNumber]
+        tableView.reloadData()
+    }
+
     func setupDownloadAnimation () {
         animationView.animation = Animation.named("download")
         animationView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
@@ -108,10 +115,6 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HadisTableViewCell{
-            cell.layer.shadowColor = UIColor.black.cgColor
-            cell.layer.shadowOffset = CGSize(width: 2, height: 2)
-            cell.layer.shadowRadius = 5
-            cell.layer.shadowOpacity = 0.1
             cell.textLbl.text = Helper.hadithENG[Helper.SelectedlanguageNumber][indexPath.row]
             cell.shareButton.addTarget(self, action: #selector(shareButtonAction), for: .touchUpInside)
             cell.copyButton.addTarget(self, action: #selector(copyButtonAction), for: .touchUpInside)
@@ -174,7 +177,6 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
 
         } else {
             print("Ad wasn't ready")
-            self.dismiss(animated: true)
         }
     }
 
