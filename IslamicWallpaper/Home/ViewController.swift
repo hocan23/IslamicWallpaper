@@ -260,8 +260,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
                 tabBarItem3.image = UIImage(named: "kibtab")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
             }
             if let tabBarItem4 = self.tabBarController?.tabBar.items?[3] {
-                tabBarItem4.selectedImage = UIImage(named: "Vector-1")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-                tabBarItem4.image = UIImage(named: "Vector")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem4.selectedImage = UIImage(named: "Vector")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem4.image = UIImage(named: "Vector-1")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
             }
             let tabBarAppearance = UITabBar.appearance()
             tabBarAppearance.isTranslucent = false
@@ -287,8 +287,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
                 tabBarItem3.image = UIImage(named: "kibtab2")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
             }
             if let tabBarItem4 = self.tabBarController?.tabBar.items?[3] {
-                tabBarItem4.selectedImage = UIImage(named: "Vector")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-                tabBarItem4.image = UIImage(named: "Vector-1")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem4.selectedImage = UIImage(named: "Vector-1")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem4.image = UIImage(named: "Vector")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
             }
             self.tabBarController!.tabBar.backgroundColor = .white
             

@@ -125,7 +125,7 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
 
                 let textToShare = Helper.hadithENG[Helper.SelectedlanguageNumber][sender.tag]
 
-                if let myWebsite = URL(string: "http://itunes.apple.com/app/idXXXXXXXXX") {//Enter link to your app here
+                if let myWebsite = URL(string: "https://apps.apple.com/us/app/islamic-wallpaper-hd-pro/id1632238123") {//Enter link to your app here
                     let objectsToShare = [textToShare, myWebsite, image ?? #imageLiteral(resourceName: "app-logo")] as [Any]
                     let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
 
@@ -141,7 +141,6 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
 
                     } else {
                         print("Ad wasn't ready")
-                        self.dismiss(animated: true)
                     }
     }
     }
