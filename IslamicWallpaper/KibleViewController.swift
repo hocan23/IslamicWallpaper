@@ -67,7 +67,7 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
         if let lat = latitude, let lon = longitude, !automaticLocation {
             startQiblaDirection(latitude: lat, longitude: lon)
         } else {
-            add(loadingVC)
+//            add(loadingVC)
             locationManager.requestWhenInUseAuthorization()
             locationManager.requestLocation()
         }

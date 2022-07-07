@@ -52,7 +52,6 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         languageSelection()
         createArrays()
         setTabbar()
@@ -252,9 +251,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
                 tabBarItem2.selectedImage = UIImage(named: "Group 15")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
                 tabBarItem2.image = UIImage(named: "Group 19")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
             }
+            if let tabBarItem5 = self.tabBarController?.tabBar.items?[4] {
+                tabBarItem5.selectedImage = UIImage(named: "Group 17")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem5.image = UIImage(named: "Group 20")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+            }
             if let tabBarItem3 = self.tabBarController?.tabBar.items?[2] {
-                tabBarItem3.selectedImage = UIImage(named: "Group 17")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-                tabBarItem3.image = UIImage(named: "Group 20")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem3.selectedImage = UIImage(named: "kibtab2")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem3.image = UIImage(named: "kibtab")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+            }
+            if let tabBarItem4 = self.tabBarController?.tabBar.items?[3] {
+                tabBarItem4.selectedImage = UIImage(named: "Vector-1")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem4.image = UIImage(named: "Vector")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
             }
             let tabBarAppearance = UITabBar.appearance()
             tabBarAppearance.isTranslucent = false
@@ -271,9 +278,17 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
                 tabBarItem2.selectedImage = UIImage(named: "Group 19")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
                 tabBarItem2.image = UIImage(named: "Group 15")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
             }
+            if let tabBarItem5 = self.tabBarController?.tabBar.items?[4] {
+                tabBarItem5.selectedImage = UIImage(named: "Group 20")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem5.image = UIImage(named: "Group 17")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+            }
             if let tabBarItem3 = self.tabBarController?.tabBar.items?[2] {
-                tabBarItem3.selectedImage = UIImage(named: "Group 20")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
-                tabBarItem3.image = UIImage(named: "Group 17")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem3.selectedImage = UIImage(named: "kibtab")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem3.image = UIImage(named: "kibtab2")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+            }
+            if let tabBarItem4 = self.tabBarController?.tabBar.items?[3] {
+                tabBarItem4.selectedImage = UIImage(named: "Vector")?.withRenderingMode(.alwaysOriginal).withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
+                tabBarItem4.image = UIImage(named: "Vector-1")?.withBaselineOffset(fromBottom: UIFont.systemFontSize / 2+10);
             }
             self.tabBarController!.tabBar.backgroundColor = .white
             

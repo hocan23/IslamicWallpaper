@@ -19,6 +19,9 @@
 		768463C7286D916D009423A8 /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463C6286D916D009423A8 /* FavoriteCollectionViewCell.swift */; };
 		768463CB286DC080009423A8 /* FavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463CA286DC080009423A8 /* FavViewController.swift */; };
 		768463CD286DC15E009423A8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463CC286DC15E009423A8 /* SettingsViewController.swift */; };
+		76894503287620F00089066E /* HadisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76894502287620F00089066E /* HadisViewController.swift */; };
+		76894509287629660089066E /* HadisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76894507287629660089066E /* HadisTableViewCell.swift */; };
+		7689450A287629660089066E /* HadisTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76894508287629660089066E /* HadisTableViewCell.xib */; };
 		769D41022875CD1A00C3D2E8 /* KibleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769D41012875CD1A00C3D2E8 /* KibleViewController.swift */; };
 		769D41062875D11700C3D2E8 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769D41052875D11700C3D2E8 /* LoadingViewController.swift */; };
 		76BCB9712872DDCF00A216D2 /* download.json in Resources */ = {isa = PBXBuildFile; fileRef = 76BCB9702872DDCF00A216D2 /* download.json */; };
@@ -48,6 +51,9 @@
 		768463C6286D916D009423A8 /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		768463CA286DC080009423A8 /* FavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavViewController.swift; sourceTree = "<group>"; };
 		768463CC286DC15E009423A8 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		76894502287620F00089066E /* HadisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadisViewController.swift; sourceTree = "<group>"; };
+		76894507287629660089066E /* HadisTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HadisTableViewCell.swift; sourceTree = "<group>"; };
+		76894508287629660089066E /* HadisTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HadisTableViewCell.xib; sourceTree = "<group>"; };
 		769D41012875CD1A00C3D2E8 /* KibleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KibleViewController.swift; sourceTree = "<group>"; };
 		769D41052875D11700C3D2E8 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		76BCB9702872DDCF00A216D2 /* download.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = download.json; sourceTree = "<group>"; };
@@ -104,6 +110,16 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		768945042876248B0089066E /* Hadis */ = {
+			isa = PBXGroup;
+			children = (
+				76894502287620F00089066E /* HadisViewController.swift */,
+				76894507287629660089066E /* HadisTableViewCell.swift */,
+				76894508287629660089066E /* HadisTableViewCell.xib */,
+			);
+			path = Hadis;
+			sourceTree = "<group>";
+		};
 		A7A6FE5C64D861CFB35CBD18 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +158,7 @@
 				763CA69C28709EA500981861 /* LangTableViewCell.swift */,
 				769D41012875CD1A00C3D2E8 /* KibleViewController.swift */,
 				769D41052875D11700C3D2E8 /* LoadingViewController.swift */,
+				768945042876248B0089066E /* Hadis */,
 				B7D1328B286BB22E000CCA59 /* FullScreenViewController.swift */,
 				763CA69528708E9E00981861 /* Fonts */,
 				767523F7286E283900751BEB /* Extentions.swift */,
@@ -229,6 +246,7 @@
 				B7D13282286B92C7000CCA59 /* LaunchScreen.storyboard in Resources */,
 				761AD3CA2873089800136164 /* swipe.json in Resources */,
 				76BCB9712872DDCF00A216D2 /* download.json in Resources */,
+				7689450A287629660089066E /* HadisTableViewCell.xib in Resources */,
 				B7D1327F286B92C7000CCA59 /* Assets.xcassets in Resources */,
 				763CA69928708F5300981861 /* Cera Pro Medium.ttf in Resources */,
 				763CA69728708F4200981861 /* Cera Pro Bold.ttf in Resources */,
@@ -286,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7D1328C286BB22E000CCA59 /* FullScreenViewController.swift in Sources */,
+				76894503287620F00089066E /* HadisViewController.swift in Sources */,
 				B7D1327A286B92C4000CCA59 /* ViewController.swift in Sources */,
 				769D41062875D11700C3D2E8 /* LoadingViewController.swift in Sources */,
 				768463C3286D8625009423A8 /* CollectionViewCell.swift in Sources */,
@@ -299,6 +318,7 @@
 				769D41022875CD1A00C3D2E8 /* KibleViewController.swift in Sources */,
 				768463C7286D916D009423A8 /* FavoriteCollectionViewCell.swift in Sources */,
 				B7D13276286B92C4000CCA59 /* AppDelegate.swift in Sources */,
+				76894509287629660089066E /* HadisTableViewCell.swift in Sources */,
 				B7D13278286B92C4000CCA59 /* SceneDelegate.swift in Sources */,
 				B7D1328A286B9ADE000CCA59 /* TableviewCellController.swift in Sources */,
 			);
