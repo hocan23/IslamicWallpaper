@@ -41,6 +41,7 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
     override func viewWillAppear(_ animated: Bool) {
         titleLbl.text = Helper.hadiths[Helper.SelectedlanguageNumber]
         tableView.reloadData()
+       
     }
 
     func setupDownloadAnimation () {

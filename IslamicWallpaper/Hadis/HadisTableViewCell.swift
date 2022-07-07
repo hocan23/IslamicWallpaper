@@ -28,7 +28,9 @@ class HadisTableViewCell: UITableViewCell {
         copyButton.layer.maskedCorners = [.layerMinXMaxYCorner]
         shareButton.layer.cornerRadius = 12
         shareButton.layer.maskedCorners = [.layerMaxXMaxYCorner]
-
+        if self.traitCollection.userInterfaceStyle == .dark {
+            view.backgroundColor = UIColor(red: 47/255, green: 54/255, blue: 65/255, alpha: 1)
+        }
 
     }
     @IBAction func shareTapped(_ sender: Any) {

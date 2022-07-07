@@ -13,6 +13,7 @@
 		763CA69B2870995E00981861 /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763CA69A2870995E00981861 /* LanguageSelectionViewController.swift */; };
 		763CA69D28709EA500981861 /* LangTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763CA69C28709EA500981861 /* LangTableViewCell.swift */; };
 		763CA69F2870B0B600981861 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763CA69E2870B0B600981861 /* LanguageHelper.swift */; };
+		76518792287782150098A1B2 /* like.json in Resources */ = {isa = PBXBuildFile; fileRef = 76518791287782150098A1B2 /* like.json */; };
 		767523F8286E283900751BEB /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767523F7286E283900751BEB /* Extentions.swift */; };
 		768463C3286D8625009423A8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463C2286D8625009423A8 /* CollectionViewCell.swift */; };
 		768463C5286D8FCF009423A8 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463C4286D8FCF009423A8 /* FavoriteViewController.swift */; };
@@ -45,6 +46,7 @@
 		763CA69A2870995E00981861 /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
 		763CA69C28709EA500981861 /* LangTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangTableViewCell.swift; sourceTree = "<group>"; };
 		763CA69E2870B0B600981861 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
+		76518791287782150098A1B2 /* like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like.json; sourceTree = "<group>"; };
 		767523F7286E283900751BEB /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		768463C2286D8625009423A8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		768463C4286D8FCF009423A8 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				B7D13275286B92C4000CCA59 /* AppDelegate.swift */,
 				B7D13277286B92C4000CCA59 /* SceneDelegate.swift */,
 				76BCB9702872DDCF00A216D2 /* download.json */,
+				76518791287782150098A1B2 /* like.json */,
 				761AD3C92873089800136164 /* swipe.json */,
 				763CA69A2870995E00981861 /* LanguageSelectionViewController.swift */,
 				763CA69C28709EA500981861 /* LangTableViewCell.swift */,
@@ -246,6 +249,7 @@
 				B7D13282286B92C7000CCA59 /* LaunchScreen.storyboard in Resources */,
 				761AD3CA2873089800136164 /* swipe.json in Resources */,
 				76BCB9712872DDCF00A216D2 /* download.json in Resources */,
+				76518792287782150098A1B2 /* like.json in Resources */,
 				7689450A287629660089066E /* HadisTableViewCell.xib in Resources */,
 				B7D1327F286B92C7000CCA59 /* Assets.xcassets in Resources */,
 				763CA69928708F5300981861 /* Cera Pro Medium.ttf in Resources */,

@@ -206,25 +206,25 @@ extension KibleViewController: CLLocationManagerDelegate {
         let newRad = degreesToRadians(newHeading.trueHeading)
         let isVisible = qiblaArrow.layer.opacity == 100
         //only generate haptic feedback if withtin 1 degree of qibla, the qibla arrow is fully opaque and we've already left it or have never reached it
-        if abs(newRad-qiblaRad) <= degreesToRadians(1) && isVisible && !facingQibla {
+        if abs(newRad-qiblaRad) <= degreesToRadians(5) && isVisible && !facingQibla {
             facingQibla = true
             createAdd()
             kibleView.image = UIImage(named: "kaaba2")
             let generator = UIImpactFeedbackGenerator(style: .rigid)
             generator.impactOccurred()
         }
-        else {
-            DispatchQueue.main.asyncAfter(deadline: .now()+10) {
-                self.kibleView.image = UIImage(named: "kaaba1")
-                if self.interstitial != nil {
-                    self.interstitial?.present(fromRootViewController: self)
+        if abs(newRad-qiblaRad) >= degreesToRadians(10) || abs(newRad-qiblaRad) <= degreesToRadians(-10)  {
+            
+                kibleView.image = UIImage(named: "kaaba1")
+                if interstitial != nil {
+                    interstitial?.present(fromRootViewController: self)
                    
 
                 } else {
                     print("Ad wasn't ready")
                 }
 
-            }
+            
             facingQibla = false
         }
         //rotate compass image to new true north and qibla arrow along with it

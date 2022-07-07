@@ -123,6 +123,23 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         
     }
     
+    func likeAnimation () {
+        animationView.animation = Animation.named("like")
+        animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+        animationView.center = view.center
+        animationView.loopMode = .loop
+        self.animationView.isHidden = false
+        
+        animationView.play()
+        view.addSubview(animationBackView)
+        view.addSubview(animationView)
+        DispatchQueue.main.asyncAfter(deadline: .now()+3) {
+            self.animationView.stop()
+            self.animationView.isHidden = true
+            self.animationBackView.isHidden = true
+        }
+    }
+    
     
     
     
@@ -190,6 +207,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     
     
     @objc func favoriteTapped(_ recognizer: UITapGestureRecognizer) {
+        
         findPhoto()
         
     }
@@ -318,6 +336,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
                         if  favoritePhotos.filter({$0 == "\(a)\(i)"}).count == 0{
                             favoritePhotos.append( "\(a)\(i)")
                             favoriteIcon.image = UIImage(named: "Group 52")
+                            likeAnimation()
                         }else{
                             favoriteIcon.image = UIImage(named: "Group 51")
                             favoritePhotos = favoritePhotos.filter({$0 != "\(a)\(i)"})
