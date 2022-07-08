@@ -45,6 +45,8 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
     
+    @IBAction func backButton(_ sender: Any) {
+    }
     @IBOutlet weak var vv: UIView!
     
     @IBOutlet weak var vvgg: UIImageView!
@@ -54,7 +56,7 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
         super.viewDidLoad()
         languageSelection()
         createArrays()
-        setTabbar()
+//        setTabbar()
         
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
         bannerView.adUnitID = Utils.bannerId
@@ -128,6 +130,9 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
                                 multiplier: 1,
                                 constant: 0)
             ])
+    }
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
     }
     
 }

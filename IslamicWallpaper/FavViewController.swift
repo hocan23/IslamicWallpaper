@@ -9,6 +9,7 @@ import UIKit
 import GoogleMobileAds
 class FavViewController: UIViewController, GADBannerViewDelegate, GADFullScreenContentDelegate {
     
+    @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -41,9 +42,9 @@ class FavViewController: UIViewController, GADBannerViewDelegate, GADFullScreenC
         favİmages.removeAll()
         findPhoto()
         collectionView.reloadData()
-        titleLabel.text = Helper.favorites[Helper.SelectedlanguageNumber]
+//        titleLabel.text = Helper.favorites[Helper.SelectedlanguageNumber]
         if self.traitCollection.userInterfaceStyle == .dark {
-            titleLabel.textColor = .white
+//            titleLabel.textColor = .white
         }
     }
     
@@ -79,6 +80,9 @@ class FavViewController: UIViewController, GADBannerViewDelegate, GADFullScreenC
         }
     }
     
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
 
 extension FavViewController: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{

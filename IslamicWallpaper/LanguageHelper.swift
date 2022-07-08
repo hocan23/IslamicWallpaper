@@ -11,6 +11,27 @@ class Helper{
     public static var Selectedlanguage : String = ""
     public static var SelectedlanguageNumber : Int = 0
     
+    
+    
+    public static var fajr = ["Fajr",    "晨光",    "फज्र",    "Фаджр",    "Fajar",    "夜明け",    "Fajr",    "Fajr",    "Fajr",    "Imsak",    "Fajr",    "الفجر"]
+        
+        public static var sunrise = ["Sunrise",    "日出",    "सूर्योदय",    "Восход",    "Matahari terbit",    "読みます",    "Sonnenaufgang",    "Alba",    "Lever du soleil",    "Gunes",    "Bình Minh",    "شروق الشمس"]
+        
+        public static var duhr = ["Duhr",    "杜尔",    "धुहरी",    "Зур",    "Dhuhr",    "戻る",    "Dhuhr",    "Dhuhr",    "Dhuhr",    "Ogle",    "Dhuhr",    "الظهر"]
+        
+        public static var asr = ["Asr",    "砷化镓",    "अस्र",    "Аср",    "Ashar",    "キャプチャ",    "Asr",    "Asr",    "Asr",    "Ikindi",    "Asr",    "العصر"]
+        
+        public static var magrib = ["Maghrib",    "马格里布",    "मग़रिब",    "Магриб",    "Maghrib",    "モロッコ",    "Maghrib",    "Magrib",    "Maghreb",    "Aksam",    "Maghrib",    "المغرب"]
+        
+        public static var isha = ["Isha",    "伊莎",    "ईशा",    "Иша",    "isya",    "夕食",    "Ischa",    "Isha",    "Icha",    "Yatsi",    "Isha",    "العشاء"]
+        
+        public static var islamicWallpapers = ["Islamic Wallpapers",    "伊斯兰壁纸",    "इस्लामी वॉलपेपर",    "исламские обои",    "Wallpaper Islami",    "イスラムの壁紙",    "Islamische Tapeten",    "Sfondi islamici",    "Fonds d'écran islamiques",    "İslami Duvar Kağıtları",    "Hình nền Hồi giáo",    "خلفيات اسلامية"]
+        
+        public static var adhanTimes = ["Adhan Times",    "宣教时报",    "आदन टाइम्स",    "Адхан Таймс",    "Waktu Adzan",    "アドハンタイムズ",    "Adhan-Zeiten",    "Tempi di Adhan",    "Temps d'Adhan",    "Ezan Vakitleri",    "Adhan Times",    "مرات الأذان"]
+        
+        public static var adFree = ["Ad-Free",    "无广告",    "विज्ञापन मुक्त",    "Свободный от рекламы",    "Bebas iklan",    "広告なし",    "Werbefrei",    "Senza pubblicità",    "Sans publicité",    "Reklamsız",    "Quảng cáo miễn phí",    "إعلان مجاني"]
+        
+        public static var restorePurchase = ["Restore Purchase",    "恢复",    "पुनर्स्थापित करना",    "Восстановить",    "Memulihkan",    "戻す",    "Wiederherstellen",    "Ristabilire",    "Restaurer",    "Satin Alma Geri Yukle",    "Khôi phục",    "استعادة الشراء"]
     public static var discover = ["Discover",  "发现",  "खोज करना",  "Обнаружить",  "Menemukan",  "発見する",  "Entdecken",  "Scoprire",  "Découvrir",  "Keşfet",  "Phát hiện",  "يكتشف"]
     
     public static var favorites = ["Favorites",  "收藏夹",  "पसंदीदा",  "Избранное",  "Favorit",  "お気に入り",  "Favoriten",  "Preferiti",  "Favoris",  "Favoriler",  "Yêu thích",  "المفضلة"]

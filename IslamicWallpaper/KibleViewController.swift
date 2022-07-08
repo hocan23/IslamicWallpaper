@@ -16,7 +16,7 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
     var isFirstOpen = true
     @IBOutlet weak var qiblaArrow: UIImageView!
     
-    @IBOutlet weak var kibleTop: NSLayoutConstraint!
+    @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var titleLbl: UILabel!
     
@@ -29,6 +29,7 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
     
     private let loadingVC = LoadingViewController()
     
+    @IBOutlet weak var kibleTop: NSLayoutConstraint!
     private let defaults = UserDefaults.standard
     private let locationManager = CLLocationManager()
     //qibla direction in radians. Will be used by heading updating method to compute rotation of qibla arrow once coordinates are determined.
@@ -93,7 +94,8 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
         bannerView.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
-        titleLbl.text = Helper.qiblafinder[Helper.SelectedlanguageNumber]
+        if self.traitCollection.userInterfaceStyle == .dark {
+        }
         if isFirstOpen == true{
             isFirstOpen = false
             self.tabBarController?.selectedIndex = 2
@@ -179,6 +181,9 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
         return number * .pi / 180
     }
     
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
 }
 
 extension KibleViewController: CLLocationManagerDelegate {

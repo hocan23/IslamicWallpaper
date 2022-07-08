@@ -14,6 +14,10 @@
 		763CA69D28709EA500981861 /* LangTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763CA69C28709EA500981861 /* LangTableViewCell.swift */; };
 		763CA69F2870B0B600981861 /* LanguageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763CA69E2870B0B600981861 /* LanguageHelper.swift */; };
 		76518792287782150098A1B2 /* like.json in Resources */ = {isa = PBXBuildFile; fileRef = 76518791287782150098A1B2 /* like.json */; };
+		7670A4DC2878AA320051DCD9 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670A4DB2878AA320051DCD9 /* InitialViewController.swift */; };
+		7670A4DE2878AAFC0051DCD9 /* InitialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670A4DD2878AAFC0051DCD9 /* InitialCollectionViewCell.swift */; };
+		7670A4E12878BE650051DCD9 /* AdhanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7670A4E02878BE650051DCD9 /* AdhanViewController.swift */; };
+		7670A4E72878C90D0051DCD9 /* prayer.json in Resources */ = {isa = PBXBuildFile; fileRef = 7670A4E62878C90D0051DCD9 /* prayer.json */; };
 		767523F8286E283900751BEB /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767523F7286E283900751BEB /* Extentions.swift */; };
 		768463C3286D8625009423A8 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463C2286D8625009423A8 /* CollectionViewCell.swift */; };
 		768463C5286D8FCF009423A8 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768463C4286D8FCF009423A8 /* FavoriteViewController.swift */; };
@@ -47,6 +51,10 @@
 		763CA69C28709EA500981861 /* LangTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LangTableViewCell.swift; sourceTree = "<group>"; };
 		763CA69E2870B0B600981861 /* LanguageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageHelper.swift; sourceTree = "<group>"; };
 		76518791287782150098A1B2 /* like.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = like.json; sourceTree = "<group>"; };
+		7670A4DB2878AA320051DCD9 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		7670A4DD2878AAFC0051DCD9 /* InitialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialCollectionViewCell.swift; sourceTree = "<group>"; };
+		7670A4E02878BE650051DCD9 /* AdhanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdhanViewController.swift; sourceTree = "<group>"; };
+		7670A4E62878C90D0051DCD9 /* prayer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = prayer.json; sourceTree = "<group>"; };
 		767523F7286E283900751BEB /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		768463C2286D8625009423A8 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		768463C4286D8FCF009423A8 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +99,23 @@
 				763CA69628708F4200981861 /* Cera Pro Bold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7670A4DA2878AA060051DCD9 /* InitialViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7670A4DB2878AA320051DCD9 /* InitialViewController.swift */,
+				7670A4DD2878AAFC0051DCD9 /* InitialCollectionViewCell.swift */,
+			);
+			path = InitialViewController;
+			sourceTree = "<group>";
+		};
+		7670A4DF2878BE420051DCD9 /* AdhanViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7670A4E02878BE650051DCD9 /* AdhanViewController.swift */,
+			);
+			path = AdhanViewController;
 			sourceTree = "<group>";
 		};
 		768463C8286DA6A9009423A8 /* Catagory */ = {
@@ -156,9 +181,12 @@
 				B7D13277286B92C4000CCA59 /* SceneDelegate.swift */,
 				76BCB9702872DDCF00A216D2 /* download.json */,
 				76518791287782150098A1B2 /* like.json */,
+				7670A4E62878C90D0051DCD9 /* prayer.json */,
 				761AD3C92873089800136164 /* swipe.json */,
 				763CA69A2870995E00981861 /* LanguageSelectionViewController.swift */,
 				763CA69C28709EA500981861 /* LangTableViewCell.swift */,
+				7670A4DF2878BE420051DCD9 /* AdhanViewController */,
+				7670A4DA2878AA060051DCD9 /* InitialViewController */,
 				769D41012875CD1A00C3D2E8 /* KibleViewController.swift */,
 				769D41052875D11700C3D2E8 /* LoadingViewController.swift */,
 				768945042876248B0089066E /* Hadis */,
@@ -252,6 +280,7 @@
 				76518792287782150098A1B2 /* like.json in Resources */,
 				7689450A287629660089066E /* HadisTableViewCell.xib in Resources */,
 				B7D1327F286B92C7000CCA59 /* Assets.xcassets in Resources */,
+				7670A4E72878C90D0051DCD9 /* prayer.json in Resources */,
 				763CA69928708F5300981861 /* Cera Pro Medium.ttf in Resources */,
 				763CA69728708F4200981861 /* Cera Pro Bold.ttf in Resources */,
 				B7D1327D286B92C4000CCA59 /* Main.storyboard in Resources */,
@@ -318,11 +347,14 @@
 				768463CB286DC080009423A8 /* FavViewController.swift in Sources */,
 				763CA69F2870B0B600981861 /* LanguageHelper.swift in Sources */,
 				768463C5286D8FCF009423A8 /* FavoriteViewController.swift in Sources */,
+				7670A4DE2878AAFC0051DCD9 /* InitialCollectionViewCell.swift in Sources */,
 				763CA69B2870995E00981861 /* LanguageSelectionViewController.swift in Sources */,
 				769D41022875CD1A00C3D2E8 /* KibleViewController.swift in Sources */,
 				768463C7286D916D009423A8 /* FavoriteCollectionViewCell.swift in Sources */,
 				B7D13276286B92C4000CCA59 /* AppDelegate.swift in Sources */,
+				7670A4DC2878AA320051DCD9 /* InitialViewController.swift in Sources */,
 				76894509287629660089066E /* HadisTableViewCell.swift in Sources */,
+				7670A4E12878BE650051DCD9 /* AdhanViewController.swift in Sources */,
 				B7D13278286B92C4000CCA59 /* SceneDelegate.swift in Sources */,
 				B7D1328A286B9ADE000CCA59 /* TableviewCellController.swift in Sources */,
 			);

@@ -7,16 +7,19 @@
 
 import UIKit
 import GoogleMobileAds
+
+
 class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullScreenContentDelegate,LangChange{
+    @IBOutlet weak var backButton: UIButton!
     func changelang() {
-        titleLabel.text = Helper.settings[Helper.SelectedlanguageNumber]
+//        titleLabel.text = Helper.settings[Helper.SelectedlanguageNumber]
         print(Helper.shareapp[Helper.SelectedlanguageNumber])
         print(Helper.SelectedlanguageNumber)
         shareButton.setTitle(Helper.shareapp[Helper.SelectedlanguageNumber], for: .normal)
         otherApps.setTitle(Helper.otherapps[Helper.SelectedlanguageNumber], for: .normal)
         languageButton.setTitle(Helper.language[Helper.SelectedlanguageNumber], for: .normal)
         if self.traitCollection.userInterfaceStyle == .dark {
-            titleLabel.textColor = .white
+//            titleLabel.textColor = .white
             shareButton.tintColor = .white
             otherApps.tintColor = .white
             languageButton.tintColor = .white
@@ -47,14 +50,14 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        titleLabel.text = Helper.settings[Helper.SelectedlanguageNumber]
+//        titleLabel.text = Helper.settings[Helper.SelectedlanguageNumber]
         print(Helper.shareapp[Helper.SelectedlanguageNumber])
         print(Helper.SelectedlanguageNumber)
         shareButton.setTitle(Helper.shareapp[Helper.SelectedlanguageNumber], for: .normal)
         otherApps.setTitle(Helper.otherapps[Helper.SelectedlanguageNumber], for: .normal)
         languageButton.setTitle(Helper.language[Helper.SelectedlanguageNumber], for: .normal)
         if self.traitCollection.userInterfaceStyle == .dark {
-            titleLabel.textColor = .white
+//            titleLabel.textColor = .white
             shareButton.tintColor = .white
             otherApps.tintColor = .white
             languageButton.tintColor = .white
@@ -129,6 +132,9 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
         
     }
     
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     
     
     

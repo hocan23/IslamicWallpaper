@@ -14,9 +14,9 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
     
     
     
-    @IBOutlet weak var titleLbl: UILabel!
     let animationView = AnimationView()
     
+    @IBOutlet weak var backButton: UIButton!
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
     
@@ -39,9 +39,11 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        titleLbl.text = Helper.hadiths[Helper.SelectedlanguageNumber]
+//        titleLbl.text = Helper.hadiths[Helper.SelectedlanguageNumber]
         tableView.reloadData()
-        
+        if self.traitCollection.userInterfaceStyle == .dark {
+//            titleLbl.textColor = .white
+        }
     }
     
     func setupDownloadAnimation () {
@@ -179,6 +181,9 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
         } else {
             print("Ad wasn't ready")
         }
+    }
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
     }
     
     /*
