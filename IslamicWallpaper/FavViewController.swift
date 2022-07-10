@@ -16,7 +16,9 @@ class FavViewController: UIViewController, GADBannerViewDelegate, GADFullScreenC
     var favPhotos : [String] = []
     var favİmages : [UIImage] = []
     var bannerView: GADBannerView!
-    
+    var isAd : Bool = false
+    private var interstitial: GADInterstitialAd?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
@@ -36,6 +38,8 @@ class FavViewController: UIViewController, GADBannerViewDelegate, GADFullScreenC
         bannerView.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
+        createAdd()
+        backButton.setTitle(Helper.favorites[Helper.SelectedlanguageNumber], for: .normal)
         favPhotos.removeAll()
         favPhotos = Utils.readLocal(key: "SavedStringArray")
         
@@ -45,6 +49,10 @@ class FavViewController: UIViewController, GADBannerViewDelegate, GADFullScreenC
 //        titleLabel.text = Helper.favorites[Helper.SelectedlanguageNumber]
         if self.traitCollection.userInterfaceStyle == .dark {
 //            titleLabel.textColor = .white
+        }
+        if isAd == true {
+            self.dismiss(animated: true)
+            
         }
     }
     
@@ -81,7 +89,31 @@ class FavViewController: UIViewController, GADBannerViewDelegate, GADFullScreenC
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true)
+        if interstitial != nil {
+            interstitial?.present(fromRootViewController: self)
+            isAd = true
+            
+        } else {
+            print("Ad wasn't ready")
+            self.dismiss(animated: true)
+        }     }
+    func createAdd() {
+        let request = GADRequest()
+        interstitial?.fullScreenContentDelegate = self
+        GADInterstitialAd.load(withAdUnitID:Utils.fullScreenAdId,
+                               request: request,
+                               completionHandler: { [self] ad, error in
+            if let error = error {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                return
+            }
+            interstitial = ad
+        }
+        )
+    }
+    
+    func interstitialWillDismissScreen(_ ad: GADInterstitialAd) {
+        print("interstitialWillDismissScreen")
     }
 }
 

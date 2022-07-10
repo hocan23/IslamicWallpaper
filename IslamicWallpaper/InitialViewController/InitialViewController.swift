@@ -6,22 +6,70 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-    class InitialViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-        
-      
-        var titleArray  = [[Helper.copy],[Helper.allah],[Helper.qiblafinder],[Helper.hadiths],[Helper.favorites],[Helper.settings]]
+    class InitialViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, GADBannerViewDelegate, GADFullScreenContentDelegate {
+        var bannerView: GADBannerView!
+        private var interstitial: GADInterstitialAd?
+
+        var screenHeight = UIScreen.main.bounds.height / 3.9
+        var titleArray  = [[Helper.islamicWallpapers],[Helper.adhanTimes],[Helper.qiblafinder],[Helper.hadiths],[Helper.favorites],[Helper.settings]]
         var imageArray = [UIImage(named: "islamicWallpaperIcon"),UIImage(named: "adhanTimeIcon"),UIImage(named: "QiblaFinderIcon"),UIImage(named: "40HadithIcon"),UIImage(named: "favoritesIcon"),UIImage(named: "settingsIcon")]
         @IBOutlet weak var lettersCW: UICollectionView!
         private let reuseIdentifier = "Cell"
         
-        let insets = UIEdgeInsets(top: 10, left: 15, bottom: 50, right: 15)
-        let spacing = CGSize(width: 5, height: 5)
+        let insets = UIEdgeInsets(top: 30, left: 15, bottom: 60, right: 15)
+        let spacing = CGSize(width: 5, height: 10)
 
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            
+            print(titleArray[0][0])
+            lettersCW.isScrollEnabled = false
+            print("SCREEN SIZE", screenHeight)
+            bannerView = GADBannerView(adSize: GADAdSizeBanner)
+            bannerView.adUnitID = Utils.bannerId
+            bannerView.rootViewController = self
+            bannerView.load(GADRequest())
+            bannerView.delegate = self
+        }
+        
+        override func viewWillAppear(_ animated: Bool) {
+            if interstitial != nil {
+                interstitial?.present(fromRootViewController: self)
+                
+            } else {
+                print("Ad wasn't ready")
+            }
+            lettersCW.reloadData()
+        }
+        
+        
+        func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+            // Add banner to view and add constraints as above.
+            addBannerViewToView(bannerView)
+        }
+        
+        
+        func addBannerViewToView(_ bannerView: GADBannerView) {
+            bannerView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(bannerView)
+            view.addConstraints(
+                [NSLayoutConstraint(item: bannerView,
+                                    attribute: .bottom,
+                                    relatedBy: .equal,
+                                    toItem: bottomLayoutGuide,
+                                    attribute: .top,
+                                    multiplier: 1,
+                                    constant: 0),
+                 NSLayoutConstraint(item: bannerView,
+                                    attribute: .centerX,
+                                    relatedBy: .equal,
+                                    toItem: view,
+                                    attribute: .centerX,
+                                    multiplier: 1,
+                                    constant: 0)
+                ])
         }
         
         
@@ -40,11 +88,26 @@ import UIKit
             cell.imageView.image = imageArray[indexPath.row]
             
             cell.nameLabel.text = titleArray[indexPath.row][0][Helper.SelectedlanguageNumber]
-            cell.layer.cornerRadius = 10
-            cell.layer.shadowColor = UIColor.black.cgColor
-            cell.layer.shadowOffset = CGSize(width: 2, height: 2)
+            cell.layer.cornerRadius = 20
+        
+            cell.layer.masksToBounds = false
+            cell.layer.shadowColor = UIColor.darkGray.cgColor
+            cell.layer.shadowOffset = CGSize(width: 1.0, height: 5.0)
             cell.layer.shadowRadius = 5
             cell.layer.shadowOpacity = 0.1
+
+            
+            if self.traitCollection.userInterfaceStyle == .dark {
+              
+                cell.nameLabel.text = titleArray[indexPath.row][0][Helper.SelectedlanguageNumber]
+                cell.layer.cornerRadius = 20
+                cell.layer.backgroundColor = UIColor(red: 0.129, green: 0.156, blue: 0.2, alpha: 0.75).cgColor
+                
+                collectionView.backgroundColor = UIColor.black
+                view.backgroundColor = UIColor.black
+                
+          
+            }
             
             return cell
 
@@ -102,6 +165,8 @@ import UIKit
             insets
         }
         
+      
+        
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             
           
@@ -110,8 +175,15 @@ import UIKit
                 let numberOfVisibleCellHorizontal: CGFloat = 2
                 let horizontalOtherValues = insets.right + insets.left + (spacing.width * numberOfVisibleCellHorizontal)
                 let width = (collectionView.bounds.width - horizontalOtherValues) / numberOfVisibleCellHorizontal
-                
-                return CGSize(width: width, height: width+30)
+        
+                           
+           
+      
+
+            return CGSize(width: width, height: screenHeight)
+            
+            
+            
                 
             
            
@@ -136,4 +208,3 @@ import UIKit
         
         
         
-   

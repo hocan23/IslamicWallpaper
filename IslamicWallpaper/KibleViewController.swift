@@ -26,7 +26,8 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
     
     @IBOutlet weak var kibleView: UIImageView!
     
-    
+    var isAd : Bool = false
+
     private let loadingVC = LoadingViewController()
     
     @IBOutlet weak var kibleTop: NSLayoutConstraint!
@@ -45,7 +46,7 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
         locationManager.delegate = self
         //initially, before getting location to get qibla direction, arrow not visible
         qiblaArrow.layer.opacity = 0
-        
+        createAdd()
         //programmatically add the indicator line for current direction.
         let lineView = UIView()
         lineView.backgroundColor = .systemOrange
@@ -94,12 +95,35 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
         bannerView.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
+        backButton.setTitle(Helper.qiblafinder[Helper.SelectedlanguageNumber], for: .normal)
+        if isAd == true {
+            self.dismiss(animated: true)
+            
+        }
         if self.traitCollection.userInterfaceStyle == .dark {
         }
         if isFirstOpen == true{
             isFirstOpen = false
             self.tabBarController?.selectedIndex = 2
         }
+    }
+    func createAdd() {
+        let request = GADRequest()
+        interstitial?.fullScreenContentDelegate = self
+        GADInterstitialAd.load(withAdUnitID:Utils.fullScreenAdId,
+                               request: request,
+                               completionHandler: { [self] ad, error in
+            if let error = error {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                return
+            }
+            interstitial = ad
+        }
+        )
+    }
+    
+    func interstitialWillDismissScreen(_ ad: GADInterstitialAd) {
+        print("interstitialWillDismissScreen")
     }
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         // Add banner to view and add constraints as above.
@@ -126,24 +150,7 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
                                 constant: 0)
             ])
     }
-    func createAdd() {
-        let request = GADRequest()
-        interstitial?.fullScreenContentDelegate = self
-        GADInterstitialAd.load(withAdUnitID:Utils.fullScreenAdId,
-                               request: request,
-                               completionHandler: { [self] ad, error in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            interstitial = ad
-        }
-        )
-    }
-    
-    func interstitialWillDismissScreen(_ ad: GADInterstitialAd) {
-        print("interstitialWillDismissScreen")
-    }
+   
     
     
     
@@ -182,7 +189,15 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true)
+        if interstitial != nil {
+            interstitial?.present(fromRootViewController: self)
+            isAd = true
+            
+        } else {
+            print("Ad wasn't ready")
+            self.dismiss(animated: true)
+        }
+        
     }
 }
 
@@ -220,14 +235,7 @@ extension KibleViewController: CLLocationManagerDelegate {
         }
         if abs(newRad-qiblaRad) >= degreesToRadians(10) || abs(newRad-qiblaRad) <= degreesToRadians(-10)  {
             
-            kibleView.image = UIImage(named: "kaaba1")
-            if interstitial != nil {
-                interstitial?.present(fromRootViewController: self)
-                
-                
-            } else {
-                print("Ad wasn't ready")
-            }
+            
             
             
             facingQibla = false

@@ -43,10 +43,12 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
     var categoriesTitle : [String] = []
     var adLoader : GADAdLoader!
     var bannerView: GADBannerView!
+    var isAd : Bool = false
+
     private var interstitial: GADInterstitialAd?
     
-    @IBAction func backButton(_ sender: Any) {
-    }
+    
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var vv: UIView!
     
     @IBOutlet weak var vvgg: UIImageView!
@@ -82,10 +84,13 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        if isAd == true {
+            self.dismiss(animated: true)
+            
+        }
         prepareLang()
         tableView.reloadData()
-        
+        backButton.setTitle(Helper.islamicWallpapers[Helper.SelectedlanguageNumber], for: .normal)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -131,9 +136,18 @@ class ViewController: UIViewController, CategoriasTableViewCellDelegate, GADBann
                                 constant: 0)
             ])
     }
+    
+    
     @IBAction func backButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
+        if interstitial != nil {
+            interstitial?.present(fromRootViewController: self)
+            isAd = true
+            
+        } else {
+            print("Ad wasn't ready")
+            self.dismiss(animated: true)
+        }    }
+        
     
 }
 

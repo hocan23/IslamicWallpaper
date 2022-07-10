@@ -19,7 +19,8 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
     @IBOutlet weak var backButton: UIButton!
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
-    
+    var isAd : Bool = false
+
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +41,17 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
 //        titleLbl.text = Helper.hadiths[Helper.SelectedlanguageNumber]
+        
+        if isAd == true {
+            self.dismiss(animated: true)
+            
+        }
+        backButton.setTitle(Helper.hadiths[Helper.SelectedlanguageNumber], for: .normal)
         tableView.reloadData()
         if self.traitCollection.userInterfaceStyle == .dark {
 //            titleLbl.textColor = .white
         }
+        createAdd()
     }
     
     func setupDownloadAnimation () {
@@ -160,13 +168,7 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
             
             activityVC.popoverPresentationController?.sourceView = sender
             self.present(activityVC, animated: true, completion: nil)
-            if interstitial != nil {
-                interstitial?.present(fromRootViewController: self)
-                
-                
-            } else {
-                print("Ad wasn't ready")
-            }
+            
         }
     }
     
@@ -174,16 +176,17 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
         
         UIPasteboard.general.string = Helper.hadithENG[Helper.SelectedlanguageNumber][sender.tag]
         setupDownloadAnimation()
+        
+    }
+    @IBAction func backButtonPressed(_ sender: Any) {
         if interstitial != nil {
             interstitial?.present(fromRootViewController: self)
-            
+            isAd = true
             
         } else {
             print("Ad wasn't ready")
+            self.dismiss(animated: true)
         }
-    }
-    @IBAction func backButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true)
     }
     
     /*

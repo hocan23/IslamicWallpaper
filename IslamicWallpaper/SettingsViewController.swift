@@ -11,6 +11,9 @@ import GoogleMobileAds
 
 class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullScreenContentDelegate,LangChange{
     @IBOutlet weak var backButton: UIButton!
+    var isAd : Bool = false
+    private var interstitial: GADInterstitialAd?
+
     func changelang() {
 //        titleLabel.text = Helper.settings[Helper.SelectedlanguageNumber]
         print(Helper.shareapp[Helper.SelectedlanguageNumber])
@@ -18,6 +21,8 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
         shareButton.setTitle(Helper.shareapp[Helper.SelectedlanguageNumber], for: .normal)
         otherApps.setTitle(Helper.otherapps[Helper.SelectedlanguageNumber], for: .normal)
         languageButton.setTitle(Helper.language[Helper.SelectedlanguageNumber], for: .normal)
+        backButton.setTitle(Helper.settings[Helper.SelectedlanguageNumber], for: .normal)
+
         if self.traitCollection.userInterfaceStyle == .dark {
 //            titleLabel.textColor = .white
             shareButton.tintColor = .white
@@ -51,6 +56,8 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
     
     override func viewWillAppear(_ animated: Bool) {
 //        titleLabel.text = Helper.settings[Helper.SelectedlanguageNumber]
+        createAdd()
+        backButton.setTitle(Helper.settings[Helper.SelectedlanguageNumber], for: .normal)
         print(Helper.shareapp[Helper.SelectedlanguageNumber])
         print(Helper.SelectedlanguageNumber)
         shareButton.setTitle(Helper.shareapp[Helper.SelectedlanguageNumber], for: .normal)
@@ -62,6 +69,29 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
             otherApps.tintColor = .white
             languageButton.tintColor = .white
         }
+        if isAd == true {
+            self.dismiss(animated: true)
+            
+        }
+    }
+    
+    func createAdd() {
+        let request = GADRequest()
+        interstitial?.fullScreenContentDelegate = self
+        GADInterstitialAd.load(withAdUnitID:Utils.fullScreenAdId,
+                               request: request,
+                               completionHandler: { [self] ad, error in
+            if let error = error {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                return
+            }
+            interstitial = ad
+        }
+        )
+    }
+    
+    func interstitialWillDismissScreen(_ ad: GADInterstitialAd) {
+        print("interstitialWillDismissScreen")
     }
     func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
         // Add banner to view and add constraints as above.
@@ -133,8 +163,14 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
+        if interstitial != nil {
+            interstitial?.present(fromRootViewController: self)
+            isAd = true
+            
+        } else {
+            print("Ad wasn't ready")
+            self.dismiss(animated: true)
+        }    }
     
     
     
