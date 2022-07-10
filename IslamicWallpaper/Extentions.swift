@@ -18,7 +18,7 @@ class Utils{
   
     static let dayInSeconds: Double = 24*3600
     //    test ıds 92
-    static var fullScreenAdId = "ca-app-pub-1501030234998564/76102275"
+    static var fullScreenAdId = "ca-app-pub-1501030234998564/7610227592"
     static var  bannerId = "ca-app-pub-1501030234998564/5367207636"
     
     
