@@ -256,6 +256,7 @@ class AdhanViewController: UIViewController, GADBannerViewDelegate, GADFullScree
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
+        locationPermissionControl()
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
      print("sad")

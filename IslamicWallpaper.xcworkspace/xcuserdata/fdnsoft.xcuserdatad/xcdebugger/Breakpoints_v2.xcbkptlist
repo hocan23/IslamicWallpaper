@@ -46,8 +46,8 @@
             filePath = "IslamicWallpaper/AdhanViewController/AdhanViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
+            startingLineNumber = "270"
+            endingLineNumber = "270"
             landmarkName = "locationPermissionControl()"
             landmarkType = "7">
          </BreakpointContent>
