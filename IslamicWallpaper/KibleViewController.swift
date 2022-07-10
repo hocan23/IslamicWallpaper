@@ -185,7 +185,7 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
     func locationPermissionControl (){
         let authState = CLLocationManager.authorizationStatus()
         
-        if authState == .authorizedAlways || authState == .authorizedWhenInUse {
+        if authState == .authorizedAlways || authState == .authorizedWhenInUse  {
 //            self.setLocationActive()
             viewDidLoad()
         }else if authState == .notDetermined{
@@ -195,6 +195,19 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
             //            popup çıkılacak
             showAlertAction(titleText: "IslamicWallpaper HD Would Like to Access Your Location. ", messages: "IslamicWallpaper HD  asks for permission to find your correct Location. ", alertTitle: "Settings",buttonAction: { UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!) })
             
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedAlways {
+            viewDidLoad()
+            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
+                if CLLocationManager.isRangingAvailable() {
+                    // do stuff
+                }
+            }
+        }
+        if status == .denied {
+            // handle your case
         }
     }
     

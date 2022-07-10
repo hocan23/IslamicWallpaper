@@ -2,10 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need your location information to deliver the most accurate information.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
+	<key></key>
 	<string></string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>fdsfsfs</string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>dsad</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>asdsa</string>
 	<key>GADApplicationIdentifier</key>
 	<string>ca-app-pub-1501030234998564~1811106008</string>
 	<key>SKAdNetworkItems</key>

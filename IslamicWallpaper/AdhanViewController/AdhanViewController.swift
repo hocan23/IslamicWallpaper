@@ -56,15 +56,18 @@ class AdhanViewController: UIViewController, GADBannerViewDelegate, GADFullScree
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         bannerView.delegate = self
-        
-        
-        
-        
-        // Do any additional setup after loading the view.
+        locationManager.delegate = self
+
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    @objc func appMovedToForeground() {
+        locationPermissionControl()
     }
     override func viewWillAppear(_ animated: Bool) {
+        locationPermissionControl()
         backButton.setTitle(Helper.adhanTimes[Helper.SelectedlanguageNumber], for: .normal)
-        networkService()
         if isAd == true {
             self.dismiss(animated: true)
             
@@ -241,13 +244,66 @@ class AdhanViewController: UIViewController, GADBannerViewDelegate, GADFullScree
         
         
     }
+    func setLocationActive(){
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+     print("sad")
+        networkService()
+    }
+    func locationPermissionControl (){
+        let authState = CLLocationManager.authorizationStatus()
+        
+        if authState == .authorizedAlways || authState == .authorizedWhenInUse  {
+//            self.setLocationActive()
+            networkService()
+        }else if authState == .notDetermined{
+            self.setLocationActive()
+//            self.setLocationActive()
+        } else {
+            //            popup çıkılacak
+            showAlertAction(titleText: "IslamicWallpaper HD Would Like to Access Your Location. ", messages: "IslamicWallpaper HD  asks for permission to find your correct Location. ", alertTitle: "Settings",buttonAction: { UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!) })
+            
+        }
+       
+    }
+    
+    
+    func showAlertAction(titleText:String,messages:String,alertTitle:String,buttonAction: (() -> Void)? = nil){
+        let alertController = UIAlertController(title: titleText, message: messages, preferredStyle: .alert)
+        let alertTitle = alertTitle
+        let phoneAction = UIAlertAction(title: alertTitle, style: .default, handler: {
+            alert -> Void in
+            buttonAction!()
+            
+        })
+        alertController.addAction(phoneAction)
+        let cancelAction = UIAlertAction(title: "Deny", style: .destructive, handler: {
+            alert -> Void in
+                        self.dismiss(animated: true)
+        })
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     /*
-     // MARK: - Navigation
+      MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+      In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+      Get the new view controller using segue.destination.
+      Pass the selected object to the new view controller.
      }
      */
     

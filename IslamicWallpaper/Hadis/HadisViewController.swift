@@ -8,7 +8,7 @@
 import UIKit
 import GoogleMobileAds
 import Lottie
-
+import CoreLocation
 class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDelegate,GADBannerViewDelegate, GADFullScreenContentDelegate  {
     
     
@@ -41,7 +41,6 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
     
     override func viewWillAppear(_ animated: Bool) {
 //        titleLbl.text = Helper.hadiths[Helper.SelectedlanguageNumber]
-        
         if isAd == true {
             self.dismiss(animated: true)
             
@@ -53,7 +52,7 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
         }
         createAdd()
     }
-    
+   
     func setupDownloadAnimation () {
         animationView.animation = Animation.named("download")
         animationView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
@@ -189,6 +188,7 @@ class HadisViewController: UIViewController,UITableViewDataSource, UITableViewDe
         }
     }
     
+   
     /*
      // MARK: - Navigation
      
