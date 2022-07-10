@@ -13,7 +13,7 @@ class InitialCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     override var isHighlighted: Bool {
       didSet {
-        UIView.animate(withDuration: 0.7) {
+        UIView.animate(withDuration: 0.1) {
           let scale: CGFloat = 0.9
           self.transform = self.isHighlighted ? CGAffineTransform(scaleX: scale, y: scale) : .identity
         }

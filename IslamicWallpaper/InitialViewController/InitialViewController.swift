@@ -23,16 +23,17 @@ import GoogleMobileAds
 
         
         override func viewDidLoad() {
-            super.viewDidLoad()
-            print(titleArray[0][0])
-            lettersCW.isScrollEnabled = false
-            print("SCREEN SIZE", screenHeight)
-            bannerView = GADBannerView(adSize: GADAdSizeBanner)
-            bannerView.adUnitID = Utils.bannerId
-            bannerView.rootViewController = self
-            bannerView.load(GADRequest())
-            bannerView.delegate = self
-        }
+              super.viewDidLoad()
+              print(titleArray[0][0])
+              lettersCW.isScrollEnabled = false
+              print("SCREEN SIZE", screenHeight)
+              bannerView = GADBannerView(adSize: GADAdSizeBanner)
+              bannerView.adUnitID = Utils.bannerId
+              bannerView.rootViewController = self
+              bannerView.load(GADRequest())
+              bannerView.delegate = self
+              languageSelection()
+            }
         
         override func viewWillAppear(_ animated: Bool) {
             if interstitial != nil {
@@ -196,7 +197,44 @@ import GoogleMobileAds
             
         }
         
-        
+        func languageSelection (){
+            print(NSLocale.preferredLanguages[0].prefix(2))
+            print(Utils.readLocalLang(key: "languaageSelection"))
+            if let lang = Utils.readLocalLang(key: "languaageSelection") {
+              Helper.Selectedlanguage = lang
+            }else{
+              Helper.Selectedlanguage = String(NSLocale.preferredLanguages[0].prefix(2))
+              Utils.saveLocalLang(string: "String(NSLocale.preferredLanguages[0].prefix(2))", key: "languaageSelection")
+            }
+            switch Helper.Selectedlanguage{
+            case "en":
+              Helper.SelectedlanguageNumber = 0
+            case "cn":
+              Helper.SelectedlanguageNumber = 1
+            case "hi":
+              Helper.SelectedlanguageNumber = 2
+            case "ru":
+              Helper.SelectedlanguageNumber = 3
+            case "id":
+              Helper.SelectedlanguageNumber = 4
+            case "jp":
+              Helper.SelectedlanguageNumber = 5
+            case "de":
+              Helper.SelectedlanguageNumber = 6
+            case "it":
+              Helper.SelectedlanguageNumber = 7
+            case "fr":
+              Helper.SelectedlanguageNumber = 8
+            case "tr":
+              Helper.SelectedlanguageNumber = 9
+            case "vn":
+              Helper.SelectedlanguageNumber = 10
+            case "sa":
+              Helper.SelectedlanguageNumber = 11
+            default:
+              Helper.SelectedlanguageNumber = 0
+            }
+          }
         
     }
 

@@ -8,12 +8,18 @@
 import UIKit
 import Lottie
 import GoogleMobileAds
-class AdhanViewController: UIViewController, GADBannerViewDelegate, GADFullScreenContentDelegate {
+import CoreLocation
+
+class AdhanViewController: UIViewController, GADBannerViewDelegate, GADFullScreenContentDelegate, CLLocationManagerDelegate {
+  
     var bannerView: GADBannerView!
     let animationView = AnimationView()
     private var interstitial: GADInterstitialAd?
     var isAd : Bool = false
+    let locationManager = CLLocationManager()
     
+    @IBOutlet weak var adhanView6: UIView!
+    @IBOutlet weak var adhanView1: UIView!
     @IBOutlet weak var ishaTime: UILabel!
     @IBOutlet weak var ishaLbl: UILabel!
     @IBOutlet weak var sunsetTime: UILabel!
@@ -28,11 +34,22 @@ class AdhanViewController: UIViewController, GADBannerViewDelegate, GADFullScree
     @IBOutlet weak var fajrLbl: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var altViewHeight: NSLayoutConstraint!
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         prayerAnimation()
         altViewHeight.constant = view.bounds.height*0.45
         createAdd()
+        
+        adhanView6.layer.cornerRadius = 20
+        adhanView6.layer.masksToBounds = true
+        adhanView6.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMaxYCorner]
+
+        
+        adhanView1.layer.cornerRadius = 20
+        adhanView1.layer.masksToBounds = true
+        adhanView1.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
         
         bannerView = GADBannerView(adSize: GADAdSizeBanner)
         bannerView.adUnitID = Utils.bannerId
@@ -163,33 +180,33 @@ class AdhanViewController: UIViewController, GADBannerViewDelegate, GADFullScree
         let currentMinute = Int(currentTime.minute!)
         let currenttimer = currentHour*60+currentMinute
         switch currenttimer{
-            
         case let x where x >= fajrTimer && x <= sunriseTimer:
-            fajrLbl.textColor = .systemCyan
-            fajrTimeLbl.textColor = .systemCyan
+          fajrLbl.textColor = .systemCyan
+          fajrTimeLbl.textColor = .systemCyan
         case let x where x >= sunriseTimer && x <= dhuhrTimer:
-            sunriseLbl.textColor = .systemCyan
-            sunriseTime.textColor = .systemCyan
-        case let x where  x >= dhuhrTimer && x <= asrTimer:
-            dhuhrLbl.textColor = .systemCyan
-            dhuhreTime.textColor = .systemCyan
+          sunriseLbl.textColor = .systemCyan
+          sunriseTime.textColor = .systemCyan
+        case let x where x >= dhuhrTimer && x <= asrTimer:
+          dhuhrLbl.textColor = .systemCyan
+          dhuhreTime.textColor = .systemCyan
         case let x where x >= asrTimer && x <= sunsetTimer:
-            fajrLbl.textColor = .systemCyan
-            fajrTimeLbl.textColor = .systemCyan
+          asrLbl.textColor = .systemCyan
+          ASRtİME.textColor = .systemCyan
         case let x where x >= sunsetTimer && x <= ishaTimer:
-            ishaLbl.textColor = .systemCyan
-            ishaTime.textColor = .systemCyan
-        case let x where x >= ishaTimer && x <= fajrTimer:
-            
-            sunsetLbl.textColor = .systemCyan
-            sunsetTime.textColor = .systemCyan
-            
+          sunsetLbl.textColor = .systemCyan
+          sunsetTime.textColor = .systemCyan
+        case let x where x >= ishaTimer && x <= 1440:
+          ishaLbl.textColor = .systemCyan
+          ishaTime.textColor = .systemCyan
+        case let x where x >= 0 && x <= fajrTimer:
+          ishaLbl.textColor = .systemCyan
+          ishaTime.textColor = .systemCyan
         default:
-            print("this is impossible")
+          print("this is impossible")
         }
         print(currenttimer)
-        
-    }
+      }
+    
     func createAdhanTime (time:String)->Int{
         let hour = Int(time.prefix(2))!
         let minute = Int(time.suffix(2))!
@@ -200,16 +217,14 @@ class AdhanViewController: UIViewController, GADBannerViewDelegate, GADFullScree
         animationView.animation = Animation.named("prayer")
         animationView.frame = CGRect(x: 0, y: 60, width: 300, height: view.bounds.height*0.3)
         if view.bounds.height > 650{
-            animationView.frame = CGRect(x: 0, y:90, width: 300, height: view.bounds.height*0.3)
+          animationView.frame = CGRect(x: 0, y:90, width: 300, height: view.bounds.height*0.3)
         }
         animationView.center.x = view.center.x
-        animationView.loopMode = .playOnce
+        animationView.loopMode = .loop
         self.animationView.isHidden = false
         animationView.play()
         view.addSubview(animationView)
-        
-        
-    }
+      }
     override func viewDidDisappear(_ animated: Bool) {
         animationView.stop()
     }

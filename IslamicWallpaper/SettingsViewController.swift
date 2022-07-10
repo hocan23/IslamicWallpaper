@@ -163,14 +163,9 @@ class SettingsViewController: UIViewController , GADBannerViewDelegate, GADFullS
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
-        if interstitial != nil {
-            interstitial?.present(fromRootViewController: self)
-            isAd = true
-            
-        } else {
-            print("Ad wasn't ready")
+        
             self.dismiss(animated: true)
-        }    }
+        }    
     
     
     

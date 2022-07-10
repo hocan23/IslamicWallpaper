@@ -70,9 +70,10 @@
                                     <constraint firstAttribute="width" constant="200" id="yo8-cF-zHy"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system" title=" Adhan Times">
-                                    <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
-                                    <color key="baseForegroundColor" red="0.24394237999999999" green="0.31846538190000001" blue="0.46793550249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" Adhan Times">
+                                    <imageReference key="image" image="chevron.backward" catalog="system" symbolScale="default"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="22"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="BackButtonPressed:" destination="EG5-UR-5Jo" eventType="touchUpInside" id="dUe-2m-3Ju"/>
@@ -99,7 +100,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dg3-yP-O7o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1039" y="877"/>
+            <point key="canvasLocation" x="-925" y="877"/>
         </scene>
         <!--Kible View Controller-->
         <scene sceneID="ml6-uH-7bV">
@@ -130,9 +131,10 @@
                                     <constraint firstAttribute="height" constant="25" id="gPY-nY-epf"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system" title=" Adhan Times">
-                                    <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
-                                    <color key="baseForegroundColor" red="0.24394237999999999" green="0.31846538190000001" blue="0.46793550249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" Adhan Times">
+                                    <imageReference key="image" image="chevron.left" catalog="system" symbolScale="default"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="22"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="BackButtonPressed:" destination="EG5-UR-5Jo" eventType="touchUpInside" id="TbY-kp-PSi"/>
@@ -160,7 +162,9 @@
                     <tabBarItem key="tabBarItem" title="" id="FPZ-uw-OLl"/>
                     <connections>
                         <outlet property="backButton" destination="HFE-Ir-6lH" id="hes-cY-srE"/>
+                        <outlet property="compass" destination="Kli-Pd-C8n" id="Zzk-6u-sCN"/>
                         <outlet property="compassImageView" destination="Kli-Pd-C8n" id="raq-Gl-yO4"/>
+                        <outlet property="kiblaArrow" destination="IrX-D6-fF1" id="gyi-Eu-BTg"/>
                         <outlet property="kibleTop" destination="jcn-3T-skf" id="Lnp-sd-tMF"/>
                         <outlet property="kibleView" destination="Nha-Kw-FsF" id="Xtv-rB-e98"/>
                         <outlet property="qiblaArrow" destination="IrX-D6-fF1" id="8IS-ee-KnF"/>
@@ -168,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNa-Pv-Nkk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="588" y="877"/>
+            <point key="canvasLocation" x="493" y="877"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="aXN-KH-wZk">
@@ -196,14 +200,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qzw-eR-gub">
-                                                    <rect key="frame" x="45" y="30" width="38" height="30"/>
+                                                    <rect key="frame" x="45" y="30" width="38" height="20"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="riQ-jn-xbR">
-                                                    <rect key="frame" x="30" y="88" width="68" height="30"/>
+                                                    <rect key="frame" x="30" y="78" width="68" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="mOg-Dy-tA5"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -214,7 +218,7 @@
                                                 <constraint firstItem="Qzw-eR-gub" firstAttribute="top" secondItem="Xii-y3-B2w" secondAttribute="top" constant="30" id="Hk8-Fg-0eY"/>
                                                 <constraint firstItem="Qzw-eR-gub" firstAttribute="leading" secondItem="Xii-y3-B2w" secondAttribute="leading" constant="45" id="K72-Au-SxQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="Qzw-eR-gub" secondAttribute="trailing" constant="45" id="SuY-3H-xBm"/>
-                                                <constraint firstAttribute="bottom" secondItem="riQ-jn-xbR" secondAttribute="bottom" constant="10" id="YAt-Ef-dQN"/>
+                                                <constraint firstAttribute="bottom" secondItem="riQ-jn-xbR" secondAttribute="bottom" constant="20" id="YAt-Ef-dQN"/>
                                                 <constraint firstItem="riQ-jn-xbR" firstAttribute="leading" secondItem="Xii-y3-B2w" secondAttribute="leading" constant="30" id="omX-b2-C63"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -246,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cS-g3-YH6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-485.50724637681162" y="240.40178571428569"/>
+            <point key="canvasLocation" x="-2312" y="877"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="DJw-FV-DPD">
@@ -265,6 +269,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="share">
                                     <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="sharePressed:" destination="Q25-EK-dtH" eventType="touchUpInside" id="cbd-FB-oGt"/>
@@ -279,6 +284,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="other apps">
                                     <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="otherApps:" destination="Q25-EK-dtH" eventType="touchUpInside" id="NZ3-EM-sqY"/>
@@ -293,6 +299,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="language">
                                     <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="languagePressed:" destination="Q25-EK-dtH" eventType="touchUpInside" id="fjC-vs-KDu"/>
@@ -353,9 +360,10 @@
                                     <constraint firstAttribute="width" constant="200" id="xXc-fw-LRh"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system" title=" Adhan Times">
-                                    <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
-                                    <color key="baseForegroundColor" red="0.24394237999999999" green="0.31846538190000001" blue="0.46793550249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" Adhan Times">
+                                    <imageReference key="image" image="chevron.left" catalog="system" symbolScale="default"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="22"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="BackButtonPressed:" destination="EG5-UR-5Jo" eventType="touchUpInside" id="gnU-IX-6J2"/>
@@ -483,9 +491,10 @@
                                     <constraint firstAttribute="width" constant="200" id="g5i-ZP-IjX"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system" title=" Adhan Times">
-                                    <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
-                                    <color key="baseForegroundColor" red="0.24394237999999999" green="0.31846538190000001" blue="0.46793550249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" Adhan Times">
+                                    <imageReference key="image" image="chevron.left" catalog="system" symbolScale="default"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="22"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="BackButtonPressed:" destination="EG5-UR-5Jo" eventType="touchUpInside" id="2ZC-tw-OPg"/>
@@ -512,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dK-pX-zUv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1453.6231884057972" y="876.5625"/>
+            <point key="canvasLocation" x="1188" y="877"/>
         </scene>
         <!--Adhan View Controller-->
         <scene sceneID="yac-uA-HNQ">
@@ -523,7 +532,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c27-dn-htQ">
-                                <rect key="frame" x="30" y="512" width="354" height="300"/>
+                                <rect key="frame" x="30" y="502" width="354" height="300"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="NVj-IM-MyT">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="300"/>
@@ -531,18 +540,18 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ake-TC-JBa" userLabel="View-1">
                                                 <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AKŞAM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snh-WX-328">
-                                                        <rect key="frame" x="15" y="5" width="269" height="40"/>
-                                                        <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-------" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Snh-WX-328">
+                                                        <rect key="frame" x="15" y="5" width="249" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNQ-fw-LKM">
-                                                        <rect key="frame" x="284" y="5" width="60" height="40"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNQ-fw-LKM">
+                                                        <rect key="frame" x="264" y="5" width="80" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="x2n-r0-6VN"/>
+                                                            <constraint firstAttribute="width" constant="80" id="x2n-r0-6VN"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -561,18 +570,18 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aEx-lU-pgx" userLabel="View-2">
                                                 <rect key="frame" x="0.0" y="50" width="354" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVg-cE-lDr">
-                                                        <rect key="frame" x="15" y="5" width="269" height="40"/>
-                                                        <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-------" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVg-cE-lDr">
+                                                        <rect key="frame" x="15" y="5" width="249" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6l-x9-E1X">
-                                                        <rect key="frame" x="284" y="5" width="60" height="40"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f6l-x9-E1X">
+                                                        <rect key="frame" x="264" y="5" width="80" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="IuV-KM-5wk"/>
+                                                            <constraint firstAttribute="width" constant="80" id="IuV-KM-5wk"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -591,18 +600,18 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vob-nE-v3T" userLabel="View-3">
                                                 <rect key="frame" x="0.0" y="100" width="354" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3I5-Y1-MOe">
-                                                        <rect key="frame" x="15" y="5" width="269" height="40"/>
-                                                        <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-------" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3I5-Y1-MOe">
+                                                        <rect key="frame" x="15" y="5" width="249" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMh-AW-OWD">
-                                                        <rect key="frame" x="284" y="5" width="60" height="40"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMh-AW-OWD">
+                                                        <rect key="frame" x="264" y="5" width="80" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="omq-BF-67a"/>
+                                                            <constraint firstAttribute="width" constant="80" id="omq-BF-67a"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -621,18 +630,18 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yiw-wV-Q2b" userLabel="View-4">
                                                 <rect key="frame" x="0.0" y="150" width="354" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImP-cw-S7P">
-                                                        <rect key="frame" x="15" y="5" width="269" height="40"/>
-                                                        <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-------" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ImP-cw-S7P">
+                                                        <rect key="frame" x="15" y="5" width="249" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueB-Cv-Er5">
-                                                        <rect key="frame" x="284" y="5" width="60" height="40"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ueB-Cv-Er5">
+                                                        <rect key="frame" x="264" y="5" width="80" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="evz-ZM-mh4"/>
+                                                            <constraint firstAttribute="width" constant="80" id="evz-ZM-mh4"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -651,18 +660,18 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrN-L1-pBz" userLabel="View-5">
                                                 <rect key="frame" x="0.0" y="200" width="354" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQj-ic-rtN">
-                                                        <rect key="frame" x="15" y="5" width="269" height="40"/>
-                                                        <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-------" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQj-ic-rtN">
+                                                        <rect key="frame" x="15" y="5" width="249" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRY-wm-Voi">
-                                                        <rect key="frame" x="284" y="5" width="60" height="40"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRY-wm-Voi">
+                                                        <rect key="frame" x="264" y="5" width="80" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="5qA-aW-JP0"/>
+                                                            <constraint firstAttribute="width" constant="80" id="5qA-aW-JP0"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -681,18 +690,18 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="86N-Ts-QMW" userLabel="View-6">
                                                 <rect key="frame" x="0.0" y="250" width="354" height="50"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEh-7E-Oeh">
-                                                        <rect key="frame" x="15" y="5" width="269" height="40"/>
-                                                        <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-------" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEh-7E-Oeh">
+                                                        <rect key="frame" x="15" y="5" width="249" height="40"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ud2-Tq-N14">
-                                                        <rect key="frame" x="284" y="5" width="60" height="40"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ud2-Tq-N14">
+                                                        <rect key="frame" x="264" y="5" width="80" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="60" id="lCo-eN-T1c"/>
+                                                            <constraint firstAttribute="width" constant="80" id="lCo-eN-T1c"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -733,9 +742,10 @@
                                     <constraint firstAttribute="width" constant="200" id="kdM-fN-mos"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system" title=" Adhan Times">
-                                    <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
-                                    <color key="baseForegroundColor" red="0.24394237999999999" green="0.31846538190000001" blue="0.46793550249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" Adhan Times">
+                                    <imageReference key="image" image="chevron.left" catalog="system" symbolScale="default"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="22"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="BackButtonPressed:" destination="EG5-UR-5Jo" eventType="touchUpInside" id="4VF-Td-fDD"/>
@@ -748,12 +758,14 @@
                             <constraint firstItem="c27-dn-htQ" firstAttribute="leading" secondItem="SRb-4s-gFC" secondAttribute="leading" constant="30" id="2Ut-Rw-Hxz"/>
                             <constraint firstItem="SRb-4s-gFC" firstAttribute="trailing" secondItem="c27-dn-htQ" secondAttribute="trailing" constant="30" id="D4q-sb-m22"/>
                             <constraint firstItem="yys-Wq-Irt" firstAttribute="leading" secondItem="SRb-4s-gFC" secondAttribute="leading" constant="10" id="RTp-8p-boy"/>
-                            <constraint firstItem="SRb-4s-gFC" firstAttribute="bottom" secondItem="c27-dn-htQ" secondAttribute="bottom" constant="50" id="djd-0u-xTK"/>
+                            <constraint firstItem="SRb-4s-gFC" firstAttribute="bottom" secondItem="c27-dn-htQ" secondAttribute="bottom" constant="60" id="djd-0u-xTK"/>
                             <constraint firstItem="yys-Wq-Irt" firstAttribute="top" secondItem="SRb-4s-gFC" secondAttribute="top" constant="10" id="kss-pg-PtR"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="ASRtİME" destination="ueB-Cv-Er5" id="SlT-6H-DuE"/>
+                        <outlet property="adhanView1" destination="Ake-TC-JBa" id="Lhz-Xv-ubV"/>
+                        <outlet property="adhanView6" destination="86N-Ts-QMW" id="29T-lP-0Eu"/>
                         <outlet property="altViewHeight" destination="VA9-qf-t7f" id="goD-H9-pLA"/>
                         <outlet property="asrLbl" destination="ImP-cw-S7P" id="cfu-FB-MDO"/>
                         <outlet property="backButton" destination="yys-Wq-Irt" id="naX-yF-5nO"/>
@@ -771,7 +783,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUn-tq-VSE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2250.7246376811595" y="792.85714285714278"/>
+            <point key="canvasLocation" x="1896" y="877"/>
         </scene>
         <!--Favorite View Controller-->
         <scene sceneID="sDW-Rb-hsb">
@@ -866,7 +878,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEX-Bc-Wol" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2226" y="1549"/>
+            <point key="canvasLocation" x="-926" y="1549"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ICb-e9-dqu">
@@ -978,9 +990,10 @@
                                     <constraint firstAttribute="height" constant="25" id="ROL-lT-VTv"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="arrow.backward" catalog="system" title=" Adhan Times">
-                                    <fontDescription key="titleFontDescription" name="CeraPro-Medium" family="Cera Pro" pointSize="20"/>
-                                    <color key="baseForegroundColor" red="0.24394237999999999" green="0.31846538190000001" blue="0.46793550249999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <buttonConfiguration key="configuration" style="plain" title=" Adhan Times">
+                                    <imageReference key="image" image="chevron.left" catalog="system" symbolScale="default"/>
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="22"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="HaX-yr-IFl" eventType="touchUpInside" id="Rjt-J4-LwV"/>
@@ -1006,7 +1019,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XtS-2V-EOv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1761" y="877"/>
+            <point key="canvasLocation" x="-1616" y="877"/>
         </scene>
         <!--Full Screen View Controller-->
         <scene sceneID="PUv-PH-e9u">
@@ -1111,7 +1124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLG-ot-eLz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1435" y="1549"/>
+            <point key="canvasLocation" x="-1617" y="1549"/>
         </scene>
     </scenes>
     <resources>
@@ -1121,14 +1134,19 @@
         <image name="Group 18" width="30" height="30"/>
         <image name="Group 51" width="50" height="50"/>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="compass" width="793" height="768"/>
         <image name="kaaba1" width="165" height="165"/>
         <image name="qibla" width="793" height="768"/>
         <image name="shareBtn" width="50" height="50"/>
         <namedColor name="hadithback">
-            <color red="0.94901960784313721" green="0.96862745098039216" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.96899998188018799" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -9,10 +9,12 @@ import UIKit
 import CoreLocation
 import Adhan
 import GoogleMobileAds
+import Lottie
 
 class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreenContentDelegate  {
     
-    
+    let animationView = AnimationView()
+
     var isFirstOpen = true
     @IBOutlet weak var qiblaArrow: UIImageView!
     
@@ -23,6 +25,8 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
     
     @IBOutlet weak var compassImageView: UIImageView!
     
+    @IBOutlet weak var compass: UIImageView!
+    @IBOutlet weak var kiblaArrow: UIImageView!
     
     @IBOutlet weak var kibleView: UIImageView!
     
@@ -40,6 +44,9 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
     var longitude: Double?
     var bannerView: GADBannerView!
     private var interstitial: GADInterstitialAd?
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(view.bounds.height)
@@ -71,6 +78,10 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
         
         let automaticLocation = defaults.bool(forKey: "automaticLocation")
         if let lat = latitude, let lon = longitude, !automaticLocation {
+            kibleView.isHidden = false
+            kiblaArrow.isHidden = false
+            compass.isHidden = false
+            animationView.isHidden = true
             startQiblaDirection(latitude: lat, longitude: lon)
         } else {
             //            add(loadingVC)
@@ -95,6 +106,12 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
         bannerView.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
+        locationPermissionControl()
+        localAnimation()
+        kibleView.isHidden = true
+        kiblaArrow.isHidden = true
+        compass.isHidden = true
+
         backButton.setTitle(Helper.qiblafinder[Helper.SelectedlanguageNumber], for: .normal)
         if isAd == true {
             self.dismiss(animated: true)
@@ -107,6 +124,10 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
             self.tabBarController?.selectedIndex = 2
         }
     }
+   
+    
+    
+    
     func createAdd() {
         let request = GADRequest()
         interstitial?.fullScreenContentDelegate = self
@@ -121,7 +142,16 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
         }
         )
     }
-    
+    func localAnimation () {
+        animationView.animation = Animation.named("local")
+        animationView.frame = CGRect(x: 0, y: 60, width: 300, height: 300)
+        animationView.center.y = view.center.y
+        animationView.center.x = view.center.x
+        animationView.loopMode = .loop
+        self.animationView.isHidden = false
+        animationView.play()
+        view.addSubview(animationView)
+      }
     func interstitialWillDismissScreen(_ ad: GADInterstitialAd) {
         print("interstitialWillDismissScreen")
     }
@@ -152,7 +182,21 @@ class KibleViewController: UIViewController,GADBannerViewDelegate, GADFullScreen
     }
    
     
-    
+    func locationPermissionControl (){
+        let authState = CLLocationManager.authorizationStatus()
+        
+        if authState == .authorizedAlways || authState == .authorizedWhenInUse {
+//            self.setLocationActive()
+            viewDidLoad()
+        }else if authState == .notDetermined{
+            viewDidLoad()
+//            self.setLocationActive()
+        } else {
+            //            popup çıkılacak
+            showAlertAction(titleText: "IslamicWallpaper HD Would Like to Access Your Location. ", messages: "IslamicWallpaper HD  asks for permission to find your correct Location. ", alertTitle: "Settings",buttonAction: { UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!) })
+            
+        }
+    }
     
     func startQiblaDirection(latitude: Double, longitude: Double) {
         //once we can get qibla direction, make qibla arrow appear again
@@ -212,6 +256,10 @@ extension KibleViewController: CLLocationManagerDelegate {
             //            DispatchQueue.main.async {
             //                removed
             //            }
+            kibleView.isHidden = false
+            kiblaArrow.isHidden = false
+            compass.isHidden = false
+            animationView.isHidden = true
             startQiblaDirection(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         }
     }
@@ -227,22 +275,36 @@ extension KibleViewController: CLLocationManagerDelegate {
         let isVisible = qiblaArrow.layer.opacity == 100
         //only generate haptic feedback if withtin 1 degree of qibla, the qibla arrow is fully opaque and we've already left it or have never reached it
         if abs(newRad-qiblaRad) <= degreesToRadians(5) && isVisible && !facingQibla {
-            facingQibla = true
-            createAdd()
-            kibleView.image = UIImage(named: "kaaba2")
-            let generator = UIImpactFeedbackGenerator(style: .rigid)
-            generator.impactOccurred()
+          facingQibla = true
+          createAdd()
+          kibleView.image = UIImage(named: "kaaba2")
+          let generator = UIImpactFeedbackGenerator(style: .rigid)
+          generator.impactOccurred()
         }
-        if abs(newRad-qiblaRad) >= degreesToRadians(10) || abs(newRad-qiblaRad) <= degreesToRadians(-10)  {
-            
-            
-            
-            
-            facingQibla = false
+        if abs(newRad-qiblaRad) >= degreesToRadians(10) || abs(newRad-qiblaRad) <= degreesToRadians(-10) {
+          kibleView.image = UIImage(named: "kaaba1")
+          facingQibla = false
         }
         //rotate compass image to new true north and qibla arrow along with it
         rotate(view: compassImageView, to: newRad)
         rotate(view: qiblaArrow, to: newRad-qiblaRad)
+      }
+    func showAlertAction(titleText:String,messages:String,alertTitle:String,buttonAction: (() -> Void)? = nil){
+        let alertController = UIAlertController(title: titleText, message: messages, preferredStyle: .alert)
+        let alertTitle = alertTitle
+        let phoneAction = UIAlertAction(title: alertTitle, style: .default, handler: {
+            alert -> Void in
+            buttonAction!()
+            
+        })
+        alertController.addAction(phoneAction)
+        let cancelAction = UIAlertAction(title: "Deny", style: .destructive, handler: {
+            alert -> Void in
+            //            self.dismiss(animated: true)
+        })
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
-}
+    }
 

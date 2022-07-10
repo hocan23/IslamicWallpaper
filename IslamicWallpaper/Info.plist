@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
+	<string>We need your location information to deliver the most accurate information.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>GADApplicationIdentifier</key>

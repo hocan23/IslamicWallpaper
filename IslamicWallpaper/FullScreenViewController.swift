@@ -9,10 +9,11 @@ import UIKit
 import GoogleMobileAds
 import Lottie
 import Photos
+import CoreLocation
 protocol SawAdInFullScreeen {
     func notShowAd()
 }
-class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFullScreenContentDelegate  {
+class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFullScreenContentDelegate,CLLocationManagerDelegate  {
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var favorite: UIView!
     
@@ -33,7 +34,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     let animationView = AnimationView()
     let animationBackView = UIView()
     var delegate : SawAdInFullScreeen?
-    
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +45,7 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(handleGesture))
         swipeRight.direction = .right
         self.view!.addGestureRecognizer(swipeRight)
-        
+        locationManager.delegate = self
         
         
         
@@ -88,6 +89,9 @@ class FullScreenViewController: UIViewController, GADBannerViewDelegate, GADFull
     }
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("njfs")
     }
     func swipeAnimation () {
         animationView.animation = Animation.named("swipe")

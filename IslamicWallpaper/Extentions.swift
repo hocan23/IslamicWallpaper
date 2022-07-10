@@ -53,8 +53,8 @@ extension UIView {
 
  - parameter duration: animation duration
  */
-func zoomIn(duration: TimeInterval = 0.2) {
-    self.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+func zoomIn(duration: TimeInterval = 0.4) {
+    self.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
     UIView.animate(withDuration: duration, delay: 0.0, options: [.curveLinear], animations: { () -> Void in
         self.transform = .identity
         }) { (animationCompleted: Bool) -> Void in
